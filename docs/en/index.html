@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Museum-RAG – Beat Hutter</title>
+  <meta name="description" content="Hybrid knowledge and image archive system with deterministic source grounding for historical publications and photo collections. An AI project by Beat Hutter.">
+  <link rel="alternate" hreflang="de" href="../">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" href="../assets/logo-rag.svg" type="image/svg+xml">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="../assets/logo-rag.svg" alt="" width="36" height="36"><span>Museum <span class="wm-ai">RAG</span></span></a>
+    <nav class="top-nav" aria-label="Main navigation">
+      <a class="hide-sm" href="#architecture">Architecture</a>
+      <a class="hide-sm" href="#roadmap">Roadmap</a>
+      <a href="privacy.html">Privacy</a>
+      <a class="lang" href="../" hreflang="de" lang="de">DE</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="hero">
+      <div class="hero-grid">
+      <div class="hero-text">
+      <p class="eyebrow">AI project by Beat Hutter</p>
+      <h1>Bringing village history out of the archive</h1>
+      <p class="lead">Old chronicles, annual publications and photo collections are full of stories about the local community, yet they mostly sit untouched in boxes and PDF files. This project makes the holdings of a local museum easily searchable for residents. Anyone asking about an old farmstead, a street or a historical trade receives reliable answers straight from the original sources alongside the matching photographs.</p>
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/BeatHutter/museum-hybrid-rag" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>Project on GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/beat-hutter-2687414b/" target="_blank" rel="noopener"><svg class="in" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>Beat Hutter on LinkedIn</a>
+      </div>
+      </div>
+      <figure class="hero-art">
+        <img src="../assets/hero-rag.webp" srcset="../assets/hero-rag-1200.webp 1200w, ../assets/hero-rag.webp 1800w" sizes="(max-width: 960px) 100vw, 620px" width="1800" height="1200" alt="Illustration: A bearded archivist works at a wooden desk in a bright historical museum archive with green shutters. In front of him lie an open chronicle, historical photographs and a laptop with connected document cards and vector nodes floating above in red, green and golden yellow." fetchpriority="high">
+      </figure>
+      </div>
+      <div class="pillars">
+        <div class="pillar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35M8 11h6M11 8v6"/></svg><strong>Hybrid retrieval</strong><span>Dense vectors + BM25 with RRF</span></div>
+        <div class="pillar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h7"/><rect x="15" y="13" width="6" height="6" rx="1.5"/></svg><strong>Two search paths</strong><span>Knowledge answers and photo gallery</span></div>
+        <div class="pillar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M9 7h6M9 11h4"/></svg><strong>Deterministic citations</strong><span>Exact page references built in code</span></div>
+        <div class="pillar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><strong>Typo-tolerant register</strong><span>8,331 entities in memory</span></div>
+      </div>
+    </section>
+
+    <section id="project">
+      <h2>The project</h2>
+      <p class="section-lead">Built on the real holdings of a local history museum, the system demonstrates how unstructured legacy collections can be unlocked reliably and under tight control for conversational access.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Real archival holdings</h3>
+          <p>The knowledge base covers 2,543 cross-page text passages from 24 historical publications alongside 1,786 catalogued photo records and more than 8,300 indexed people, buildings and locations.</p>
+        </div>
+        <div class="card">
+          <h3>Controlled answer pipeline</h3>
+          <p>An upstream query planner resolves conversational pronouns, a reranker scores candidate passages and a calibrated relevance gate blocks unsupported answers before generation.</p>
+        </div>
+        <div class="card">
+          <h3>Measured and evolving</h3>
+          <p>Every change to indexing, search filters and prompts is benchmarked against a fixed evaluation set of 70 test and negative queries and refined from real usage.</p>
+        </div>
+      </div>
+      <p class="notice"><strong>Project status note:</strong> We are currently working on a live prototype. The chat runs in production on dedicated infrastructure via web interface and Telegram, but is not yet open to the general public due to copyright and data protection requirements.</p>
+    </section>
+
+    <section id="architecture">
+      <h2>RAG system architecture</h2>
+      <p class="section-lead">Queries pass through a multi-stage pipeline of planning, entity resolution, hybrid retrieval and relevance scoring. Source lines are assembled deterministically from the catalogue.</p>
+      <div class="arch">
+        <div class="arch-stack">
+          <div class="layer">
+            <div class="layer-name">Channels<small>user access</small></div>
+            <div class="chips"><span class="chip">Web chat (Streamlit)</span><span class="chip">Telegram bot</span><span class="chip">Traefik reverse proxy (TLS)</span></div>
+          </div>
+          <div class="arrow">▼</div>
+          <div class="layer gov">
+            <div class="layer-name">Protection layer<small>API &amp; governance</small></div>
+            <div class="chips"><span class="chip gov">Internal Docker network isolation</span><span class="chip gov">Sliding-window rate limiter</span><span class="chip gov">Webhook secret token</span><span class="chip gov">No exposed database port</span></div>
+          </div>
+          <div class="arrow">▼</div>
+          <div class="layer">
+            <div class="layer-name">Planning &amp; register<small>understand &amp; normalise</small></div>
+            <div class="chips"><span class="chip">Single-call query planner</span><span class="chip">Pronoun resolution</span><span class="chip">In-memory entity register</span><span class="chip">Fuzzy typo correction (RapidFuzz)</span></div>
+          </div>
+          <div class="arrow">▼</div>
+          <div class="layer">
+            <div class="layer-name">Retrieval &amp; gate<small>find &amp; filter</small></div>
+            <div class="chips"><span class="chip">Qdrant hybrid search (RRF)</span><span class="chip">Exact word-boundary register search</span><span class="chip">LLM reranker</span><span class="chip gov">Relevance gate against hallucination</span><span class="chip plan">Local cross-encoder</span></div>
+          </div>
+          <div class="arrow">▼</div>
+          <div class="layer">
+            <div class="layer-name">Synthesis &amp; citations<small>answer &amp; ground</small></div>
+            <div class="chips"><span class="chip">Grounded answer synthesis</span><span class="chip gov">Explicit gap naming on partial data</span><span class="chip gov">Deterministic source generator</span><span class="chip">Parallel photo hint</span></div>
+          </div>
+          <div class="arrow">▼</div>
+          <div class="layer">
+            <div class="layer-name">Storage &amp; models<small>index &amp; runtime</small></div>
+            <div class="chips"><span class="chip">Qdrant vector DB</span><span class="chip">Archive catalogue (YAML)</span><span class="chip">Photo server (Nginx)</span><span class="chip">OpenAI gpt-4o-mini</span><span class="chip">FastEmbed BM25 (local)</span><span class="chip plan">Automated OCR pipeline</span></div>
+          </div>
+        </div>
+        <div class="arch-side">
+          <div class="side-box hitl">
+            <h3>Quality &amp; evals</h3>
+            <div class="chips"><span class="chip gov">70 benchmark &amp; negative queries</span><span class="chip gov">98.7% register recall</span><span class="chip gov">100% citation fidelity</span><span class="chip gov">Zero-hit negative tests</span></div>
+          </div>
+          <div class="side-box">
+            <h3>Traceability</h3>
+            <div class="chips"><span class="chip">Anonymous SQLite log</span><span class="chip">SHA-256 session hash</span><span class="chip">Latency &amp; hit tracking</span><span class="chip">In-chat user feedback</span><span class="chip plan">Privacy image anonymisation</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="legend"><span class="chip">in operation</span><span class="chip plan">planned</span><span class="chip gov">governance &amp; protection</span></div>
+    </section>
+
+    <section id="capabilities">
+      <h2>What the system handles today</h2>
+      <p class="section-lead">The application unites historical text research and targeted photo retrieval under a shared interface on the web and on Telegram.</p>
+      <div class="grid two">
+        <div class="card"><span class="tag">Ingestion</span><h3>Cross-page contextual chunking</h3><p>Hyphenated line breaks are repaired, paragraphs are joined across page boundaries and each chunk is enriched with work, chapter and speaker context before embedding.</p></div>
+        <div class="card"><span class="tag">Precision</span><h3>Dual-mode text search</h3><p>Queries for people, buildings or street numbers use exact word-boundary register filters, while open thematic questions run through hybrid vector and keyword search.</p></div>
+        <div class="card"><span class="tag">Media</span><h3>Role-aware photo gallery</h3><p>Image search separates depicted subjects from the photographer, supports year filters and returns structured galleries without calling a language model.</p></div>
+        <div class="card"><span class="tag">Dialogue</span><h3>Multi-turn context resolution</h3><p>The planner rewrites follow-up questions containing pronouns such as “When was it built?” or “Are there photos of it?” into standalone search queries.</p></div>
+        <div class="card"><span class="tag">Reliability</span><h3>Honest gap reporting</h3><p>When the archive holds only partial information for a multi-part question, the system answers the documented part and explicitly states which aspect lacks coverage.</p></div>
+        <div class="card"><span class="tag">Operations</span><h3>Anonymous quality monitoring</h3><p>A local log records response latency, hit counts and user ratings without personal data, highlighting unanswered questions and gaps in the collection.</p></div>
+      </div>
+    </section>
+
+    <section id="principles">
+      <h2>Governance and principles</h2>
+      <p class="section-lead">Reliable handling of historical sources and collection data follows fixed architectural rules:</p>
+      <ol class="principles">
+        <li><div><h3>No claim without archival evidence</h3><p>If retrieved passages fall below the relevance threshold after reranking, the pipeline stops before calling the language model and states transparently that no records were found.</p></div></li>
+        <li><div><h3>Code builds the citation line</h3><p>The language model places only internal reference markers in the text. Application code deterministically builds the visible source line with book title, issue number and page range from the catalogue.</p></div></li>
+        <li><div><h3>Respect content ownership</h3><p>Original texts, historical photographs and collection records remain under the museum's control and are kept strictly separate from the public source code repository.</p></div></li>
+        <li><div><h3>Privacy across images and logs</h3><p>Operational logs store neither IP addresses nor names. Before opening the photo archive more widely, photographs showing contemporary individuals are reviewed and anonymised for data protection.</p></div></li>
+        <li><div><h3>Hardened interfaces</h3><p>The internal API and vector database cannot be reached from the internet. Public access is restricted to the web frontend and the cryptographically verified Telegram webhook.</p></div></li>
+        <li><div><h3>Measure before changing</h3><p>Every adjustment to chunking, search weights or prompts runs through the automated evaluation across all four test suites before release.</p></div></li>
+      </ol>
+    </section>
+
+    <section id="roadmap">
+      <h2>Roadmap</h2>
+      <p class="section-lead">What runs on the server today, what is currently being refined and what comes next.</p>
+      <div class="roadmap">
+        <div class="phase now">
+          <h3>In operation</h3>
+          <div class="when">today (prototype)</div>
+          <ul>
+            <li><strong>Hybrid search</strong> on Qdrant (2,543 text chunks, 1,786 photo entries)</li>
+            <li><strong>Query planner</strong> with pronoun resolution and entity register (8,331 entities)</li>
+            <li><strong>LLM reranker</strong> and calibrated relevance gate</li>
+            <li><strong>Deterministic citations</strong> for web chat and Telegram</li>
+            <li><strong>API protection</strong> with rate limiting and anonymous logging</li>
+          </ul>
+        </div>
+        <div class="phase">
+          <h3>Next</h3>
+          <div class="when">ongoing build-out</div>
+          <ul>
+            <li><strong>Privacy measures:</strong> review of the photo collection and anonymisation of contemporary individuals in images</li>
+            <li><strong>Vector search fine-tuning:</strong> refining weights for complex thematic queries</li>
+            <li><strong>Portfolio release:</strong> staged publication of reviewed architecture and code modules</li>
+          </ul>
+        </div>
+        <div class="phase">
+          <h3>Then</h3>
+          <div class="when">expansion</div>
+          <ul>
+            <li><strong>Automated OCR pipeline</strong> for newly scanned publications and historical minutes</li>
+            <li><strong>Incremental register updates</strong> when ingesting new archival holdings</li>
+            <li><strong>Curator analytics view</strong> to inspect unanswered queries and collection gaps</li>
+          </ul>
+        </div>
+        <div class="phase">
+          <h3>Research</h3>
+          <div class="when">open questions</div>
+          <ul>
+            <li><strong>Local cross-encoder</strong> for faster reranking without external API calls</li>
+            <li><strong>Multimodal image search</strong> using visual embeddings for uncaptioned photos</li>
+            <li><strong>Audio indexing</strong> for spoken Swiss German oral history interviews</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack">
+      <h2>Technology</h2>
+      <p class="section-lead">Operated on a dedicated European virtual server with internal container network isolation and no exposed database ports. Only language model and dense embedding calls go through the OpenAI API.</p>
+      <div class="stack">
+        <div class="card"><dl>
+          <dt>Orchestration</dt><dd>Custom Python service (FastAPI, AsyncIO, Pydantic Structured Outputs) without heavy agent frameworks</dd>
+          <dt>Language model</dt><dd>OpenAI gpt-4o-mini for query planning, reranking and source-grounded answer synthesis</dd>
+          <dt>Embeddings</dt><dd>OpenAI text-embedding-3-small (1536D dense) and FastEmbed Qdrant/bm25 (local German sparse vectors)</dd>
+          <dt>Entity register</dt><dd>In-memory lookup with RapidFuzz (WRatio) and rule-based normalisation for people, buildings and addresses</dd>
+          <dt>Channels</dt><dd>Streamlit (web interface) and Telegram Bot API via authenticated HTTPS webhook</dd>
+        </dl></div>
+        <div class="card"><dl>
+          <dt>Vector database</dt><dd>Qdrant (v1.16.1, self-hosted in Docker, hybrid retrieval via Reciprocal Rank Fusion)</dd>
+          <dt>Catalogue and logging</dt><dd>Curated YAML publication catalogue and local SQLite in WAL mode for anonymised operational metrics</dd>
+          <dt>Platform and network</dt><dd>Linux VPS (Ubuntu 24.04), Docker Compose, Traefik reverse proxy (Let's Encrypt), Nginx for media files</dd>
+          <dt>Quality and release</dt><dd>Custom evaluation framework (70 test cases across 4 suites) and multi-stage release gate with Gitleaks</dd>
+        </dl></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="bottom">
+  <div class="wrap">
+    <span>© 2026 Beat Hutter</span>
+    <nav aria-label="Footer">
+      <a href="mailto:wilhelmbiener68@gmail.com">wilhelmbiener68@gmail.com</a>
+      <a href="https://www.linkedin.com/in/beat-hutter-2687414b/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/BeatHutter/museum-hybrid-rag" target="_blank" rel="noopener">GitHub</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

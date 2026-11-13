@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Museum-RAG – Beat Hutter</title>
+  <meta name="description" content="Hybrides Wissens- und Bildarchiv-System mit verankerter Quellenbindung für historische Schrift- und Fotobestände. Ein KI-Projekt von Beat Hutter.">
+  <link rel="alternate" hreflang="en" href="en/">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/logo-rag.svg" type="image/svg+xml">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="assets/logo-rag.svg" alt="" width="36" height="36"><span>Museum <span class="wm-ai">RAG</span></span></a>
+    <nav class="top-nav" aria-label="Hauptnavigation">
+      <a class="hide-sm" href="#architektur">Architektur</a>
+      <a class="hide-sm" href="#roadmap">Roadmap</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a class="lang" href="en/" hreflang="en" lang="en">EN</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="hero">
+      <div class="hero-grid">
+      <div class="hero-text">
+      <p class="eyebrow">KI-Projekt von Beat Hutter</p>
+      <h1>Dorfgeschichte aus dem Archiv holen</h1>
+      <p class="lead">Alte Chroniken, Jahresschriften und Fotosammlungen stecken voller Geschichten über das eigene Dorf, liegen aber meist ungehoben in Schachteln und PDF-Files. Dieses Projekt macht das Wissen eines Ortsmuseums für die Bevölkerung einfach durchsuchbar. Wer nach einem alten Hof, einer Strasse oder einem historischen Gewerbe fragt, bekommt verlässliche Auskunft direkt aus den Originalquellen und sieht die passenden Bilder dazu.</p>
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/BeatHutter/museum-hybrid-rag" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>Projekt auf GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/beat-hutter-2687414b/" target="_blank" rel="noopener"><svg class="in" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>Beat Hutter auf LinkedIn</a>
+      </div>
+      </div>
+      <figure class="hero-art">
+        <img src="assets/hero-rag.webp" srcset="assets/hero-rag-1200.webp 1200w, assets/hero-rag.webp 1800w" sizes="(max-width: 960px) 100vw, 620px" width="1800" height="1200" alt="Illustration: Ein bärtiger Archivar arbeitet an einem Holztisch in einem hellen historischen Museumsarchiv mit grünen Fensterläden. Vor ihm liegen eine alte Chronik, historische Fotografien und ein Laptop, über dem vernetzte Dokumentenkarten und Vektorknoten in Rot, Grün und Goldgelb schweben." fetchpriority="high">
+      </figure>
+      </div>
+      <div class="pillars">
+        <div class="pillar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35M8 11h6M11 8v6"/></svg><strong>Hybrides Retrieval</strong><span>Dense Vektoren + BM25 mit RRF</span></div>
+        <div class="pillar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h7"/><rect x="15" y="13" width="6" height="6" rx="1.5"/></svg><strong>Zwei Suchpfade</strong><span>Wissensauskunft und Bildergalerie</span></div>
+        <div class="pillar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M9 7h6M9 11h4"/></svg><strong>Deterministische Zitate</strong><span>Seitengenaue Belege aus Code</span></div>
+        <div class="pillar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><strong>Fehlertolerantes Register</strong><span>8'331 Entitäten im Speicher</span></div>
+      </div>
+    </section>
+
+    <section id="projekt">
+      <h2>Das Projekt</h2>
+      <p class="section-lead">Anhand des realen Bestands eines historischen Ortsmuseums wird erprobt, wie unstrukturierte Altbestände verlässlich und kontrolliert für den Dialog erschlossen werden.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Realer Archivbestand</h3>
+          <p>Die Wissensbasis umfasst 2'543 seitenübergreifende Textabschnitte aus 24 historischen Publikationen sowie 1'786 inventarisierte Fotoeinträge mit über 8'300 erfassten Personen, Gebäuden und Orten.</p>
+        </div>
+        <div class="card">
+          <h3>Kontrollierte Antwortkette</h3>
+          <p>Ein vorgelagerter Planer löst Rückbezüge im Gespräch auf, ein Reranker bewertet die Relevanz der Textstellen und eine feste Schwelle blockiert unbelegte Antworten vor der Textgenerierung.</p>
+        </div>
+        <div class="card">
+          <h3>Gemessen und weiterentwickelt</h3>
+          <p>Jede Änderung an Indexierung, Suchfiltern und Prompts wird gegen ein festes Testset aus 70 Prüf- und Gegenfragen gemessen und entlang echter Suchanfragen ausgebaut.</p>
+        </div>
+      </div>
+      <p class="notice"><strong>Hinweis zum Projektstatus:</strong> Wir arbeiten derzeit an einem produktiven Prototypen. Der Chat läuft live auf eigener Infrastruktur über Web-Oberfläche und Telegram, ist aus Gründen des Urheberrechts und des Datenschutzes aktuell aber noch nicht für die breite Öffentlichkeit zugänglich.</p>
+    </section>
+
+    <section id="architektur">
+      <h2>Architektur des RAG-Systems</h2>
+      <p class="section-lead">Anfragen durchlaufen eine mehrstufige Pipeline aus Planung, Namensabgleich, hybrider Suche und Relevanzprüfung. Quellenzeilen werden deterministisch aus dem Katalog erzeugt.</p>
+      <div class="arch">
+        <div class="arch-stack">
+          <div class="layer">
+            <div class="layer-name">Kanäle<small>Zugriff für Nutzer</small></div>
+            <div class="chips"><span class="chip">Web-Chat (Streamlit)</span><span class="chip">Telegram Bot</span><span class="chip">Traefik Reverse Proxy (TLS)</span></div>
+          </div>
+          <div class="arrow">▼</div>
+          <div class="layer gov">
+            <div class="layer-name">Schutzschicht<small>API &amp; Governance</small></div>
+            <div class="chips"><span class="chip gov">Interne Docker-Netztrennung</span><span class="chip gov">Sliding-Window Rate-Limiter</span><span class="chip gov">Webhook Secret-Token</span><span class="chip gov">Kein offener Datenbank-Port</span></div>
+          </div>
+          <div class="arrow">▼</div>
+          <div class="layer">
+            <div class="layer-name">Planung &amp; Register<small>Verstehen &amp; Normieren</small></div>
+            <div class="chips"><span class="chip">Single-Call Query-Planer</span><span class="chip">Pronomenauflösung</span><span class="chip">In-Memory Namensregister</span><span class="chip">Tippfehler-Korrektur (RapidFuzz)</span></div>
+          </div>
+          <div class="arrow">▼</div>
+          <div class="layer">
+            <div class="layer-name">Retrieval &amp; Gate<small>Finden &amp; Filtern</small></div>
+            <div class="chips"><span class="chip">Qdrant Hybrid Search (RRF)</span><span class="chip">Wortgenaue Registersuche</span><span class="chip">LLM-Reranker</span><span class="chip gov">Relevanz-Gate gegen Halluzination</span><span class="chip plan">Lokaler Cross-Encoder</span></div>
+          </div>
+          <div class="arrow">▼</div>
+          <div class="layer">
+            <div class="layer-name">Synthese &amp; Zitate<small>Antwort &amp; Belege</small></div>
+            <div class="chips"><span class="chip">Antwort-Synthese mit Belegmarkern</span><span class="chip gov">Lückenbenennung bei Teilwissen</span><span class="chip gov">Deterministische Quellenzeile</span><span class="chip">Paralleler Foto-Hinweis</span></div>
+          </div>
+          <div class="arrow">▼</div>
+          <div class="layer">
+            <div class="layer-name">Speicher &amp; Modelle<small>Index &amp; Betrieb</small></div>
+            <div class="chips"><span class="chip">Qdrant Vektor-DB</span><span class="chip">Archiv-Katalog (YAML)</span><span class="chip">Foto-Server (Nginx)</span><span class="chip">OpenAI gpt-4o-mini</span><span class="chip">FastEmbed BM25 (lokal)</span><span class="chip plan">Automatisierte OCR-Pipeline</span></div>
+          </div>
+        </div>
+        <div class="arch-side">
+          <div class="side-box hitl">
+            <h3>Qualität &amp; Evals</h3>
+            <div class="chips"><span class="chip gov">70 Prüf- und Gegenfragen</span><span class="chip gov">98.7 % Recall im Register</span><span class="chip gov">100 % Quellen-Treue</span><span class="chip gov">Negativtests auf Archivlücken</span></div>
+          </div>
+          <div class="side-box">
+            <h3>Nachvollziehbarkeit</h3>
+            <div class="chips"><span class="chip">Anonymes SQLite-Protokoll</span><span class="chip">SHA-256 Sitzungs-Hash</span><span class="chip">Latenz- und Treffermessung</span><span class="chip">Nutzer-Feedback im Chat</span><span class="chip plan">Datenschutz-Bildbereinigung</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="legend"><span class="chip">in Betrieb</span><span class="chip plan">geplant</span><span class="chip gov">Governance &amp; Schutz</span></div>
+    </section>
+
+    <section id="faehigkeiten">
+      <h2>Was das System heute leistet</h2>
+      <p class="section-lead">Die Anwendung verbindet historische Textrecherche und gezielte Bildersuche unter einer gemeinsamen Oberfläche im Web und auf Telegram.</p>
+      <div class="grid two">
+        <div class="card"><span class="tag">Aufbereitung</span><h3>Seitenübergreifendes Contextual Chunking</h3><p>Silbentrennungen werden bereinigt, Absätze über Seitengrenzen verbunden und jeder Abschnitt vor der Vektorisierung mit Werk-, Kapitel- und Sprecherkontext versehen.</p></div>
+        <div class="card"><span class="tag">Präzision</span><h3>Zweigleisige Textsuche</h3><p>Anfragen nach Personen, Gebäuden oder Hausnummern nutzen wortgenaue Registerfilter, während offene Sachthemen über die hybride Vektor- und Stichwortsuche laufen.</p></div>
+        <div class="card"><span class="tag">Medien</span><h3>Rollenscharfe Foto-Galerie</h3><p>Die Bildersuche trennt zwischen abgebildeten Motiven und der fotografierenden Person, unterstützt Jahresfilter und liefert Ergebnisse ohne Sprachmodell-Aufruf.</p></div>
+        <div class="card"><span class="tag">Dialog</span><h3>Kontext über mehrere Gesprächsrunden</h3><p>Der Planer löst Pronomen in Folgefragen wie «Wann wurde es erbaut?» oder «Gibt es dazu Fotos?» anhand des Verlaufs in eigenständige Suchabfragen auf.</p></div>
+        <div class="card"><span class="tag">Verlässlichkeit</span><h3>Ehrliche Lückenbenennung</h3><p>Liegen zu einer mehrteiligen Frage nur Teilinformationen vor, beantwortet das System den belegten Teil und benennt ausdrücklich, wozu im Bestand Angaben fehlen.</p></div>
+        <div class="card"><span class="tag">Betrieb</span><h3>Anonymes Qualitäts-Monitoring</h3><p>Ein lokales Protokoll speichert Antwortzeiten, Trefferzahlen und Bewertungen ohne Personendaten, um unbeantwortete Fragen und Bestandslücken sichtbar zu machen.</p></div>
+      </div>
+    </section>
+
+    <section id="prinzipien">
+      <h2>Governance und Grundsätze</h2>
+      <p class="section-lead">Für den verlässlichen Umgang mit historischen Quellen und Vereinsdaten gelten in der Architektur feste Regeln:</p>
+      <ol class="principles">
+        <li><div><h3>Keine Aussage ohne Beleg im Bestand</h3><p>Unterschreiten die gefundenen Textstellen nach dem Reranking die Relevanzschwelle, bricht das System vor dem Sprachmodell-Aufruf ab und meldet transparent, dass keine Angaben vorliegen.</p></div></li>
+        <li><div><h3>Code baut die Quellenangabe</h3><p>Das Sprachmodell setzt im Text nur interne Verweismarker. Die sichtbare Quellenzeile mit Buchtitel, Heftnummer und Seitenzahl erzeugt der Programmcode deterministisch aus dem Katalog.</p></div></li>
+        <li><div><h3>Rechte am Inhalt wahren</h3><p>Originaltexte, historische Fotografien und Bestandsdaten bleiben unter der Hoheit des Museums und sind strikt vom öffentlichen Quellcode-Repository getrennt.</p></div></li>
+        <li><div><h3>Datenschutz im Bild- und Textbestand</h3><p>Nutzungsprotokolle erfassen keine IP-Adressen oder Klarnamen. Für die geplante Öffnung des Fotoarchivs werden Aufnahmen mit zeitgenössischen Personen vorab geprüft und datenschutzkonform bereinigt.</p></div></li>
+        <li><div><h3>Abgesicherte Schnittstellen</h3><p>Die interne Programmierschnittstelle und die Vektordatenbank sind von aussen nicht erreichbar. Öffentlich zugänglich sind nur die Web-Oberfläche und der kryptografisch geprüfte Telegram-Webhook.</p></div></li>
+        <li><div><h3>Messen vor dem Ändern</h3><p>Jede Anpassung an Chunking, Suchgewichtung oder Prompts durchläuft vor der Freigabe die automatisierte Evaluation über alle vier Testsuiten.</p></div></li>
+      </ol>
+    </section>
+
+    <section id="roadmap">
+      <h2>Roadmap</h2>
+      <p class="section-lead">Was heute auf dem Server läuft, woran aktuell gearbeitet wird und welche Erweiterungen folgen.</p>
+      <div class="roadmap">
+        <div class="phase now">
+          <h3>In Betrieb</h3>
+          <div class="when">heute (Prototyp)</div>
+          <ul>
+            <li><strong>Hybride Suche</strong> auf Qdrant (2'543 Textabschnitte, 1'786 Fotoeinträge)</li>
+            <li><strong>Query-Planer</strong> mit Pronomenauflösung und Namensregister (8'331 Entitäten)</li>
+            <li><strong>LLM-Reranker</strong> und kalibriertes Relevanz-Gate</li>
+            <li><strong>Deterministische Zitate</strong> für Web-Chat und Telegram</li>
+            <li><strong>API-Schutz</strong> mit Rate-Limiting und anonymem Logging</li>
+          </ul>
+        </div>
+        <div class="phase">
+          <h3>Als Nächstes</h3>
+          <div class="when">laufender Ausbau</div>
+          <ul>
+            <li><strong>Datenschutz-Massnahmen:</strong> Abklärungen zum Bildbestand und Unkenntlichmachung aktueller Personen auf Fotos</li>
+            <li><strong>Feintuning der Vektorsuche:</strong> Optimierung der Gewichtung bei komplexen Sachthemen</li>
+            <li><strong>Portfolio-Freigabe:</strong> Schrittweise Publikation geprüfter Architektur- und Code-Module</li>
+          </ul>
+        </div>
+        <div class="phase">
+          <h3>Danach</h3>
+          <div class="when">Erweiterung</div>
+          <ul>
+            <li><strong>Automatisierung der OCR-Pipeline</strong> für neu gescannte Schriften und historische Protokolle</li>
+            <li><strong>Inkrementelles Register-Update</strong> beim Einspielen neuer Archivbestände</li>
+            <li><strong>Auswertungs-Ansicht</strong> für Archivverantwortliche zur Analyse von Suchlücken</li>
+          </ul>
+        </div>
+        <div class="phase">
+          <h3>Forschung</h3>
+          <div class="when">offene Fragen</div>
+          <ul>
+            <li><strong>Lokaler Cross-Encoder</strong> für schnelleres Reranking ohne externen API-Aufruf</li>
+            <li><strong>Multimodale Bildsuche</strong> über visuelle Embeddings für unbeschriftete Fotos</li>
+            <li><strong>Audio-Erschliessung</strong> für gesprochene Mundart-Zeitzeugenberichte</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack">
+      <h2>Technik</h2>
+      <p class="section-lead">Betrieb auf eigenem virtuellem Server in Europa mit interner Container-Netzwerktrennung und ohne offene Datenbank-Ports. Nur die Aufrufe für das Sprachmodell und die dichten Vektoren laufen über die API von OpenAI.</p>
+      <div class="stack">
+        <div class="card"><dl>
+          <dt>Orchestrierung</dt><dd>Eigener Python-Service (FastAPI, AsyncIO, Pydantic Structured Outputs) ohne externe Agenten-Frameworks</dd>
+          <dt>Sprachmodell</dt><dd>OpenAI gpt-4o-mini für Anfrageplanung, Reranking und quellenbasierte Antwortgenerierung</dd>
+          <dt>Embeddings</dt><dd>OpenAI text-embedding-3-small (1536D Dense) und FastEmbed Qdrant/bm25 (lokale deutsche Sparse-Vektoren)</dd>
+          <dt>Namensregister</dt><dd>In-Memory-Lookup mit RapidFuzz (WRatio) und regelbasierter Normalisierung für Personen, Gebäude und Adressen</dd>
+          <dt>Kanäle</dt><dd>Streamlit (Web-Oberfläche) und Telegram Bot API über abgesicherten HTTPS-Webhook</dd>
+        </dl></div>
+        <div class="card"><dl>
+          <dt>Vektordatenbank</dt><dd>Qdrant (v1.16.1, selbst betrieben in Docker, Hybrid-Abfrage über Reciprocal Rank Fusion)</dd>
+          <dt>Katalog und Protokoll</dt><dd>Geprüfter YAML-Schriftenkatalog und lokales SQLite im WAL-Modus für anonymisierte Betriebsmetriken</dd>
+          <dt>Plattform und Netz</dt><dd>Linux-VPS (Ubuntu 24.04), Docker Compose, Traefik Reverse Proxy (Let's Encrypt), Nginx für Mediendateien</dd>
+          <dt>Qualität und Release</dt><dd>Eigenes Evaluations-Framework (70 Testfälle in 4 Suiten) und mehrstufige Release-Prüfung mit Gitleaks</dd>
+        </dl></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="bottom">
+  <div class="wrap">
+    <span>© 2026 Beat Hutter</span>
+    <nav aria-label="Fusszeile">
+      <a href="mailto:wilhelmbiener68@gmail.com">wilhelmbiener68@gmail.com</a>
+      <a href="https://www.linkedin.com/in/beat-hutter-2687414b/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/BeatHutter/museum-hybrid-rag" target="_blank" rel="noopener">GitHub</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

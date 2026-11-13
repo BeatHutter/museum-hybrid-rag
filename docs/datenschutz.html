@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Datenschutz – Museum-RAG</title>
+  <meta name="description" content="Datenschutzerklärung der Projektseite Museum-RAG von Beat Hutter.">
+  <link rel="alternate" hreflang="en" href="en/privacy.html">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/logo-rag.svg" type="image/svg+xml">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="assets/logo-rag.svg" alt="" width="36" height="36"><span>Museum <span class="wm-ai">RAG</span></span></a>
+    <nav class="top-nav" aria-label="Hauptnavigation">
+      <a href="./">Projekt</a>
+      <a href="datenschutz.html" aria-current="page">Datenschutz</a>
+      <a class="lang" href="en/privacy.html" hreflang="en" lang="en">EN</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <article class="prose">
+    <h1>Datenschutzerklärung</h1>
+    <p class="small">Stand: 13. November 2026</p>
+
+    <p>Diese Erklärung gilt für die Informations-Website <code>museum-rag.bh-automation.cloud</code> und beschreibt zudem transparent die Datenverarbeitung im zugrundeliegenden Prototypen «Museum-RAG». Es gilt das Schweizer Datenschutzgesetz (DSG).</p>
+
+    <h2>1. Verantwortlich</h2>
+    <p>Beat Hutter, Schweiz<br>
+      Kontakt: <a href="mailto:wilhelmbiener68@gmail.com">wilhelmbiener68@gmail.com</a></p>
+
+    <h2>2. Besuch dieser Website</h2>
+    <ul>
+      <li>Diese Website wird über GitHub Pages ausgeliefert, einen Dienst der GitHub, Inc. in den USA. GitHub verarbeitet beim Abruf technische Verbindungsdaten wie IP-Adresse, Zeitpunkt und aufgerufene Seite, um die Seite bereitzustellen und vor Missbrauch zu schützen. Siehe die <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">Datenschutzerklärung von GitHub</a>.</li>
+      <li>Die Website setzt keine Cookies. Sie nutzt keine Analyse- oder Werbedienste, lädt keine externen Webfonts oder Skripte von Dritten und enthält kein öffentliches Eingabeformular.</li>
+    </ul>
+
+    <h2>3. Kontakt per E-Mail oder LinkedIn</h2>
+    <p>Wenn Sie per E-Mail oder über LinkedIn Kontakt aufnehmen, werden Ihre Angaben ausschliesslich zur Beantwortung Ihrer Anfrage verwendet und nicht an Dritte weitergegeben.</p>
+
+    <h2>4. Betrieb des RAG-Prototypen (Anwendung)</h2>
+    <p>Der auf dieser Website vorgestellte Chatbot-Prototyp läuft auf einer getrennten Server-Infrastruktur und ist derzeit nur für einen geschlossenen Nutzerkreis zu Test- und Evaluationszwecken zugänglich. Auf dieser öffentlichen Projektseite werden weder Originaldokumente noch Fotografien oder Personendaten aus dem Museumsbestand veröffentlicht.</p>
+    <ul>
+      <li><strong>Hosting und Datenbank:</strong> Die Anwendung, die Vektordatenbank (Qdrant) und die Mediendateien werden in Docker-Containern auf einem virtuellen Server bei Hostinger (Serverstandort in der Europäischen Union) betrieben.</li>
+      <li><strong>Sprachmodell und Vektorisierung:</strong> Zur Analyse von Suchanfragen, zur Relevanzbewertung (Reranking) und zur Formulierung der Antworten nutzt das System die Programmierschnittstelle (API) von OpenAI (OpenAI, L.L.C., USA; eingesetzte Modelle: <code>gpt-4o-mini</code> und <code>text-embedding-3-small</code>). Dabei werden der Fragetext sowie die relevanten Textauszüge aus dem Archivbestand an OpenAI übermittelt. Über die API übermittelte Daten werden von OpenAI gemäss deren API-Richtlinien nicht zum Training von Modellen verwendet. Siehe die <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">Datenschutzerklärung von OpenAI</a>.</li>
+      <li><strong>Telegram-Anbindung:</strong> Bei Nutzung des optionalen Telegram-Kanals werden Nachrichten über die Infrastruktur von Telegram (Telegram Messenger Inc.) an den abgesicherten Webhook des Servers übertragen.</li>
+      <li><strong>Anonymes Betriebsprotokoll:</strong> Zur Qualitätssicherung und für das Rate-Limiting speichert das System lokal auf dem Server in einer SQLite-Datenbank den Zeitpunkt, den Kanal (Web oder Telegram), die eingegebene Sachfrage, die Antwortzeit, die Trefferanzahl sowie optionale Daumen-Bewertungen. IP-Adressen, Klarnamen oder Telegram-Benutzernamen werden nicht gespeichert; Sitzungen werden nur als einweg-gehashte Prüfwerte (SHA-256 mit Salt) geführt.</li>
+      <li><strong>Keine Weitergabe:</strong> Es erfolgt kein Verkauf von Daten und keine Nutzung zu Werbezwecken.</li>
+    </ul>
+
+    <h2>5. Ihre Rechte</h2>
+    <p>Sie haben nach dem Schweizer Datenschutzgesetz das Recht auf Auskunft über allfällige zu Ihrer Person bearbeitete Daten sowie auf deren Berichtigung oder Löschung. Wenden Sie sich dazu per E-Mail an <a href="mailto:wilhelmbiener68@gmail.com">wilhelmbiener68@gmail.com</a>.</p>
+
+    <h2>6. Änderungen</h2>
+    <p>Diese Erklärung wird angepasst, sobald sich der Funktionsumfang oder der Zugangsstatus des Projekts ändert. Massgebend ist die hier veröffentlichte deutsche Fassung.</p>
+  </article>
+</main>
+
+<footer class="bottom">
+  <div class="wrap">
+    <span>© 2026 Beat Hutter</span>
+    <nav aria-label="Fusszeile">
+      <a href="mailto:wilhelmbiener68@gmail.com">wilhelmbiener68@gmail.com</a>
+      <a href="https://www.linkedin.com/in/beat-hutter-2687414b/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/BeatHutter/museum-hybrid-rag" target="_blank" rel="noopener">GitHub</a>
+      <a href="./">Projekt</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
