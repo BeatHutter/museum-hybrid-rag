@@ -163,7 +163,7 @@ h3 { font-size: 18px; margin: 0 0 6px; }
   display: grid; grid-template-columns: 170px 1fr; gap: 16px; align-items: center;
   background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 14px 18px;
 }
-.layer.gov { border: 2px solid var(--red-800); background: linear-gradient(0deg, var(--red-50), var(--surface)); }
+.layer.gov { border: 2px solid var(--red-400); background: linear-gradient(0deg, var(--red-50), var(--surface)); }
 .layer-name { font-weight: 700; font-size: 15px; line-height: 1.3; }
 .layer-name small { display: block; font-weight: 500; color: var(--muted); font-size: 13px; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -172,11 +172,11 @@ h3 { font-size: 18px; margin: 0 0 6px; }
   color: var(--fg); background: var(--green-50); white-space: nowrap;
 }
 .chip.plan { border: 1px dashed #9aa29f; background: transparent; color: var(--muted); }
-.chip.gov { border-color: var(--red-800); background: var(--red-800); color: #fff; }
+.chip.gov { border-color: var(--red-400); background: var(--red-100); color: var(--red-900); }
 .arrow { text-align: center; color: var(--green-600); font-size: 13px; line-height: 1; }
 .arch-side { display: grid; gap: 10px; align-content: start; }
 .side-box { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 14px; }
-.side-box.hitl { border: 2px solid var(--red-800); }
+.side-box.hitl { border: 2px solid var(--red-400); }
 .side-box h3 { font-size: 15px; margin: 0 0 8px; }
 .side-box .chips { gap: 6px; }
 .side-box .chip { font-size: 13px; }
