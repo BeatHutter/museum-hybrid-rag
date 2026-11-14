@@ -4,6 +4,10 @@ Alle wesentlichen Änderungen an diesem Repository. Das Format folgt [Keep a Cha
 
 ## [Unreleased]
 
+### Geändert
+
+- Projektseite: neue Kontakt-Adresse im Fuss und auf den Datenschutzseiten.
+
 ## [0.2.0] – 2026-11-14
 
 ### Hinzugefügt
