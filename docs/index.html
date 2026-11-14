@@ -61,7 +61,7 @@
         </div>
         <div class="card">
           <h3>Gemessen und weiterentwickelt</h3>
-          <p>Jede Änderung an Indexierung, Suchfiltern und Prompts wird gegen ein festes Testset aus 70 Prüf- und Gegenfragen gemessen und entlang echter Suchanfragen ausgebaut.</p>
+          <p>Jede Änderung an Indexierung, Suchfiltern und Prompts wird gegen ein festes Testset aus 99 Testfällen in vier Suiten gemessen und entlang echter Suchanfragen ausgebaut.</p>
         </div>
       </div>
       <p class="notice"><strong>Hinweis zum Projektstatus:</strong> Wir arbeiten derzeit an einem produktiven Prototypen. Der Chat läuft live auf eigener Infrastruktur über Web-Oberfläche und Telegram, ist aus Gründen des Urheberrechts und des Datenschutzes aktuell aber noch nicht für die breite Öffentlichkeit zugänglich.</p>
@@ -105,7 +105,7 @@
         <div class="arch-side">
           <div class="side-box hitl">
             <h3>Qualität &amp; Evals</h3>
-            <div class="chips"><span class="chip gov">70 Prüf- und Gegenfragen</span><span class="chip gov">98.7 % Recall im Register</span><span class="chip gov">100 % Quellen-Treue</span><span class="chip gov">Negativtests auf Archivlücken</span></div>
+            <div class="chips"><span class="chip gov">99 Testfälle in vier Suiten</span><span class="chip gov">98.7 % Recall im Register</span><span class="chip gov">5/5 Gegenfragen ohne erfundene Antwort</span><span class="chip gov">Negativtests auf Archivlücken</span></div>
           </div>
           <div class="side-box">
             <h3>Nachvollziehbarkeit</h3>
@@ -202,7 +202,7 @@
           <dt>Vektordatenbank</dt><dd>Qdrant (v1.16.1, selbst betrieben in Docker, Hybrid-Abfrage über Reciprocal Rank Fusion)</dd>
           <dt>Katalog und Protokoll</dt><dd>Geprüfter YAML-Schriftenkatalog und lokales SQLite im WAL-Modus für anonymisierte Betriebsmetriken</dd>
           <dt>Plattform und Netz</dt><dd>Linux-VPS (Ubuntu 24.04), Docker Compose, Traefik Reverse Proxy (Let's Encrypt), Nginx für Mediendateien</dd>
-          <dt>Qualität und Release</dt><dd>Eigenes Evaluations-Framework (70 Testfälle in 4 Suiten) und mehrstufige Release-Prüfung mit Gitleaks</dd>
+          <dt>Qualität und Release</dt><dd>Eigenes Evaluations-Framework (99 Testfälle in 4 Suiten) und mehrstufige Release-Prüfung mit Gitleaks</dd>
         </dl></div>
       </div>
     </section>

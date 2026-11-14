@@ -61,7 +61,7 @@
         </div>
         <div class="card">
           <h3>Measured and evolving</h3>
-          <p>Every change to indexing, search filters and prompts is benchmarked against a fixed evaluation set of 70 test and negative queries and refined from real usage.</p>
+          <p>Every change to indexing, search filters and prompts is benchmarked against a fixed evaluation set of 99 test cases across four suites and refined from real usage.</p>
         </div>
       </div>
       <p class="notice"><strong>Project status note:</strong> We are currently working on a live prototype. The chat runs in production on dedicated infrastructure via web interface and Telegram, but is not yet open to the general public due to copyright and data protection requirements.</p>
@@ -105,7 +105,7 @@
         <div class="arch-side">
           <div class="side-box hitl">
             <h3>Quality &amp; evals</h3>
-            <div class="chips"><span class="chip gov">70 benchmark &amp; negative queries</span><span class="chip gov">98.7% register recall</span><span class="chip gov">100% citation fidelity</span><span class="chip gov">Zero-hit negative tests</span></div>
+            <div class="chips"><span class="chip gov">99 test cases across 4 suites</span><span class="chip gov">98.7% register recall</span><span class="chip gov">5/5 negative queries without invented answers</span><span class="chip gov">Zero-hit negative tests</span></div>
           </div>
           <div class="side-box">
             <h3>Traceability</h3>
@@ -202,7 +202,7 @@
           <dt>Vector database</dt><dd>Qdrant (v1.16.1, self-hosted in Docker, hybrid retrieval via Reciprocal Rank Fusion)</dd>
           <dt>Catalogue and logging</dt><dd>Curated YAML publication catalogue and local SQLite in WAL mode for anonymised operational metrics</dd>
           <dt>Platform and network</dt><dd>Linux VPS (Ubuntu 24.04), Docker Compose, Traefik reverse proxy (Let's Encrypt), Nginx for media files</dd>
-          <dt>Quality and release</dt><dd>Custom evaluation framework (70 test cases across 4 suites) and multi-stage release gate with Gitleaks</dd>
+          <dt>Quality and release</dt><dd>Custom evaluation framework (99 test cases across 4 suites) and multi-stage release gate with Gitleaks</dd>
         </dl></div>
       </div>
     </section>
