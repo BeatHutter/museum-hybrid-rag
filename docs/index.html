@@ -99,8 +99,8 @@
             <tr><td>Fragen ohne Beleg</td><td data-label="Was das System macht">Steht im Bestand nichts zur Frage, sagt das System das. Eine Antwort wird gar nicht erst erzeugt</td><td data-label="Messgrösse">korrekt mit «keine Angaben» beantwortet</td><td class="cost" data-label="Vorher → heute">4 von 5 → 5 von 5</td></tr>
             <tr><td>Teilwissen</td><td data-label="Was das System macht">Bei mehrteiligen Fragen beantwortet das System den belegten Teil und nennt, wozu Angaben fehlen</td><td data-label="Messgrösse">Lücken korrekt benannt</td><td class="cost" data-label="Vorher → heute">4 von 4</td></tr>
             <tr><td>Fotosuche</td><td data-label="Was das System macht">Sucht in 1'786 Einträgen, unterscheidet abgebildete Personen von Fotografierenden und filtert nach Jahren. Die Suche selbst braucht kein Sprachmodell</td><td data-label="Messgrösse">richtige Bilder unter den ersten zehn</td><td class="cost" data-label="Vorher → heute">29.9 % → 94.2 %</td></tr>
-            <tr><td>Absicht erkennen</td><td data-label="Was das System macht">Wissensfrage, Fotosuche, Frage zum Bestand oder Begrüssung, erkannt in einem einzigen Modellaufruf</td><td data-label="Messgrösse">richtig erkannte Fragen</td><td class="cost" data-label="Vorher → heute">33 → 40 von 40</td></tr>
-            <tr><td>Folgefragen</td><td data-label="Was das System macht">«Wann wurde sie gebaut?» oder «Gibt es Fotos davon?» werden aus dem Gesprächsverlauf aufgelöst</td><td data-label="Messgrösse">richtig verstandene Gesprächsschritte</td><td class="cost" data-label="Vorher → heute">13 → 15 von 15</td></tr>
+            <tr><td>Absicht erkennen</td><td data-label="Was das System macht">Wissensfrage, Fotosuche, Frage zum Bestand oder Begrüssung, erkannt in einem einzigen Modellaufruf</td><td data-label="Messgrösse">richtig erkannte Fragen</td><td class="cost" data-label="Vorher → heute">33 von 40 → 40 von 40</td></tr>
+            <tr><td>Folgefragen</td><td data-label="Was das System macht">«Wann wurde sie gebaut?» oder «Gibt es Fotos davon?» werden aus dem Gesprächsverlauf aufgelöst</td><td data-label="Messgrösse">richtig verstandene Gesprächsschritte</td><td class="cost" data-label="Vorher → heute">13 von 15 → 15 von 15</td></tr>
           </tbody>
         </table>
       </div>
@@ -108,7 +108,7 @@
       <div class="grid two cost-cards">
         <div class="card">
           <h3>Warum gpt-4o-mini</h3>
-          <p>Das Modell wird nach Messung gewählt. gpt-4o-mini übernimmt Planung, Reranking und Antwort. Im Vergleich erreichte das grössere gpt-4o dieselbe Trefferquote, beantwortete aber nur 2 von 5 Fragen ohne Beleg korrekt, gpt-4o-mini dagegen 4 von 5. Dazu ist das kleinere Modell deutlich günstiger.</p>
+          <p>Das Modell wird nach Messung gewählt. gpt-4o-mini übernimmt Planung, Reranking und Antwort. In einem frühen Vergleich erreichte das grössere gpt-4o dieselbe Trefferquote, beantwortete aber nur 2 von 5 Fragen ohne Beleg korrekt, gpt-4o-mini dagegen 4 von 5. Mit der späteren Relevanzschwelle sind es heute 5 von 5. Dazu ist das kleinere Modell deutlich günstiger.</p>
         </div>
         <div class="card">
           <h3>Eigener Code ohne Framework</h3>
@@ -230,34 +230,34 @@
           </div>
           <div class="arrow">▼</div>
           <div class="layer gov">
-            <div class="layer-name">Schutzschicht<small>API &amp; Governance</small></div>
+            <div class="layer-name">Schutzschicht<small>API und Governance</small></div>
             <div class="chips"><span class="chip gov">Interne Docker-Netztrennung</span><span class="chip gov">Sliding-Window Rate-Limiter</span><span class="chip gov">Webhook Secret-Token</span><span class="chip gov">Kein offener Datenbank-Port</span></div>
           </div>
           <div class="arrow">▼</div>
           <div class="layer">
-            <div class="layer-name">Planung &amp; Register<small>Verstehen &amp; Normieren</small></div>
+            <div class="layer-name">Planung und Register<small>Verstehen und Normieren</small></div>
             <div class="chips"><span class="chip">Single-Call Query-Planer</span><span class="chip">Pronomenauflösung</span><span class="chip">Ortsfokus</span><span class="chip">In-Memory Namensregister</span><span class="chip">Tippfehler-Korrektur (RapidFuzz)</span></div>
           </div>
           <div class="arrow">▼</div>
           <div class="layer">
-            <div class="layer-name">Retrieval &amp; Gate<small>Finden &amp; Filtern</small></div>
-            <div class="chips"><span class="chip">Qdrant Hybrid Search (RRF)</span><span class="chip">Wortgenaue Registersuche</span><span class="chip">LLM-Reranker</span><span class="chip gov">Relevanz-Gate gegen Halluzination</span><span class="chip plan">Lokaler Cross-Encoder</span></div>
+            <div class="layer-name">Retrieval und Gate<small>Finden und Filtern</small></div>
+            <div class="chips"><span class="chip">Qdrant Hybrid Search (RRF)</span><span class="chip">Wortgenaue Registersuche</span><span class="chip">LLM-Reranker</span><span class="chip gov">Relevanzschwelle gegen Halluzination</span><span class="chip plan">Lokaler Cross-Encoder</span></div>
           </div>
           <div class="arrow">▼</div>
           <div class="layer">
-            <div class="layer-name">Synthese &amp; Zitate<small>Antwort &amp; Belege</small></div>
+            <div class="layer-name">Synthese und Zitate<small>Antwort und Belege</small></div>
             <div class="chips"><span class="chip">Antwort-Synthese mit Belegmarkern</span><span class="chip gov">Lückenbenennung bei Teilwissen</span><span class="chip gov">Deterministische Quellenzeile</span><span class="chip">Paralleler Foto-Hinweis</span></div>
           </div>
           <div class="arrow">▼</div>
           <div class="layer">
-            <div class="layer-name">Speicher &amp; Modelle<small>Index &amp; Betrieb</small></div>
+            <div class="layer-name">Speicher und Modelle<small>Index und Betrieb</small></div>
             <div class="chips"><span class="chip">Qdrant Vektor-DB</span><span class="chip">Archiv-Katalog (YAML)</span><span class="chip">Quellenart und Ort pro Abschnitt</span><span class="chip">Foto-Server (Nginx)</span><span class="chip">OpenAI gpt-4o-mini</span><span class="chip">FastEmbed BM25 (lokal)</span><span class="chip plan">Automatisierte OCR-Pipeline</span></div>
           </div>
         </div>
         <div class="arch-side">
           <div class="side-box hitl">
-            <h3>Qualität &amp; Evals</h3>
-            <div class="chips"><span class="chip gov">99 Testfälle in vier Suiten</span><span class="chip gov">98.7 % Recall im Register</span><span class="chip gov">5/5 Gegenfragen ohne erfundene Antwort</span><span class="chip gov">Negativtests auf Archivlücken</span></div>
+            <h3>Qualität und Evals</h3>
+            <div class="chips"><span class="chip gov">99 Testfälle in vier Suiten</span><span class="chip gov">98.7 % Trefferquote bei Namen</span><span class="chip gov">5 von 5 Fragen ohne Beleg erkannt</span><span class="chip gov">Testfragen zu Archivlücken</span></div>
           </div>
           <div class="side-box">
             <h3>Nachvollziehbarkeit</h3>
@@ -265,7 +265,7 @@
           </div>
         </div>
       </div>
-      <div class="legend"><span class="chip">in Betrieb</span><span class="chip plan">geplant</span><span class="chip gov">Governance &amp; Schutz</span></div>
+      <div class="legend"><span class="chip">in Betrieb</span><span class="chip plan">geplant</span><span class="chip gov">Governance und Schutz</span></div>
       <ol class="layers-text">
         <li><strong>Kanäle:</strong> Web-Chat und Telegram. Der Reverse Proxy Traefik verschlüsselt die Verbindung (TLS).</li>
         <li><strong>Schutzschicht:</strong> Programmierschnittstelle und Datenbank sind von aussen nicht erreichbar. Anfragen sind begrenzt, der Telegram-Zugang ist mit einem geheimen Token gesichert.</li>
@@ -295,6 +295,7 @@
 
     <section id="projekte">
       <h2>Weitere Projekte</h2>
+      <p class="section-lead">Mein zweites Projekt, nach demselben Muster dokumentiert.</p>
       <div class="grid two">
         <a class="card project" href="https://lab.bh-automation.cloud/" target="_blank" rel="noopener">
           <span class="tag">KI-Agenten</span>
