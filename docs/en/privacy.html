@@ -24,7 +24,7 @@
 <main class="wrap">
   <article class="prose">
     <h1>Privacy policy</h1>
-    <p class="small">Last updated: 13 November 2026. The German version is authoritative.</p>
+    <p class="small">Last updated: 16 November 2026. The German version is authoritative.</p>
 
     <p>This policy covers the information website <code>museum-rag.bh-automation.cloud</code> and transparently describes data processing in the underlying “Museum-RAG” prototype. The Swiss Federal Act on Data Protection (FADP) applies.</p>
 
@@ -47,7 +47,7 @@
       <li><strong>Hosting and database:</strong> The application, vector database (Qdrant) and media files run in Docker containers on a virtual server hosted by Hostinger (server location in the European Union).</li>
       <li><strong>Language model and embeddings:</strong> To analyse search queries, score relevance (reranking) and synthesise answers, the system uses the API of OpenAI (OpenAI, L.L.C., USA; models used: <code>gpt-4o-mini</code> and <code>text-embedding-3-small</code>). The query text and relevant text excerpts from the archive are transmitted to OpenAI. Under OpenAI's API data usage policies, data submitted via the API is not used to train models. See the <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">OpenAI privacy policy</a>.</li>
       <li><strong>Telegram integration:</strong> When using the optional Telegram channel, messages are transmitted via Telegram's infrastructure (Telegram Messenger Inc.) to the server's authenticated webhook.</li>
-      <li><strong>Anonymous operational log:</strong> For quality assurance and rate limiting, the system stores timestamp, channel (web or Telegram), query text, response latency, hit count and optional thumb ratings locally on the server in a SQLite database. IP addresses, real names or Telegram usernames are not stored; sessions are recorded only as one-way salted hashes (SHA-256).</li>
+      <li><strong>Pseudonymous operational log:</strong> For quality assurance and rate limiting, the system stores timestamp, channel (web or Telegram), query text, response latency, hit count and optional thumb ratings locally on the server in a SQLite database. IP addresses and Telegram usernames are not stored; sessions are recorded only as one-way salted hashes (SHA-256). Since a question itself may contain names or addresses, the log is pseudonymous rather than fully anonymous. Before the opening to the general public, a fixed retention period with automatic deletion and a corresponding notice in the chat will be introduced.</li>
       <li><strong>No sharing:</strong> Data is never sold or used for advertising.</li>
     </ul>
 

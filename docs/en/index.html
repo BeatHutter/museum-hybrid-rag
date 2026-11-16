@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Museum-RAG – Beat Hutter</title>
-  <meta name="description" content="Hybrid knowledge and image archive system with deterministic source grounding for historical publications and photo collections. An AI project by Beat Hutter.">
+  <meta name="description" content="Project presentation: a chat assistant for a village museum that answers questions about local history from its own publications, backs every statement with issue and page, and finds matching photos. An AI project by Beat Hutter.">
   <link rel="alternate" hreflang="de" href="../">
   <link rel="stylesheet" href="../style.css">
   <link rel="icon" href="../assets/logo-rag.svg" type="image/svg+xml">
@@ -14,8 +14,10 @@
   <div class="wrap">
     <a class="brand" href="./"><img src="../assets/logo-rag.svg" alt="" width="36" height="36"><span>Museum <span class="wm-ai">RAG</span></span></a>
     <nav class="top-nav" aria-label="Main navigation">
-      <a class="hide-sm" href="#architecture">Architecture</a>
-      <a class="hide-sm" href="#roadmap">Roadmap</a>
+      <a class="hide-sm" href="#example">Example</a>
+      <a class="hide-sm" href="#results">Results</a>
+      <a class="hide-sm" href="#about">About me</a>
+      <a class="hide-sm" href="#tech">Technology</a>
       <a href="privacy.html">Privacy</a>
       <a class="lang" href="../" hreflang="de" lang="de">DE</a>
     </nav>
@@ -27,184 +29,303 @@
     <section class="hero">
       <div class="hero-grid">
       <div class="hero-text">
-      <p class="eyebrow">AI project by Beat Hutter</p>
+      <p class="eyebrow">Project presentation · AI project by Beat Hutter</p>
       <h1>Bringing village history out of the archive</h1>
-      <p class="lead">Old chronicles, annual publications and photo collections are full of stories about the local community, yet they mostly sit untouched in boxes and PDF files. This project makes the holdings of a local museum easily searchable for residents. Anyone asking about an old farmstead, a street or a historical trade receives reliable answers straight from the original sources alongside the matching photographs.</p>
+      <p class="subline">Answers from the museum's own sources, every statement backed by issue and page.</p>
+      <p class="lead">Old chronicles, annual publications and photo collections are full of stories about a village, yet they mostly sit in boxes and PDF files. For a village museum I am building a chat assistant that makes this knowledge searchable. Anyone asking about an old farmstead, a street or a trade gets an answer from the original sources and sees the matching pictures.</p>
       <div class="actions">
-        <a class="btn primary" href="https://github.com/BeatHutter/museum-hybrid-rag" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>Project on GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/beat-hutter-2687414b/" target="_blank" rel="noopener"><svg class="in" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>Beat Hutter on LinkedIn</a>
+        <a class="btn primary" href="https://www.linkedin.com/in/beat-hutter-2687414b/" target="_blank" rel="noopener"><svg class="in" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>LinkedIn</a>
+        <a class="btn soft" href="https://github.com/BeatHutter/museum-hybrid-rag" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>Project on GitHub</a>
       </div>
       </div>
       <figure class="hero-art">
-        <img src="../assets/hero-rag.webp" srcset="../assets/hero-rag-1200.webp 1200w, ../assets/hero-rag.webp 1800w" sizes="(max-width: 960px) 100vw, 620px" width="1800" height="1200" alt="Illustration: A bearded archivist works at a wooden desk in a bright historical museum archive with green shutters. In front of him lie an open chronicle, historical photographs and a laptop with connected document cards and vector nodes floating above in red, green and golden yellow." fetchpriority="high">
+        <img src="../assets/hero-rag.webp" srcset="../assets/hero-rag-1200.webp 1200w, ../assets/hero-rag.webp 1800w" sizes="(max-width: 960px) 100vw, 620px" width="1800" height="1200" alt="Illustration: A bearded archivist works at a wooden table in a bright historic museum archive with green shutters. In front of him lie an old chronicle, historic photographs and a laptop, above which networked document cards and vector nodes in red, green and golden yellow float." fetchpriority="high">
       </figure>
       </div>
-      <div class="pillars">
-        <div class="pillar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35M8 11h6M11 8v6"/></svg><strong>Hybrid retrieval</strong><span>Dense vectors + BM25 with RRF</span></div>
-        <div class="pillar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h7"/><rect x="15" y="13" width="6" height="6" rx="1.5"/></svg><strong>Two search paths</strong><span>Knowledge answers and photo gallery</span></div>
-        <div class="pillar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M9 7h6M9 11h4"/></svg><strong>Deterministic citations</strong><span>Exact page references built in code</span></div>
-        <div class="pillar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><strong>Typo-tolerant register</strong><span>8,331 entities in memory</span></div>
+      <div class="kpis">
+        <div class="kpi"><strong>1,786*</strong><span>photo records and 24 publications searchable, with 8,331 names in the register</span></div>
+        <div class="kpi"><strong>98.7&nbsp;%*</strong><span>recall for questions about names and addresses, first draft 77.3&nbsp;%</span></div>
+        <div class="kpi"><strong>5 of 5*</strong><span>questions without evidence correctly answered with “no information”</span></div>
+        <div class="kpi"><strong>50 h*</strong><span>of work up to the MVP, spread over about one month</span></div>
       </div>
+      <p class="notice"><strong>Status*: prototype in test operation.</strong> The MVP (minimum viable product, the first fully working version with the core scope) is complete. It has passed technical and functional testing including evaluation. Testing with a broad user base is still to come. The chat runs on its own infrastructure on the web and on Telegram, but is not publicly accessible. It will only be opened once the rights have been cleared with the association and the association has agreed.</p>
+      <p class="asof">* As of 16 November 2026. The project keeps growing; figures and status are updated continuously.</p>
     </section>
 
     <section id="project">
       <h2>The project</h2>
-      <p class="section-lead">Built on the real holdings of a local history museum, the system demonstrates how unstructured legacy collections can be unlocked reliably and under tight control for conversational access.</p>
+      <p class="section-lead">I am building a prototype with a clear goal: the valuable publications and photos of the Birmensdorf village museum should become accessible to the public, especially to the people living in the village. After extensive testing with users, the chat is to go live. The method is called Retrieval-Augmented Generation (RAG): the language model does not answer from its own knowledge, but from passages that were first retrieved from the collection.</p>
+      <div class="grid two">
+        <div class="card">
+          <h3>The starting point</h3>
+          <p>Over decades, a local history association has published writings on the village's history and built up an extensive photo archive. The knowledge sits in PDF files and in the museum database MuseumPro, which is based on FileMaker. Anyone who wants to know something about a farmstead, a street or a family today has to know the publications or sit down with someone from the museum at the computer or in the archive room.</p>
+        </div>
+        <div class="card">
+          <h3>The collection</h3>
+          <p>So far, 24 publications have been processed into 2,543 text passages, including a volume on the art monuments of the entire district. In addition there are 1,786 inventoried photos and a register of 8,331 persons, buildings, addresses and field names. The archive holds further publications; they will be added to the system step by step. It is the collection of the Birmensdorf village museum of the Heimatkundliche Vereinigung.</p>
+        </div>
+      </div>
+      <h3 class="sub">Why a simple AI search is not enough</h3>
       <div class="grid">
         <div class="card">
-          <h3>Real archival holdings</h3>
-          <p>The knowledge base covers 2,543 cross-page text passages from 24 historical publications alongside 1,786 catalogued photo records and more than 8,300 indexed people, buildings and locations.</p>
+          <span class="tag">Keyword search</span>
+          <h3>Finds names, does not understand meaning</h3>
+          <p>Classic keyword search (BM25) hits farm names, family names and house numbers precisely. But it fails when the question uses different words than the text: asking about the “miller” does not find the passage about “grinding grain”. A typo leads nowhere.</p>
         </div>
         <div class="card">
-          <h3>Controlled answer pipeline</h3>
-          <p>An upstream query planner resolves conversational pronouns, a reranker scores candidate passages and a calibrated relevance gate blocks unsupported answers before generation.</p>
+          <span class="tag">Vector search</span>
+          <h3>Understands meaning, blurs names</h3>
+          <p>Semantic search over embeddings finds topics even when the wording differs. It handles exact names and numbers poorly: to it, house number 2 is close to 20, and one farm is close to the neighbouring farm. In the first draft, the language model also occasionally invented page numbers.</p>
         </div>
         <div class="card">
-          <h3>Measured and evolving</h3>
-          <p>Every change to indexing, search filters and prompts is benchmarked against a fixed evaluation set of 99 test cases across four suites and refined from real usage.</p>
+          <span class="tag">Combination</span>
+          <h3>Only both together are enough</h3>
+          <p>Hybrid search queries both methods at the same time and merges the results. Names and addresses additionally go through a register that catches typos. The same applies to photos: names and addresses are matched exactly in the picture description, topics such as “school” or “carnival” go through hybrid search.</p>
         </div>
       </div>
-      <p class="notice"><strong>Project status note:</strong> We are currently working on a live prototype. The chat runs in production on dedicated infrastructure via web interface and Telegram, but is not yet open to the general public due to copyright and data protection requirements.</p>
+      <p class="notice"><strong>Note:</strong> This page and the GitHub repository contain no texts, photos or data from the museum collection. The rights to them lie with the association.</p>
     </section>
 
-    <section id="architecture">
-      <h2>RAG system architecture</h2>
-      <p class="section-lead">Queries pass through a multi-stage pipeline of planning, entity resolution, hybrid retrieval and relevance scoring. Source lines are assembled deterministically from the catalogue.</p>
-      <div class="arch">
-        <div class="arch-stack">
-          <div class="layer">
-            <div class="layer-name">Channels<small>user access</small></div>
-            <div class="chips"><span class="chip">Web chat (Streamlit)</span><span class="chip">Telegram bot</span><span class="chip">Traefik reverse proxy (TLS)</span></div>
-          </div>
-          <div class="arrow">▼</div>
-          <div class="layer gov">
-            <div class="layer-name">Protection layer<small>API &amp; governance</small></div>
-            <div class="chips"><span class="chip gov">Internal Docker network isolation</span><span class="chip gov">Sliding-window rate limiter</span><span class="chip gov">Webhook secret token</span><span class="chip gov">No exposed database port</span></div>
-          </div>
-          <div class="arrow">▼</div>
-          <div class="layer">
-            <div class="layer-name">Planning &amp; register<small>understand &amp; normalise</small></div>
-            <div class="chips"><span class="chip">Single-call query planner</span><span class="chip">Pronoun resolution</span><span class="chip">In-memory entity register</span><span class="chip">Fuzzy typo correction (RapidFuzz)</span></div>
-          </div>
-          <div class="arrow">▼</div>
-          <div class="layer">
-            <div class="layer-name">Retrieval &amp; gate<small>find &amp; filter</small></div>
-            <div class="chips"><span class="chip">Qdrant hybrid search (RRF)</span><span class="chip">Exact word-boundary register search</span><span class="chip">LLM reranker</span><span class="chip gov">Relevance gate against hallucination</span><span class="chip plan">Local cross-encoder</span></div>
-          </div>
-          <div class="arrow">▼</div>
-          <div class="layer">
-            <div class="layer-name">Synthesis &amp; citations<small>answer &amp; ground</small></div>
-            <div class="chips"><span class="chip">Grounded answer synthesis</span><span class="chip gov">Explicit gap naming on partial data</span><span class="chip gov">Deterministic source generator</span><span class="chip">Parallel photo hint</span></div>
-          </div>
-          <div class="arrow">▼</div>
-          <div class="layer">
-            <div class="layer-name">Storage &amp; models<small>index &amp; runtime</small></div>
-            <div class="chips"><span class="chip">Qdrant vector DB</span><span class="chip">Archive catalogue (YAML)</span><span class="chip">Photo server (Nginx)</span><span class="chip">OpenAI gpt-4o-mini</span><span class="chip">FastEmbed BM25 (local)</span><span class="chip plan">Automated OCR pipeline</span></div>
-          </div>
-        </div>
-        <div class="arch-side">
-          <div class="side-box hitl">
-            <h3>Quality &amp; evals</h3>
-            <div class="chips"><span class="chip gov">99 test cases across 4 suites</span><span class="chip gov">98.7% register recall</span><span class="chip gov">5/5 negative queries without invented answers</span><span class="chip gov">Zero-hit negative tests</span></div>
-          </div>
-          <div class="side-box">
-            <h3>Traceability</h3>
-            <div class="chips"><span class="chip">Anonymous SQLite log</span><span class="chip">SHA-256 session hash</span><span class="chip">Latency &amp; hit tracking</span><span class="chip">In-chat user feedback</span><span class="chip plan">Privacy image anonymisation</span></div>
-          </div>
-        </div>
+    <section id="example">
+      <h2>A search from A to Z: the question about the mill</h2>
+      <p class="section-lead">A single question shows how intent router, register, search and verification work together, and where the system deliberately stops.</p>
+      <ol class="steps">
+        <li><p><strong>The question arrives.</strong> In the web chat or on Telegram, someone asks: “Who ran the mill?”</p></li>
+        <li><p><strong>The question is understood (intent router).</strong> A single call to the language model recognises the intent: knowledge question, photo search, question about the collection or greeting. It extracts subject and place from the question (entity extraction) and, if needed, rephrases it as a self-contained search query (query rewriting). The result comes back in a fixed schema and is validated (structured outputs).</p></li>
+        <li><p><strong>The place is set (metadata filter).</strong> During testing it became clear that the data model needs a place. So it was extended: every text passage now carries two metadata fields, the type of source and the municipality. If the question names no municipality, Birmensdorf applies. The filter admits all passages from the association's publications, but only the Birmensdorf sections from the district-wide volume.</p></li>
+        <li><p><strong>Search (hybrid search).</strong> Semantic search over embeddings (dense retrieval) and keyword search with BM25 (sparse retrieval) run in parallel. Reciprocal rank fusion merges both rankings into one. For names and addresses, an exact register search is added that catches typos through fuzzy matching.</p></li>
+        <li><p><strong>Verify (reranking and relevance threshold).</strong> A language model scores every retrieved passage on a scale from 0 to 3, following the LLM-as-a-judge principle. If no passage clears the threshold, a guardrail kicks in: the system reports that the collection holds no information and does not generate an answer at all. This prevents hallucination.</p></li>
+        <li><p><strong>Answer with evidence (grounding).</strong> The language model writes the answer only from the verified passages and inserts numbered markers. The source line with issue and page is built by the program code from a verified catalogue, so the model cannot invent a page number.</p></li>
+        <li><p><strong>The follow-up question (pronoun resolution).</strong> “Are there photos of it?” The “it” is resolved from the conversation history. The photo search itself works without a generative language model: it matches names exactly and searches topics in hybrid mode as with the texts, and it distinguishes what is shown in a picture from who took it. Where rules and search are sufficient, no language model is needed. That is best practice: it saves cost and response time and makes the result reproducible.</p></li>
+      </ol>
+      <p class="notice trap"><strong>Combining general and specific sources.</strong> The volume on the art monuments of the Dietikon district is a general source. It makes up about 60&nbsp;% of the text and also describes mills in neighbouring municipalities. The association's publications are specific; they deal only with Birmensdorf. Without a distinction, the large source would have crowded out the small ones and mixed up the mills. The solution is an attribute to filter on: during ingestion, every passage receives the municipality as metadata. Since then the answer stays with Birmensdorf, and the question about the mills in Dietikon still works. The pattern applies generally: anyone who combines sources of different scope in one index needs an attribute to control the selection.</p>
+      <p class="facts-line"><strong>Observability:</strong> Every request is logged with response time, number of hits and rating, without IP addresses and with a pseudonymous session ID. This shows which questions remain open and where the system is weak. Today the log sits in its own SQLite database. A self-hosted observability tool such as Langfuse is planned, which makes every step of a request traceable (tracing).</p>
+    </section>
+
+    <section id="results">
+      <h2>What the system can do today</h2>
+      <p class="section-lead">Seven capabilities, measured against a fixed test set (ground truth) of 99 test cases in four suites. From the first draft to the MVP, the improvements came from three levers: clean data in the ingestion pipeline, a search that picks the right path for each question, and verification steps before the answer. Every change was measured before it was adopted. All runs use OpenAI's gpt-4o-mini.</p>
+      <div class="table-wrap">
+        <table class="results">
+          <thead><tr><th scope="col">Capability</th><th scope="col">What the system does</th><th scope="col">Metric</th><th scope="col">First draft → MVP*</th></tr></thead>
+          <tbody>
+            <tr><td>Names and addresses</td><td data-label="What the system does">Farmsteads, streets, families and house numbers are matched exactly (keyword filter with word boundaries). House number 2 does not hit 20. The name register catches typos through fuzzy matching</td><td data-label="Metric">Recall</td><td class="cost" data-label="First draft → MVP*">77.3&nbsp;% → 98.7&nbsp;%</td></tr>
+            <tr><td>Topics</td><td data-label="What the system does">Open questions, for example about the school or local trades, go through hybrid search. A language model ranks the passages by relevance (LLM reranking)</td><td data-label="Metric">Recall</td><td class="cost" data-label="First draft → MVP*">45.0&nbsp;% → 79.4&nbsp;%</td></tr>
+            <tr><td>Questions without evidence</td><td data-label="What the system does">If the collection holds nothing on the question, the system says so. A relevance threshold acting as a guardrail prevents any answer from being generated</td><td data-label="Metric">correctly answered with “no information”</td><td class="cost" data-label="First draft → MVP*">4 of 5 → 5 of 5</td></tr>
+            <tr><td>Partial knowledge</td><td data-label="What the system does">For multi-part questions, the system answers the part that is backed by evidence and names what is missing instead of filling the gap</td><td data-label="Metric">gaps correctly named</td><td class="cost" data-label="First draft → MVP*">4 of 4</td></tr>
+            <tr><td>Photo search</td><td data-label="What the system does">Searches 1,786 records, distinguishes people shown from photographers and filters by year (metadata filter). The search itself needs no generative language model</td><td data-label="Metric">correct pictures among the top ten (recall@10)</td><td class="cost" data-label="First draft → MVP*">29.9&nbsp;% → 94.2&nbsp;%</td></tr>
+            <tr><td>Recognising intent</td><td data-label="What the system does">The intent router distinguishes knowledge question, photo search, question about the collection and greeting in a single model call</td><td data-label="Metric">correctly recognised questions</td><td class="cost" data-label="First draft → MVP*">33 of 40 → 40 of 40</td></tr>
+            <tr><td>Follow-up questions</td><td data-label="What the system does">“When was it built?” or “Are there photos of it?” are resolved from the conversation history (pronoun resolution, query rewriting)</td><td data-label="Metric">correctly understood dialogue turns</td><td class="cost" data-label="First draft → MVP*">13 of 15 → 15 of 15</td></tr>
+          </tbody>
+        </table>
       </div>
-      <div class="legend"><span class="chip">in operation</span><span class="chip plan">planned</span><span class="chip gov">governance &amp; protection</span></div>
-    </section>
-
-    <section id="capabilities">
-      <h2>What the system handles today</h2>
-      <p class="section-lead">The application unites historical text research and targeted photo retrieval under a shared interface on the web and on Telegram.</p>
-      <div class="grid two">
-        <div class="card"><span class="tag">Ingestion</span><h3>Cross-page contextual chunking</h3><p>Hyphenated line breaks are repaired, paragraphs are joined across page boundaries and each chunk is enriched with work, chapter and speaker context before embedding.</p></div>
-        <div class="card"><span class="tag">Precision</span><h3>Dual-mode text search</h3><p>Queries for people, buildings or street numbers use exact word-boundary register filters, while open thematic questions run through hybrid vector and keyword search.</p></div>
-        <div class="card"><span class="tag">Media</span><h3>Role-aware photo gallery</h3><p>Image search separates depicted subjects from the photographer, supports year filters and returns structured galleries without calling a language model.</p></div>
-        <div class="card"><span class="tag">Dialogue</span><h3>Multi-turn context resolution</h3><p>The planner rewrites follow-up questions containing pronouns such as “When was it built?” or “Are there photos of it?” into standalone search queries.</p></div>
-        <div class="card"><span class="tag">Reliability</span><h3>Honest gap reporting</h3><p>When the archive holds only partial information for a multi-part question, the system answers the documented part and explicitly states which aspect lacks coverage.</p></div>
-        <div class="card"><span class="tag">Operations</span><h3>Anonymous quality monitoring</h3><p>A local log records response latency, hit counts and user ratings without personal data, highlighting unanswered questions and gaps in the collection.</p></div>
+      <p class="below-table">The first draft is the state of 28 and 29 October 2026, measured with the same test set as the MVP. * As of 16 November 2026. The test questions contain content from the archive and are therefore not published. More in the <a href="https://github.com/BeatHutter/museum-hybrid-rag/blob/main/README.md" target="_blank" rel="noopener">README on GitHub</a>.</p>
+      <div class="grid two cost-cards">
+        <div class="card">
+          <h3>Why gpt-4o-mini</h3>
+          <p>A RAG search does not need a frontier model. The knowledge comes from the retrieved passages; the model has to understand, assess and summarise them cleanly, but not contribute knowledge of its own. An early comparison confirmed this: the larger gpt-4o reached the same recall, but answered only 2 of 5 questions without evidence correctly, while gpt-4o-mini answered 4 of 5. With the later relevance threshold it is 5 of 5 today. On top of that, the smaller model costs about one fifteenth per token. In the spirit of FinOps, the choice therefore fell on gpt-4o-mini.</p>
+        </div>
+        <div class="card">
+          <h3>Own code without a framework</h3>
+          <p>Many AI applications today are built with frameworks such as LangChain or LlamaIndex, or with the agent SDKs of the model providers, for example from Anthropic, Google or OpenAI. They bundle recurring building blocks and put an abstraction layer over the Python code. Here I deliberately did without: I wanted full transparency and to be able to see, measure and explain every step individually. With two search paths and one language model, a framework would have simplified little. The orchestration is therefore my own Python code with FastAPI and Pydantic.</p>
+        </div>
       </div>
     </section>
 
     <section id="principles">
-      <h2>Governance and principles</h2>
-      <p class="section-lead">Reliable handling of historical sources and collection data follows fixed architectural rules:</p>
+      <h2>The rules: governance in eight principles</h2>
+      <p class="section-lead">These principles define how the system handles sources, people and data. They are implemented in the code and the infrastructure; the remaining points will be addressed before the opening to the public.</p>
       <ol class="principles">
-        <li><div><h3>No claim without archival evidence</h3><p>If retrieved passages fall below the relevance threshold after reranking, the pipeline stops before calling the language model and states transparently that no records were found.</p></div></li>
-        <li><div><h3>Code builds the citation line</h3><p>The language model places only internal reference markers in the text. Application code deterministically builds the visible source line with book title, issue number and page range from the catalogue.</p></div></li>
-        <li><div><h3>Respect content ownership</h3><p>Original texts, historical photographs and collection records remain under the museum's control and are kept strictly separate from the public source code repository.</p></div></li>
-        <li><div><h3>Privacy across images and logs</h3><p>Operational logs store neither IP addresses nor names. Before opening the photo archive more widely, photographs showing contemporary individuals are reviewed and anonymised for data protection.</p></div></li>
-        <li><div><h3>Hardened interfaces</h3><p>The internal API and vector database cannot be reached from the internet. Public access is restricted to the web frontend and the cryptographically verified Telegram webhook.</p></div></li>
-        <li><div><h3>Measure before changing</h3><p>Every adjustment to chunking, search weights or prompts runs through the automated evaluation across all four test suites before release.</p></div></li>
+        <li><div><h3>Deterministic before language model</h3><p>What fixed rules handle reliably runs without a language model: name matching, photo search, source line, questions about the collection from the catalogue, and greetings. The model is used where language has to be understood or relevance has to be weighed. This keeps the system reproducible, cheap and fast.</p></div></li>
+        <li><div><h3>No statement without evidence in the collection</h3><p>Every answer is based on retrieved passages (grounding). If they do not reach the relevance threshold after reranking, the system stops before answering and reports that the collection holds no information. This threshold is the most important guardrail against hallucination.</p></div></li>
+        <li><div><h3>Code builds the citation</h3><p>The language model only inserts reference markers in the text. The visible source line with title, issue number and page is generated by the program code from the catalogue (deterministic citations).</p></div></li>
+        <li><div><h3>Respecting rights to the content</h3><p>Texts, photos and collection data belong to the association's collection. They are not in the public repository, nor are the test questions, because they contain content from the archive. The rights for public use are being clarified with the association.</p></div></li>
+        <li><div><h3>Personality rights: opening only after clearance</h3><p>The publications name many people, living and deceased, along with places of residence and properties, and the photo archive shows them. Many of the publications have already appeared in print, and most of the texts and photos are likely to be unproblematic. For the rest, suitable measures will be taken before going live, such as withholding or anonymising pictures of living persons (privacy by design). Until then the chat stays closed. It will only be opened after this clearance and with the association's consent.</p></div></li>
+        <li><div><h3>Secured interfaces</h3><p>The system follows the principle of least privilege and keeps the attack surface small. The API and the vector database cannot be reached from outside; the containers are separated from each other in the Docker network (network segmentation). Only the web interface and the Telegram webhook can be reached from outside, both through a reverse proxy with TLS encryption. The webhook checks a secret token, and a rate limiter caps requests at 60 per hour. Maintenance and data uploads run through an SSH tunnel.</p></div></li>
+        <li><div><h3>Measure before changing</h3><p>Every change to data preparation, search or prompts goes through the evaluation across all four test suites before it is adopted. The evals serve as regression tests: an improvement in one place must not make another worse.</p></div></li>
+        <li><div><h3>Observability and transparency</h3><p>The system should be traceable while storing as little personal data as possible. Logs show what the chat did for each request and make errors and gaps visible. Because questions themselves can contain names or addresses, data minimisation applies: no IP addresses, a pseudonymous session ID. Before the opening, a notice in the chat will be added stating that an AI is answering and what is logged, as the EU AI Act has required for chatbots since August 2026, together with a fixed retention period with automatic deletion. With the planned move to Langfuse, personal data will be masked before it is stored.</p></div></li>
       </ol>
     </section>
 
+    <section id="lessons">
+      <h2>Insights</h2>
+      <p class="section-lead">What I take away from the project. The list grows with the project.</p>
+      <ul class="lessons">
+        <li><strong>Clean data beats a bigger model.</strong><span>In the data ingestion pipeline, more than 5,400 words split by hyphenation were repaired, sentences across page boundaries were joined and index pages were filtered out as false hits (data cleansing). This raised recall without changing anything about the model.</span></li>
+        <li><strong>The ingestion pipeline runs fully automated.</strong><span>From reading the PDFs and the photo list to the finished index, everything runs in Python; not a single manual step in Excel is needed any more. Design and construction of the pipeline could largely be handed to a frontier model, and the result ran practically flawlessly. New material can be loaded with little effort.</span></li>
+        <li><strong>A bigger model does not automatically deliver more.</strong><span>gpt-4o found no more than gpt-4o-mini, but more often invented answers where the collection held nothing. For RAG, what counts is what the search delivers, not the size of the model.</span></li>
+        <li><strong>Names need a register.</strong><span>Vector search finds topics, but not an exact house number. Names and addresses therefore go through an exact search and a register that catches typos.</span></li>
+        <li><strong>Every change is measured.</strong><span>Several ideas that sounded good did not hold up in measurement, such as the bigger model or searching over AI summaries of the texts. Without a test set there is no reliable statement about quality.</span></li>
+        <li><strong>A natural conversation is design work.</strong><span>Conversation design is the most demanding part of conversational AI. A RAG chat needs fixed rules where reliability counts (source line, “no information”, greeting) and the flexibility of the language model where language has to be understood (follow-up questions, references back, free wording). An early version attached fifteen raw text blocks even to a “Hello”. Drawing the line between rule and model so that the conversation feels natural takes many rounds.</span></li>
+      </ul>
+    </section>
+
+    <section id="about">
+      <h2>Who is behind it and how I work</h2>
+      <div class="about">
+        <div>
+          <p>I am Beat Hutter, business analyst and product owner from the Zurich area, focusing on automation and AI. For around twenty years at Credit Suisse and UBS, I was responsible for large, business-critical planning and reporting systems of the finance function, for build and further development (change) as well as for operations (run). In that environment the rule is: no figure without a control, no change without approval.</p>
+          <p>Since 2024 my focus has been on AI and automation, including low-code and no-code tools, along with training in AI strategy, building agents and AI governance (AIGP). This project brings both together: the systematic testing and control of processes and results that is standard in a bank's finance function, and the possibilities of modern generative AI.</p>
+          <h3>Why this project</h3>
+          <p>My father is responsible for the database at the village museum. Since retiring, he has maintained it, written publications for the association and organised most of the photo archive. That gave rise to the idea of helping with AI: the publications and photos should be searchable in a way that serves the association's interests, and later be open to a wider public. I am driving the project together with my father.</p>
+          <p>The use case transfers well to companies: archives, manuals, policies and documentation pose the same task, making knowledge from the most diverse documents and knowledge sources accessible reliably and with evidence.</p>
+          <h3>How I work</h3>
+          <p>Direction, decisions and tests are mine. Before each building block, I clarify whether a step can be solved deterministically or needs a language model. Fundamental questions are decided up front and recorded with their rationale, by now in 24 architecture decision records.</p>
+          <p>Strategy and concept are developed in a dedicated project in Claude Cowork. Code and tests are written with Claude Code in the VS Code development environment, partly also with Google Antigravity and the Gemini models: when the Anthropic quota is used up, work continues there. That way two subscriptions at 20 dollars each are enough even on busy days.</p>
+          <p>The project was built in stages: database and ingestion, search and language model, web chat and Telegram, then several rounds on search quality with measurement, and finally interface security and logging. Each stage had a goal and an acceptance. Progress, decisions, architecture and metrics per test run are documented and versioned. This page and the README are public on GitHub. Code and architecture will follow step by step with a fictitious demo dataset; the test sets remain private.</p>
+        </div>
+        <div class="card facts">
+          <h3>Time and cost*</h3>
+          <dl>
+            <dt>Effort</dt><dd>About 50 hours of work up to the MVP, spread over about one month</dd>
+            <dt>Licence costs</dt><dd>None (open source: Qdrant, FastAPI, Streamlit)</dd>
+            <dt>Operation</dt><dd>Own Linux server in Europe</dd>
+            <dt>Language model</dt><dd>OpenAI's gpt-4o-mini, billed by usage</dd>
+            <dt>Not included</dt><dd>Subscriptions for the AI development tools</dd>
+          </dl>
+          <p class="asof">* As of 16 November 2026</p>
+        </div>
+      </div>
+    </section>
+
     <section id="roadmap">
-      <h2>Roadmap</h2>
-      <p class="section-lead">What runs on the server today, what is currently being refined and what comes next.</p>
+      <h2>Status and outlook</h2>
+      <p class="section-lead">The MVP is in test operation (as of 16 November 2026). Next come the legal clarifications and tests with a broader user base. Before the opening, we will define the operating model together with the association.</p>
       <div class="roadmap">
         <div class="phase now">
           <h3>In operation</h3>
-          <div class="when">today (prototype)</div>
+          <div class="when">MVP, as of 16 Nov 2026</div>
           <ul>
-            <li><strong>Hybrid search</strong> on Qdrant (2,543 text chunks, 1,786 photo entries)</li>
-            <li><strong>Query planner</strong> with pronoun resolution and entity register (8,331 entities)</li>
-            <li><strong>LLM reranker</strong> and calibrated relevance gate</li>
-            <li><strong>Deterministic citations</strong> for web chat and Telegram</li>
-            <li><strong>API protection</strong> with rate limiting and anonymous logging</li>
+            <li><strong>Hybrid search</strong> on Qdrant (2,543 text passages, 1,786 photo records)</li>
+            <li><strong>Intent router</strong> with resolution of follow-up questions and name register (8,331 entries)</li>
+            <li><strong>Reranking</strong> and calibrated relevance threshold</li>
+            <li><strong>Source line from code</strong> for web chat and Telegram</li>
+            <li><strong>Interface protection</strong> with rate limiting and pseudonymous logging</li>
           </ul>
         </div>
         <div class="phase">
           <h3>Next</h3>
-          <div class="when">ongoing build-out</div>
+          <div class="when">ongoing work</div>
           <ul>
-            <li><strong>Privacy measures:</strong> review of the photo collection and anonymisation of contemporary individuals in images</li>
-            <li><strong>Vector search fine-tuning:</strong> refining weights for complex thematic queries</li>
-            <li><strong>Portfolio release:</strong> staged publication of reviewed architecture and code modules</li>
+            <li><strong>Personality rights:</strong> clarification on names and photos of living and deceased persons</li>
+            <li><strong>Privacy in the photo archive:</strong> where needed, make current persons unrecognisable</li>
+            <li><strong>User tests</strong> with selected people from the association and the village</li>
+            <li><strong>Transparency in the chat:</strong> AI notice, retention period and automatic deletion of logs</li>
+            <li><strong>Code on GitHub,</strong> step by step and with a fictitious demo dataset</li>
           </ul>
         </div>
         <div class="phase">
-          <h3>Then</h3>
+          <h3>After that</h3>
           <div class="when">expansion</div>
           <ul>
-            <li><strong>Automated OCR pipeline</strong> for newly scanned publications and historical minutes</li>
-            <li><strong>Incremental register updates</strong> when ingesting new archival holdings</li>
-            <li><strong>Curator analytics view</strong> to inspect unanswered queries and collection gaps</li>
+            <li><strong>Operating model</strong> with the association: maintenance, responsibilities, costs</li>
+            <li><strong>Opening to the public</strong> after the association's consent</li>
+            <li><strong>Add further publications,</strong> with text recognition (OCR) for newly scanned material</li>
+            <li><strong>Observability with Langfuse</strong> instead of an own log table</li>
           </ul>
         </div>
         <div class="phase">
-          <h3>Research</h3>
-          <div class="when">open questions</div>
+          <h3>Ideas for the future</h3>
+          <div class="when">possible extensions</div>
           <ul>
-            <li><strong>Local cross-encoder</strong> for faster reranking without external API calls</li>
-            <li><strong>Multimodal image search</strong> using visual embeddings for uncaptioned photos</li>
-            <li><strong>Audio indexing</strong> for spoken Swiss German oral history interviews</li>
+            <li><strong>Self-service ingestion:</strong> the association uploads new documents and photos itself, and the pipeline processes them automatically</li>
+            <li><strong>Image search by picture content</strong> with multimodal embeddings, also for uncaptioned photos</li>
+            <li><strong>Local cross-encoder</strong> for faster reranking without an external call</li>
+            <li><strong>Analysis for the archive:</strong> which questions remain open</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section id="stack">
-      <h2>Technology</h2>
-      <p class="section-lead">Operated on a dedicated European virtual server with internal container network isolation and no exposed database ports. Only language model and dense embedding calls go through the OpenAI API.</p>
+    <section id="tech">
+      <h2>Architecture and technology</h2>
+      <p class="section-lead">For those who want to dig deeper. A request passes through six layers, from the user interface to storage.</p>
+      <div class="arch">
+        <div class="arch-stack">
+          <div class="layer">
+            <div class="layer-name">User interfaces<small>Access for users</small></div>
+            <div class="chips"><span class="chip">Web chat (Streamlit)</span><span class="chip">Telegram bot</span><span class="chip">Traefik reverse proxy (TLS)</span></div>
+          </div>
+          <div class="arrow">▼</div>
+          <div class="layer gov">
+            <div class="layer-name">Protection layer<small>API and governance</small></div>
+            <div class="chips"><span class="chip gov">Internal Docker network separation</span><span class="chip gov">Rate limiting (sliding window)</span><span class="chip gov">Webhook secret token</span><span class="chip gov">No open database port</span></div>
+          </div>
+          <div class="arrow">▼</div>
+          <div class="layer">
+            <div class="layer-name">Planning and register<small>Understand and normalise</small></div>
+            <div class="chips"><span class="chip">Intent router (one model call)</span><span class="chip">Pronoun resolution</span><span class="chip">Place focus</span><span class="chip">In-memory name register</span><span class="chip">Typo correction (fuzzy matching)</span></div>
+          </div>
+          <div class="arrow">▼</div>
+          <div class="layer">
+            <div class="layer-name">Search and verification<small>Retrieval and relevance threshold</small></div>
+            <div class="chips"><span class="chip">Qdrant hybrid search (RRF)</span><span class="chip">Exact register search</span><span class="chip">LLM reranker</span><span class="chip gov">Relevance threshold against hallucination</span><span class="chip plan">Local cross-encoder</span></div>
+          </div>
+          <div class="arrow">▼</div>
+          <div class="layer">
+            <div class="layer-name">Answer and citations<small>Synthesis and evidence</small></div>
+            <div class="chips"><span class="chip">Answer with evidence markers</span><span class="chip gov">Naming gaps in partial knowledge</span><span class="chip gov">Deterministic source line</span><span class="chip">Parallel photo hint</span></div>
+          </div>
+          <div class="arrow">▼</div>
+          <div class="layer">
+            <div class="layer-name">Storage and models<small>Index and operation</small></div>
+            <div class="chips"><span class="chip">Qdrant vector database</span><span class="chip">Catalogue of publications</span><span class="chip">Source type and place per passage</span><span class="chip">Photo server (Nginx)</span><span class="chip">OpenAI gpt-4o-mini</span><span class="chip">BM25 (local)</span><span class="chip plan">Automated OCR pipeline</span></div>
+          </div>
+        </div>
+        <div class="arch-side">
+          <div class="side-box hitl">
+            <h3>Quality and evals</h3>
+            <div class="chips"><span class="chip gov">99 test cases in four suites</span><span class="chip gov">98.7&nbsp;% recall on names</span><span class="chip gov">5 of 5 questions without evidence recognised</span><span class="chip gov">Regression tests before every change</span></div>
+          </div>
+          <div class="side-box">
+            <h3>Observability</h3>
+            <div class="chips"><span class="chip">Pseudonymous SQLite log</span><span class="chip">Latency and hit measurement</span><span class="chip">User feedback in chat</span><span class="chip plan">Tracing with Langfuse</span><span class="chip plan">Automatic deletion</span><span class="chip plan">Privacy image clean-up</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="legend"><span class="chip">in operation</span><span class="chip plan">planned</span><span class="chip gov">governance and protection</span></div>
+      <ol class="layers-text">
+        <li><strong>User interfaces:</strong> web chat (Streamlit) and Telegram bot. In front of them sits Traefik as a reverse proxy: it receives all requests from outside, routes them to the right service and encrypts the connection (TLS with certificates from Let's Encrypt).</li>
+        <li><strong>Protection layer:</strong> the API and the database cannot be reached from outside. A rate limiter counts requests per hour in a sliding time window and throttles above 60. The Telegram access checks a secret token with every message, so that only Telegram itself can call the server.</li>
+        <li><strong>Planning and register:</strong> the planner is the system's intent router. A single model call recognises intent, subject and place and resolves references such as “it” or “she” from the conversation history (pronoun resolution). The name register with 8,331 entries is held in memory and matches names approximately (fuzzy matching), so that a doubled letter or a missing “h” still leads to the right farmstead.</li>
+        <li><strong>Search and verification:</strong> hybrid search finds candidates by meaning and keywords. A language model scores each candidate (reranking). Then the relevance threshold, in technical jargon the “gate”, decides whether an answer is produced at all: if no passage reaches the threshold, the system honestly says “no information”.</li>
+        <li><strong>Answer and citations:</strong> the model formulates the answer only from the verified passages and inserts markers. The code replaces the markers with the source line including issue and page, and points to matching photos if there are any.</li>
+        <li><strong>Storage and models:</strong> Qdrant stores all text passages and photo records with their vectors and metadata. A manually verified catalogue of the publications supplies title, issue and year for the source line. The photos are served by a dedicated image server.</li>
+      </ol>
       <div class="stack">
         <div class="card"><dl>
-          <dt>Orchestration</dt><dd>Custom Python service (FastAPI, AsyncIO, Pydantic Structured Outputs) without heavy agent frameworks</dd>
-          <dt>Language model</dt><dd>OpenAI gpt-4o-mini for query planning, reranking and source-grounded answer synthesis</dd>
-          <dt>Embeddings</dt><dd>OpenAI text-embedding-3-small (1536D dense) and FastEmbed Qdrant/bm25 (local German sparse vectors)</dd>
-          <dt>Entity register</dt><dd>In-memory lookup with RapidFuzz (WRatio) and rule-based normalisation for people, buildings and addresses</dd>
-          <dt>Channels</dt><dd>Streamlit (web interface) and Telegram Bot API via authenticated HTTPS webhook</dd>
+          <dt>Orchestration</dt><dd>Own Python service (FastAPI, AsyncIO) without an agent framework. Model responses are validated against a fixed schema with Pydantic (structured outputs)</dd>
+          <dt>Language model</dt><dd>OpenAI gpt-4o-mini for intent router, reranking and source-based answers</dd>
+          <dt>Embeddings</dt><dd>OpenAI text-embedding-3-small turns every text passage and every question into a numerical vector that captures its meaning. In addition, BM25 (FastEmbed) runs locally on the server and weights keywords</dd>
+          <dt>Name register</dt><dd>List of all persons, buildings and addresses in memory, approximate matching with the RapidFuzz library and fixed rules for spelling variants</dd>
+          <dt>User interfaces</dt><dd>Streamlit (web chat) and Telegram Bot API via a secured HTTPS webhook</dd>
         </dl></div>
         <div class="card"><dl>
-          <dt>Vector database</dt><dd>Qdrant (v1.16.1, self-hosted in Docker, hybrid retrieval via Reciprocal Rank Fusion)</dd>
-          <dt>Catalogue and logging</dt><dd>Curated YAML publication catalogue and local SQLite in WAL mode for anonymised operational metrics</dd>
-          <dt>Platform and network</dt><dd>Linux VPS (Ubuntu 24.04), Docker Compose, Traefik reverse proxy (Let's Encrypt), Nginx for media files</dd>
-          <dt>Quality and release</dt><dd>Custom evaluation framework (99 test cases across 4 suites) and multi-stage release gate with Gitleaks</dd>
+          <dt>Vector database</dt><dd>Qdrant (v1.16.1, self-hosted in Docker), hybrid queries via reciprocal rank fusion</dd>
+          <dt>Catalogue and log</dt><dd>Verified catalogue of all publications as the basis for the source line. Operational log in a SQLite database on the server</dd>
+          <dt>Platform and network</dt><dd>Linux VPS (Ubuntu 24.04), Docker Compose, Traefik reverse proxy (Let's Encrypt), Nginx for the photos</dd>
+          <dt>Quality and release</dt><dd>Own evaluation framework (99 test cases in 4 suites) and multi-stage checks before every publication, including Gitleaks against accidentally published keys</dd>
+          <dt>Development</dt><dd>Claude Code in VS Code, Google Antigravity, Git and GitHub</dd>
         </dl></div>
       </div>
+      <p class="facts-line">Operated on its own virtual server in Europe with internal container network separation and no open database ports. Only the language model and the embedding model run via the OpenAI API: for embedding, the text passages are sent there during ingestion and each question at runtime.</p>
+    </section>
+
+    <section id="projects">
+      <h2>More projects</h2>
+      <p class="section-lead">My second project, documented in the same way.</p>
+      <div class="grid two">
+        <a class="card project" href="https://lab.bh-automation.cloud/en/" target="_blank" rel="noopener">
+          <span class="tag">AI agents</span>
+          <h3>Enterprise AI Lab</h3>
+          <p>An AI agent works in a fictitious Swiss company: quotes, invoices, monthly report, inbox. With guardrails, human-in-the-loop and measurement against target values.</p>
+          <span class="more">lab.bh-automation.cloud →</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="about-this-page" class="page-note">
+      <p><strong>About this page:</strong> This page is a project presentation. It shows the goal, design, approach and metrics of Museum-RAG. All information is as of 16 November 2026; the project continues to be developed. The page contains no texts, photos or data from the museum collection and sets no cookies. Details in the <a href="privacy.html">privacy policy</a>.</p>
     </section>
   </div>
 </main>
