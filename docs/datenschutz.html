@@ -24,7 +24,7 @@
 <main class="wrap">
   <article class="prose">
     <h1>Datenschutzerklärung</h1>
-    <p class="small">Stand: 13. November 2026</p>
+    <p class="small">Stand: 16. November 2026</p>
 
     <p>Diese Erklärung gilt für die Informations-Website <code>museum-rag.bh-automation.cloud</code> und beschreibt zudem transparent die Datenverarbeitung im zugrundeliegenden Prototypen «Museum-RAG». Es gilt das Schweizer Datenschutzgesetz (DSG).</p>
 
@@ -47,7 +47,7 @@
       <li><strong>Hosting und Datenbank:</strong> Die Anwendung, die Vektordatenbank (Qdrant) und die Mediendateien werden in Docker-Containern auf einem virtuellen Server bei Hostinger (Serverstandort in der Europäischen Union) betrieben.</li>
       <li><strong>Sprachmodell und Vektorisierung:</strong> Zur Analyse von Suchanfragen, zur Relevanzbewertung (Reranking) und zur Formulierung der Antworten nutzt das System die Programmierschnittstelle (API) von OpenAI (OpenAI, L.L.C., USA; eingesetzte Modelle: <code>gpt-4o-mini</code> und <code>text-embedding-3-small</code>). Dabei werden der Fragetext sowie die relevanten Textauszüge aus dem Archivbestand an OpenAI übermittelt. Über die API übermittelte Daten werden von OpenAI gemäss deren API-Richtlinien nicht zum Training von Modellen verwendet. Siehe die <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">Datenschutzerklärung von OpenAI</a>.</li>
       <li><strong>Telegram-Anbindung:</strong> Bei Nutzung des optionalen Telegram-Kanals werden Nachrichten über die Infrastruktur von Telegram (Telegram Messenger Inc.) an den abgesicherten Webhook des Servers übertragen.</li>
-      <li><strong>Anonymes Betriebsprotokoll:</strong> Zur Qualitätssicherung und für das Rate-Limiting speichert das System lokal auf dem Server in einer SQLite-Datenbank den Zeitpunkt, den Kanal (Web oder Telegram), die eingegebene Sachfrage, die Antwortzeit, die Trefferanzahl sowie optionale Daumen-Bewertungen. IP-Adressen, Klarnamen oder Telegram-Benutzernamen werden nicht gespeichert; Sitzungen werden nur als einweg-gehashte Prüfwerte (SHA-256 mit Salt) geführt.</li>
+      <li><strong>Pseudonymes Betriebsprotokoll:</strong> Zur Qualitätssicherung und für das Rate-Limiting speichert das System lokal auf dem Server in einer SQLite-Datenbank den Zeitpunkt, den Kanal (Web oder Telegram), die eingegebene Frage, die Antwortzeit, die Trefferanzahl sowie optionale Daumen-Bewertungen. IP-Adressen und Telegram-Benutzernamen werden nicht gespeichert; Sitzungen werden nur als einweg-gehashte Prüfwerte (SHA-256 mit Salt) geführt. Da eine Frage selbst Namen oder Adressen enthalten kann, ist das Protokoll pseudonym und nicht vollständig anonym. Vor der Öffnung für die Allgemeinheit werden eine feste Aufbewahrungsfrist mit automatischer Löschung und ein entsprechender Hinweis im Chat eingeführt.</li>
       <li><strong>Keine Weitergabe:</strong> Es erfolgt kein Verkauf von Daten und keine Nutzung zu Werbezwecken.</li>
     </ul>
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Museum-RAG – Beat Hutter</title>
-  <meta name="description" content="Ein Chat-Assistent für ein Ortsmuseum: beantwortet Fragen zur Dorfgeschichte aus den eigenen Schriften, belegt jede Aussage mit Heft und Seite und findet passende Fotos. Ein KI-Projekt von Beat Hutter.">
+  <meta name="description" content="Projektpräsentation: ein Chat-Assistent für ein Ortsmuseum, der Fragen zur Dorfgeschichte aus den eigenen Schriften beantwortet, jede Aussage mit Heft und Seite belegt und passende Fotos findet. Ein KI-Projekt von Beat Hutter.">
   <link rel="alternate" hreflang="en" href="en/">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="assets/logo-rag.svg" type="image/svg+xml">
@@ -29,7 +29,7 @@
     <section class="hero">
       <div class="hero-grid">
       <div class="hero-text">
-      <p class="eyebrow">KI-Projekt von Beat Hutter</p>
+      <p class="eyebrow">Projektpräsentation · KI-Projekt von Beat Hutter</p>
       <h1>Dorfgeschichte aus dem Archiv holen</h1>
       <p class="subline">Antworten aus den eigenen Quellen, jede Aussage mit Heft und Seite belegt.</p>
       <p class="lead">Alte Chroniken, Jahresschriften und Fotosammlungen stecken voller Geschichten über das eigene Dorf, liegen aber meist in Schachteln und PDF-Dateien. Für ein Ortsmuseum baue ich einen Chat-Assistenten, der dieses Wissen durchsuchbar macht. Wer nach einem alten Hof, einer Strasse oder einem Gewerbe fragt, bekommt Auskunft aus den Originalquellen und sieht die passenden Bilder dazu.</p>
@@ -43,105 +43,120 @@
       </figure>
       </div>
       <div class="kpis">
-        <div class="kpi"><strong>1'786</strong><span>Fotoeinträge und 24 Publikationen durchsuchbar, mit 8'331 Namen im Register</span></div>
-        <div class="kpi"><strong>98.7 %</strong><span>Trefferquote bei Fragen zu Namen und Adressen, vorher 77.3 %</span></div>
-        <div class="kpi"><strong>5 von 5</strong><span>Fragen ohne Beleg korrekt mit «keine Angaben» beantwortet</span></div>
-        <div class="kpi"><strong>50 h</strong><span>rund, verteilt auf etwa einen Monat Arbeitszeit bis zum Testbetrieb</span></div>
+        <div class="kpi"><strong>1'786*</strong><span>Fotoeinträge und 24 Publikationen durchsuchbar, mit 8'331 Namen im Register</span></div>
+        <div class="kpi"><strong>98.7&nbsp;%*</strong><span>Trefferquote bei Fragen zu Namen und Adressen, im ersten Wurf 77.3&nbsp;%</span></div>
+        <div class="kpi"><strong>5 von 5*</strong><span>Fragen ohne Beleg korrekt mit «keine Angaben» beantwortet</span></div>
+        <div class="kpi"><strong>50 h*</strong><span>Arbeitsaufwand bis zum MVP, verteilt auf rund einen Monat</span></div>
       </div>
-      <p class="notice"><strong>Prototyp im Testbetrieb:</strong> Der Chat läuft auf eigener Infrastruktur im Web und auf Telegram, ist aber nicht öffentlich zugänglich. Geöffnet wird er erst, wenn Urheber- und Persönlichkeitsrechte geklärt sind und der Verein zugestimmt hat.</p>
+      <p class="notice"><strong>Status*: Prototyp im Testbetrieb.</strong> Das MVP (Minimum Viable Product, die erste voll funktionsfähige Version mit dem Kernumfang) ist fertig. Es hat das technische und funktionale Testing samt Evaluation durchlaufen. Der Test mit einer breiten Nutzerschaft steht noch aus. Der Chat läuft auf eigener Infrastruktur im Web und auf Telegram, ist aber nicht öffentlich zugänglich. Geöffnet wird er erst, wenn die Rechte mit dem Verein geklärt sind und der Verein zugestimmt hat.</p>
+      <p class="asof">* Stand 16.11.2026. Das Projekt wächst weiter, Zahlen und Status werden laufend nachgeführt.</p>
     </section>
 
     <section id="projekt">
       <h2>Das Projekt</h2>
-      <p class="section-lead">Am realen Bestand eines Ortsmuseums wird erprobt, wie sich alte Schriften und Fotos verlässlich für den Dialog erschliessen lassen. Das Verfahren heisst Retrieval-Augmented Generation (RAG): Das Sprachmodell antwortet aus Textstellen, die vorher im Bestand gefunden wurden.</p>
-      <div class="grid">
+      <p class="section-lead">Ich baue einen Prototypen mit einem klaren Ziel: Die wertvollen Schriften und Fotos des Dorfmuseums Birmensdorf sollen für die Allgemeinheit zugänglich werden, besonders für die Menschen im Dorf. Nach ausgiebigen Tests mit Nutzerinnen und Nutzern soll der Chat live gehen. Das Verfahren heisst Retrieval-Augmented Generation (RAG): Das Sprachmodell antwortet nicht aus seinem eigenen Wissen, sondern aus Textstellen, die vorher im Bestand gefunden wurden.</p>
+      <div class="grid two">
         <div class="card">
           <h3>Die Ausgangslage</h3>
-          <p>Ein historischer Verein hat über Jahrzehnte Schriften zur Dorfgeschichte herausgegeben und ein Fotoarchiv aufgebaut. Das Wissen steckt in PDF-Dateien und einer Excel-Liste. Wer etwas über einen Hof, eine Strasse oder eine Familie wissen will, muss die Hefte kennen oder lange suchen.</p>
+          <p>Ein historischer Verein hat über Jahrzehnte Schriften zur Dorfgeschichte herausgegeben und ein umfassendes Fotoarchiv aufgebaut. Das Wissen steckt in PDF-Dateien und in der Museumsdatenbank MuseumPro, die auf FileMaker aufbaut. Wer heute etwas über einen Hof, eine Strasse oder eine Familie wissen will, muss die Hefte kennen oder sich mit jemandem vom Museum an den Computer oder in den Archivraum setzen.</p>
         </div>
         <div class="card">
           <h3>Der Bestand</h3>
-          <p>24 Publikationen in 2'543 Textabschnitten, darunter ein Band über die Kunstdenkmäler des ganzen Bezirks. Dazu 1'786 inventarisierte Fotos und ein Register mit 8'331 Personen, Gebäuden, Adressen und Flurnamen. Es ist der Bestand des Dorfmuseums Birmensdorf der Heimatkundlichen Vereinigung.</p>
+          <p>Eingearbeitet sind bisher 24 Publikationen in 2'543 Textabschnitten, darunter ein Band über die Kunstdenkmäler des ganzen Bezirks. Dazu kommen 1'786 inventarisierte Fotos und ein Register mit 8'331 Personen, Gebäuden, Adressen und Flurnamen. Im Archiv liegen weitere Schriften. Sie werden Schritt für Schritt ins System aufgenommen. Es ist der Bestand des Dorfmuseums Birmensdorf der Heimatkundlichen Vereinigung.</p>
+        </div>
+      </div>
+      <h3 class="sub">Warum eine einfache KI-Suche nicht reicht</h3>
+      <div class="grid">
+        <div class="card">
+          <span class="tag">Stichwortsuche</span>
+          <h3>Findet Namen, versteht keine Bedeutung</h3>
+          <p>Die klassische Keyword-Suche (BM25) trifft Hofnamen, Familiennamen und Hausnummern genau. Sie scheitert aber, wenn die Frage andere Wörter benutzt als der Text: Wer nach «Müller» fragt, findet die Stelle über das «Mahlen» nicht. Ein Tippfehler führt ins Leere.</p>
         </div>
         <div class="card">
-          <h3>Warum eine einfache KI-Suche nicht reicht</h3>
-          <p>Eine einfache Vektorsuche fand allgemeine Themen gut. Sie scheiterte an dem, wonach im Dorf am häufigsten gefragt wird: Hof-, Flur- und Familiennamen und Hausnummern. Schon ein Tippfehler führte ins Leere, und das Sprachmodell erfand gelegentlich Seitenzahlen.</p>
+          <span class="tag">Vektorsuche</span>
+          <h3>Versteht Bedeutung, verwischt Namen</h3>
+          <p>Die semantische Suche über Embeddings findet Themen auch bei anderer Wortwahl. Genaue Namen und Zahlen erkennt sie schlecht: Die Hausnummer 2 liegt für sie nahe bei der 20, ein Hof nahe beim Nachbarhof. Im ersten Wurf erfand das Sprachmodell dazu gelegentlich Seitenzahlen.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Kombination</span>
+          <h3>Erst beides zusammen genügt</h3>
+          <p>Die hybride Suche fragt beide Verfahren gleichzeitig und führt die Ergebnisse zusammen. Namen und Adressen laufen zusätzlich über ein Register, das Tippfehler auffängt. Bei den Fotos gilt dasselbe: Namen und Adressen werden wortgenau in der Bildbeschreibung gesucht, Sachthemen wie «Schule» oder «Fasnacht» über die hybride Suche.</p>
         </div>
       </div>
       <p class="notice"><strong>Hinweis:</strong> Auf dieser Seite und auf GitHub stehen keine Texte, Fotos oder Daten aus dem Museumsbestand. Die Rechte daran liegen beim Verein.</p>
     </section>
 
     <section id="beispiel">
-      <h2>Ein Fall von A bis Z: die Frage nach der Mühle</h2>
-      <p class="section-lead">An einer einzelnen Frage zeigt sich, wie Planer, Register, Suche und Prüfung zusammenspielen und wo das System anhält.</p>
+      <h2>Eine Suche von A bis Z: die Frage nach der Mühle</h2>
+      <p class="section-lead">An einer einzelnen Frage zeigt sich, wie Intent Router, Register, Suche und Prüfung zusammenspielen und wo das System bewusst anhält.</p>
       <ol class="steps">
         <li><p><strong>Die Frage kommt an.</strong> Im Web-Chat oder auf Telegram fragt jemand: «Wer hat die Mühle betrieben?»</p></li>
-        <li><p><strong>Die Frage wird verstanden.</strong> Ein einziger Aufruf an das Sprachmodell erkennt die Absicht (Wissensfrage), den Gegenstand (die Mühle) und einen allfälligen Ort. Das Ergebnis kommt in einer festen Struktur zurück und wird geprüft (Structured Outputs).</p></li>
-        <li><p><strong>Der Ort wird festgelegt.</strong> Nennt die Frage keine Gemeinde, gilt Birmensdorf. Aus den Vereinsschriften kommen alle Stellen in Frage, aus dem Band über den ganzen Bezirk nur die Abschnitte zu Birmensdorf. Dafür trägt jeder Abschnitt seit dem Einlesen zwei Merkmale: die Art der Quelle und den Ort.</p></li>
-        <li><p><strong>Suchen.</strong> Die Suche verbindet eine Bedeutungssuche über Vektoren mit einer Stichwortsuche (BM25) und führt beide Ranglisten zusammen (Reciprocal Rank Fusion). Bei Namen und Adressen kommt eine wortgenaue Registersuche dazu, die auch Tippfehler auffängt.</p></li>
-        <li><p><strong>Prüfen.</strong> Ein Sprachmodell bewertet die gefundenen Stellen auf einer Skala von 0 bis 3 (Reranking). Liegt keine Stelle über der Schwelle, meldet das System, dass im Bestand keine Angaben vorliegen. Eine Antwort wird dann gar nicht erst erzeugt.</p></li>
-        <li><p><strong>Antworten mit Beleg.</strong> Das Sprachmodell schreibt die Antwort und setzt nur nummerierte Marker. Die Quellenzeile mit Heft und Seite baut der Programmcode aus einem geprüften Katalog. So kann das Modell keine Seitenzahl erfinden.</p></li>
-        <li><p><strong>Die Folgefrage.</strong> «Gibt es Fotos davon?» Das «davon» wird aus dem Gesprächsverlauf aufgelöst. Die Fotosuche selbst läuft ohne Sprachmodell und unterscheidet, was auf einem Bild zu sehen ist und wer es aufgenommen hat.</p></li>
+        <li><p><strong>Die Frage wird verstanden (Intent Router).</strong> Ein einziger Aufruf an das Sprachmodell erkennt die Absicht: Wissensfrage, Fotosuche, Frage zum Bestand oder Begrüssung. Er zieht Gegenstand und Ort aus der Frage (Entity Extraction) und formuliert bei Bedarf eine eigenständige Suchanfrage (Query Rewriting). Das Ergebnis kommt in einem festen Schema zurück und wird geprüft (Structured Outputs).</p></li>
+        <li><p><strong>Der Ort wird festgelegt (Metadaten-Filter).</strong> Im Verlauf des Testings zeigte sich, dass das Datenmodell einen Ort braucht. Darum wurde es erweitert: Jeder Textabschnitt trägt seither zwei Metadaten, die Art der Quelle und die Gemeinde. Nennt die Frage keine Gemeinde, gilt Birmensdorf. Der Filter lässt aus den Vereinsschriften alle Stellen zu, aus dem Band über den ganzen Bezirk nur die Abschnitte zu Birmensdorf.</p></li>
+        <li><p><strong>Suchen (Hybrid Search).</strong> Die semantische Suche über Embeddings (Dense Retrieval) und die Stichwortsuche BM25 (Sparse Retrieval) laufen parallel. Reciprocal Rank Fusion führt beide Ranglisten zu einer zusammen. Bei Namen und Adressen kommt eine wortgenaue Registersuche dazu, die Tippfehler per Fuzzy Matching auffängt.</p></li>
+        <li><p><strong>Prüfen (Reranking und Relevanzschwelle).</strong> Ein Sprachmodell bewertet jede gefundene Stelle auf einer Skala von 0 bis 3, nach dem Prinzip LLM-as-a-Judge. Liegt keine Stelle über der Schwelle, greift ein Guardrail: Das System meldet, dass im Bestand keine Angaben vorliegen, und erzeugt gar keine Antwort. So entsteht keine Halluzination.</p></li>
+        <li><p><strong>Antworten mit Beleg (Grounding).</strong> Das Sprachmodell schreibt die Antwort nur aus den geprüften Stellen und setzt nummerierte Marker. Die Quellenzeile mit Heft und Seite baut der Programmcode aus einem geprüften Katalog. So kann das Modell keine Seitenzahl erfinden.</p></li>
+        <li><p><strong>Die Folgefrage (Pronomenauflösung).</strong> «Gibt es Fotos davon?» Das «davon» wird aus dem Gesprächsverlauf aufgelöst. Die Fotosuche selbst kommt ohne generatives Sprachmodell aus: Namen sucht sie wortgenau, Sachthemen hybrid wie bei den Texten, und sie unterscheidet, was auf einem Bild zu sehen ist und wer es aufgenommen hat. Wo Regeln und Suche genügen, braucht es kein Sprachmodell. Das ist Best Practice: Es spart Kosten und Antwortzeit und macht das Ergebnis reproduzierbar.</p></li>
       </ol>
-      <p class="notice trap"><strong>Die Falle im Test: Mühlen gibt es in vielen Dörfern.</strong> Der Band über die Kunstdenkmäler des Bezirks Dietikon macht rund 60 % des Textes aus und beschreibt auch Mühlen in Nachbargemeinden. Ohne Ortsangabe hätte die Suche sie mit der Birmensdorfer Mühle vermischt und die Dorfschriften verdrängt. Darum wurde das Einlesen des Bands angepasst: Jeder Abschnitt ist einer Gemeinde zugeordnet. Seither bleibt die Antwort bei Birmensdorf, und die Frage nach den Mühlen in Dietikon funktioniert trotzdem.</p>
-      <p class="facts-line">Jede Anfrage wird anonym mit Antwortzeit, Zahl der Treffer und Bewertung protokolliert, ohne IP-Adressen und Namen. So zeigt sich, welche Fragen offen bleiben.</p>
+      <p class="notice trap"><strong>Allgemeine und spezifische Quellen verbinden.</strong> Der Band über die Kunstdenkmäler des Bezirks Dietikon ist eine allgemeine Quelle. Er macht rund 60&nbsp;% des Textes aus und beschreibt auch Mühlen in Nachbargemeinden. Die Vereinsschriften sind spezifisch, sie handeln nur von Birmensdorf. Ohne Unterscheidung hätte die grosse Quelle die kleinen verdrängt und die Mühlen vermischt. Die Lösung ist ein Attribut, nach dem sich filtern lässt: Beim Einlesen bekommt jeder Abschnitt die Gemeinde als Metadatum. Seither bleibt die Antwort bei Birmensdorf, und die Frage nach den Mühlen in Dietikon funktioniert trotzdem. Das Muster gilt allgemein: Wer Quellen unterschiedlicher Reichweite in einem Index zusammenführt, braucht ein Merkmal, mit dem sich die Auswahl steuern lässt.</p>
+      <p class="facts-line"><strong>Observability:</strong> Jede Anfrage wird mit Antwortzeit, Zahl der Treffer und Bewertung protokolliert, ohne IP-Adressen und mit pseudonymer Sitzungskennung. So zeigt sich, welche Fragen offen bleiben und wo das System schwächelt. Heute liegt das Protokoll in einer eigenen SQLite-Datenbank. Geplant ist ein selbst betriebenes Observability-Werkzeug wie Langfuse, das jeden Schritt einer Anfrage nachvollziehbar macht (Tracing).</p>
     </section>
 
     <section id="ergebnisse">
       <h2>Was das System heute kann</h2>
-      <p class="section-lead">Sieben Fähigkeiten, gemessen gegen ein festes Testset mit 99 Testfällen in vier Suiten. Alle Läufe nutzen gpt-4o-mini von OpenAI.</p>
+      <p class="section-lead">Sieben Fähigkeiten, gemessen gegen ein festes Testset (Ground Truth) mit 99 Testfällen in vier Suiten. Vom ersten Wurf bis zum MVP kamen die Verbesserungen aus drei Hebeln: saubere Daten in der Ingestion Pipeline, eine Suche, die je nach Frage den passenden Weg wählt, und Prüfschritte vor der Antwort. Jede Änderung wurde gemessen, bevor sie übernommen wurde. Alle Läufe nutzen gpt-4o-mini von OpenAI.</p>
       <div class="table-wrap">
         <table class="results">
-          <thead><tr><th scope="col">Fähigkeit</th><th scope="col">Was das System macht</th><th scope="col">Messgrösse</th><th scope="col">Vorher → heute</th></tr></thead>
+          <thead><tr><th scope="col">Fähigkeit</th><th scope="col">Was das System macht</th><th scope="col">Messgrösse</th><th scope="col">Erster Wurf → MVP*</th></tr></thead>
           <tbody>
-            <tr><td>Namen und Adressen</td><td data-label="Was das System macht">Höfe, Strassen, Familien und Hausnummern werden wortgenau gesucht. Die Hausnummer 2 trifft nicht die 20. Tippfehler fängt das Namensregister auf</td><td data-label="Messgrösse">Trefferquote</td><td class="cost" data-label="Vorher → heute">77.3 % → 98.7 %</td></tr>
-            <tr><td>Sachthemen</td><td data-label="Was das System macht">Offene Fragen, etwa zur Schule oder zum Gewerbe, laufen über die hybride Suche. Ein Sprachmodell ordnet die Fundstellen nach Relevanz (Reranking)</td><td data-label="Messgrösse">Trefferquote</td><td class="cost" data-label="Vorher → heute">45.0 % → 79.4 %</td></tr>
-            <tr><td>Fragen ohne Beleg</td><td data-label="Was das System macht">Steht im Bestand nichts zur Frage, sagt das System das. Eine Antwort wird gar nicht erst erzeugt</td><td data-label="Messgrösse">korrekt mit «keine Angaben» beantwortet</td><td class="cost" data-label="Vorher → heute">4 von 5 → 5 von 5</td></tr>
-            <tr><td>Teilwissen</td><td data-label="Was das System macht">Bei mehrteiligen Fragen beantwortet das System den belegten Teil und nennt, wozu Angaben fehlen</td><td data-label="Messgrösse">Lücken korrekt benannt</td><td class="cost" data-label="Vorher → heute">4 von 4</td></tr>
-            <tr><td>Fotosuche</td><td data-label="Was das System macht">Sucht in 1'786 Einträgen, unterscheidet abgebildete Personen von Fotografierenden und filtert nach Jahren. Die Suche selbst braucht kein Sprachmodell</td><td data-label="Messgrösse">richtige Bilder unter den ersten zehn</td><td class="cost" data-label="Vorher → heute">29.9 % → 94.2 %</td></tr>
-            <tr><td>Absicht erkennen</td><td data-label="Was das System macht">Wissensfrage, Fotosuche, Frage zum Bestand oder Begrüssung, erkannt in einem einzigen Modellaufruf</td><td data-label="Messgrösse">richtig erkannte Fragen</td><td class="cost" data-label="Vorher → heute">33 von 40 → 40 von 40</td></tr>
-            <tr><td>Folgefragen</td><td data-label="Was das System macht">«Wann wurde sie gebaut?» oder «Gibt es Fotos davon?» werden aus dem Gesprächsverlauf aufgelöst</td><td data-label="Messgrösse">richtig verstandene Gesprächsschritte</td><td class="cost" data-label="Vorher → heute">13 von 15 → 15 von 15</td></tr>
+            <tr><td>Namen und Adressen</td><td data-label="Was das System macht">Höfe, Strassen, Familien und Hausnummern werden wortgenau gesucht (Keyword-Filter mit Wortgrenzen). Die Hausnummer 2 trifft nicht die 20. Tippfehler fängt das Namensregister per Fuzzy Matching auf</td><td data-label="Messgrösse">Trefferquote (Recall)</td><td class="cost" data-label="Erster Wurf → MVP*">77.3&nbsp;% → 98.7&nbsp;%</td></tr>
+            <tr><td>Sachthemen</td><td data-label="Was das System macht">Offene Fragen, etwa zur Schule oder zum Gewerbe, laufen über die hybride Suche. Ein Sprachmodell ordnet die Fundstellen nach Relevanz (LLM-Reranking)</td><td data-label="Messgrösse">Trefferquote (Recall)</td><td class="cost" data-label="Erster Wurf → MVP*">45.0&nbsp;% → 79.4&nbsp;%</td></tr>
+            <tr><td>Fragen ohne Beleg</td><td data-label="Was das System macht">Steht im Bestand nichts zur Frage, sagt das System das. Eine Relevanzschwelle als Guardrail verhindert, dass überhaupt eine Antwort erzeugt wird</td><td data-label="Messgrösse">korrekt mit «keine Angaben» beantwortet</td><td class="cost" data-label="Erster Wurf → MVP*">4 von 5 → 5 von 5</td></tr>
+            <tr><td>Teilwissen</td><td data-label="Was das System macht">Bei mehrteiligen Fragen beantwortet das System den belegten Teil und nennt, wozu Angaben fehlen, statt die Lücke zu füllen</td><td data-label="Messgrösse">Lücken korrekt benannt</td><td class="cost" data-label="Erster Wurf → MVP*">4 von 4</td></tr>
+            <tr><td>Fotosuche</td><td data-label="Was das System macht">Sucht in 1'786 Einträgen, unterscheidet abgebildete Personen von Fotografierenden und filtert nach Jahren (Metadaten-Filter). Die Suche selbst braucht kein generatives Sprachmodell</td><td data-label="Messgrösse">richtige Bilder unter den ersten zehn (Recall@10)</td><td class="cost" data-label="Erster Wurf → MVP*">29.9&nbsp;% → 94.2&nbsp;%</td></tr>
+            <tr><td>Absicht erkennen</td><td data-label="Was das System macht">Der Intent Router unterscheidet Wissensfrage, Fotosuche, Frage zum Bestand und Begrüssung in einem einzigen Modellaufruf</td><td data-label="Messgrösse">richtig erkannte Fragen</td><td class="cost" data-label="Erster Wurf → MVP*">33 von 40 → 40 von 40</td></tr>
+            <tr><td>Folgefragen</td><td data-label="Was das System macht">«Wann wurde sie gebaut?» oder «Gibt es Fotos davon?» werden aus dem Gesprächsverlauf aufgelöst (Pronomenauflösung, Query Rewriting)</td><td data-label="Messgrösse">richtig verstandene Gesprächsschritte</td><td class="cost" data-label="Erster Wurf → MVP*">13 von 15 → 15 von 15</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="below-table">Ausgangslage ist der Stand vom 28. und 29.10.2026, gemessen mit demselben Testset wie heute. Die Testfragen enthalten Inhalte aus dem Archiv und werden deshalb nicht veröffentlicht. Mehr dazu im <a href="https://github.com/BeatHutter/museum-hybrid-rag/blob/main/README.de.md" target="_blank" rel="noopener">README auf GitHub</a>.</p>
+      <p class="below-table">Erster Wurf ist der Stand vom 28. und 29.10.2026, gemessen mit demselben Testset wie das MVP. * Stand 16.11.2026. Die Testfragen enthalten Inhalte aus dem Archiv und werden deshalb nicht veröffentlicht. Mehr dazu im <a href="https://github.com/BeatHutter/museum-hybrid-rag/blob/main/README.de.md" target="_blank" rel="noopener">README auf GitHub</a>.</p>
       <div class="grid two cost-cards">
         <div class="card">
           <h3>Warum gpt-4o-mini</h3>
-          <p>Das Modell wird nach Messung gewählt. gpt-4o-mini übernimmt Planung, Reranking und Antwort. In einem frühen Vergleich erreichte das grössere gpt-4o dieselbe Trefferquote, beantwortete aber nur 2 von 5 Fragen ohne Beleg korrekt, gpt-4o-mini dagegen 4 von 5. Mit der späteren Relevanzschwelle sind es heute 5 von 5. Dazu ist das kleinere Modell deutlich günstiger.</p>
+          <p>Eine RAG-Suche braucht kein Frontier-Modell. Das Wissen kommt aus den gefundenen Textstellen. Das Modell muss sie verstehen, bewerten und sauber zusammenfassen, aber kein eigenes Wissen beisteuern. Ein früher Vergleich bestätigte das: Das grössere gpt-4o erreichte dieselbe Trefferquote, beantwortete aber nur 2 von 5 Fragen ohne Beleg korrekt, gpt-4o-mini dagegen 4 von 5. Mit der späteren Relevanzschwelle sind es heute 5 von 5. Dazu kostet das kleinere Modell pro Token rund ein Fünfzehntel. Im Sinne von FinOps fiel die Wahl deshalb auf gpt-4o-mini.</p>
         </div>
         <div class="card">
           <h3>Eigener Code ohne Framework</h3>
-          <p>Die Verarbeitung ist in eigenem Python-Code gebaut, ohne LangChain oder LlamaIndex. Bei zwei Suchpfaden und einem Sprachmodell lohnt sich die zusätzliche Schicht eines Frameworks nicht. Jeder Schritt bleibt sichtbar, lässt sich einzeln messen und erklären.</p>
+          <p>Viele KI-Anwendungen entstehen heute mit Frameworks wie LangChain oder LlamaIndex oder mit den Agent-SDKs der Modellanbieter, etwa von Anthropic, Google oder OpenAI. Sie bündeln wiederkehrende Bausteine und legen eine Abstraktionsschicht über den Python-Code. Hier habe ich bewusst darauf verzichtet: Ich wollte volle Transparenz und jeden Schritt einzeln sehen, messen und erklären können. Bei zwei Suchpfaden und einem Sprachmodell hätte ein Framework wenig vereinfacht. Die Orchestrierung ist deshalb eigener Python-Code mit FastAPI und Pydantic.</p>
         </div>
       </div>
     </section>
 
     <section id="spielregeln">
       <h2>Die Spielregeln: Governance in acht Grundsätzen</h2>
-      <p class="section-lead">Diese Grundsätze legen fest, wie das System mit Quellen, Personen und Daten umgeht. Umgesetzt sind sie im Code und in der Infrastruktur.</p>
+      <p class="section-lead">Diese Grundsätze legen fest, wie das System mit Quellen, Personen und Daten umgeht. Umgesetzt sind sie im Code und in der Infrastruktur, die noch offenen Punkte vor der Öffnung für die Bevölkerung.</p>
       <ol class="principles">
-        <li><div><h3>Deterministisch vor Sprachmodell</h3><p>Was feste Regeln zuverlässig erledigen, läuft ohne Sprachmodell: Namensabgleich, Fotosuche, Quellenzeile, Fragen zum Bestand aus dem Katalog und Begrüssungen. Das Modell kommt dort zum Einsatz, wo Sprache verstanden oder Relevanz abgewogen werden muss.</p></div></li>
-        <li><div><h3>Keine Aussage ohne Beleg im Bestand</h3><p>Erreichen die gefundenen Textstellen nach dem Reranking die Relevanzschwelle nicht, bricht das System vor der Antwort ab und meldet, dass im Bestand keine Angaben vorliegen.</p></div></li>
-        <li><div><h3>Code baut die Quellenangabe</h3><p>Das Sprachmodell setzt im Text nur Verweismarker. Die sichtbare Quellenzeile mit Titel, Heftnummer und Seite erzeugt der Programmcode aus dem Katalog.</p></div></li>
-        <li><div><h3>Rechte am Inhalt wahren</h3><p>Texte, Fotos und Bestandsdaten bleiben beim Verein. Sie liegen nicht im öffentlichen Repository. Auch die Testfragen werden nicht veröffentlicht, weil sie Inhalte aus dem Archiv enthalten.</p></div></li>
-        <li><div><h3>Persönlichkeitsrechte im Bestand</h3><p>Die Schriften nennen viele Menschen, lebende und verstorbene, und das Fotoarchiv zeigt sie. Vor einer Öffnung wird geklärt, welche Namen und Bilder öffentlich erscheinen dürfen (Persönlichkeitsschutz, Recht am eigenen Bild, Datenschutz). Die Abklärung läuft. Die Protokolle des Chats speichern keine IP-Adressen und keine Namen.</p></div></li>
-        <li><div><h3>Öffnung erst nach Klärung</h3><p>Der Chat läuft als Prototyp im Testbetrieb und ist nicht öffentlich. Geöffnet wird er erst, wenn Urheber- und Persönlichkeitsrechte geklärt sind und der Verein zugestimmt hat.</p></div></li>
-        <li><div><h3>Abgesicherte Schnittstellen</h3><p>Programmierschnittstelle und Vektordatenbank sind von aussen nicht erreichbar. Erreichbar sind nur die Web-Oberfläche und der Telegram-Zugang, dieser mit geheimem Token. Anfragen sind auf 60 pro Stunde begrenzt.</p></div></li>
-        <li><div><h3>Messen vor dem Ändern</h3><p>Jede Anpassung an Aufbereitung, Suche oder Prompts durchläuft vor der Übernahme die Evaluation über alle vier Testsuiten.</p></div></li>
+        <li><div><h3>Deterministisch vor Sprachmodell</h3><p>Was feste Regeln zuverlässig erledigen, läuft ohne Sprachmodell: Namensabgleich, Fotosuche, Quellenzeile, Fragen zum Bestand aus dem Katalog und Begrüssungen. Das Modell kommt dort zum Einsatz, wo Sprache verstanden oder Relevanz abgewogen werden muss. Das hält das System reproduzierbar, günstig und schnell.</p></div></li>
+        <li><div><h3>Keine Aussage ohne Beleg im Bestand</h3><p>Jede Antwort stützt sich auf gefundene Textstellen (Grounding). Erreichen diese nach dem Reranking die Relevanzschwelle nicht, bricht das System vor der Antwort ab und meldet, dass im Bestand keine Angaben vorliegen. Diese Schwelle ist der wichtigste Guardrail gegen Halluzinationen.</p></div></li>
+        <li><div><h3>Code baut die Quellenangabe</h3><p>Das Sprachmodell setzt im Text nur Verweismarker. Die sichtbare Quellenzeile mit Titel, Heftnummer und Seite erzeugt der Programmcode aus dem Katalog (deterministische Zitate).</p></div></li>
+        <li><div><h3>Rechte am Inhalt wahren</h3><p>Texte, Fotos und Bestandsdaten gehören zum Bestand des Vereins. Sie liegen nicht im öffentlichen Repository, auch die Testfragen nicht, weil sie Inhalte aus dem Archiv enthalten. Die Rechte für eine öffentliche Nutzung werden mit dem Verein geklärt.</p></div></li>
+        <li><div><h3>Persönlichkeitsrechte: Öffnung erst nach Klärung</h3><p>Die Schriften nennen viele Menschen, lebende und verstorbene, mit Wohnorten und Liegenschaften, und das Fotoarchiv zeigt sie. Viele Schriften sind bereits gedruckt erschienen, und der grösste Teil der Texte und Fotos dürfte unproblematisch sein. Für den Rest werden vor dem Livegang geeignete Massnahmen getroffen, etwa Bilder lebender Personen zurückhalten oder unkenntlich machen (Privacy by Design). Bis dahin bleibt der Chat geschlossen. Geöffnet wird er erst nach dieser Klärung und mit Zustimmung des Vereins.</p></div></li>
+        <li><div><h3>Abgesicherte Schnittstellen</h3><p>Das System folgt dem Prinzip Least Privilege und hält die Angriffsfläche klein. Programmierschnittstelle und Vektordatenbank sind von aussen nicht erreichbar, die Container sind im Docker-Netz voneinander getrennt (Netzwerksegmentierung). Von aussen erreichbar sind nur die Web-Oberfläche und der Telegram-Webhook, beide über einen Reverse Proxy mit TLS-Verschlüsselung. Der Webhook prüft ein geheimes Token, und ein Rate Limiter begrenzt die Anfragen auf 60 pro Stunde. Wartung und Datenupload laufen über einen SSH-Tunnel.</p></div></li>
+        <li><div><h3>Messen vor dem Ändern</h3><p>Jede Anpassung an Aufbereitung, Suche oder Prompts durchläuft vor der Übernahme die Evaluation über alle vier Testsuiten. Die Evals dienen als Regressionstests: Eine Verbesserung an einer Stelle darf keine andere verschlechtern.</p></div></li>
+        <li><div><h3>Observability und Transparenz</h3><p>Das System soll nachvollziehbar sein und dabei so wenig Personendaten wie möglich speichern. Protokolle zeigen, was der Chat bei jeder Anfrage getan hat, und machen Fehler und Lücken sichtbar. Weil Fragen selbst Namen oder Adressen enthalten können, gilt Datenminimierung: keine IP-Adressen, pseudonyme Sitzungskennung. Vor der Öffnung kommen dazu ein Hinweis im Chat, dass eine KI antwortet und was protokolliert wird, wie es der EU AI Act seit August 2026 für Chatbots verlangt, sowie eine feste Aufbewahrungsfrist mit automatischer Löschung. Beim geplanten Wechsel auf Langfuse werden Personendaten vor dem Speichern maskiert.</p></div></li>
       </ol>
     </section>
 
     <section id="gelernt">
-      <h2>Was ich bisher gelernt habe</h2>
-      <p class="section-lead">Die Liste wächst mit dem Projekt.</p>
+      <h2>Erkenntnisse</h2>
+      <p class="section-lead">Was ich aus dem Projekt mitnehme. Die Liste wächst mit dem Projekt.</p>
       <ul class="lessons">
-        <li><strong>KI-Zusammenfassungen verlieren, wonach gefragt wird.</strong><span>Die erste Suche lief über Zusammenfassungen der Texte. Dabei gingen Namen und Hausnummern verloren. Mit der Suche im Originaltext verdoppelte sich die Trefferquote bei Namensfragen.</span></li>
-        <li><strong>Sorgfalt bei den Daten bringt viel.</strong><span>Über 5'400 durch Silbentrennung zerrissene Wörter, abgeschnittene Sätze an Seitengrenzen, Verzeichnisseiten als Scheintreffer: Das Bereinigen hob die Trefferquote, ohne dass am Modell etwas geändert wurde.</span></li>
-        <li><strong>Eine grosse Quelle kann viele kleine verdrängen.</strong><span>Der Band über den ganzen Bezirk macht rund 60 % des Textes aus und überdeckte die Dorfschriften. Erst ein Ortsmerkmal pro Abschnitt brachte das Gleichgewicht zurück.</span></li>
+        <li><strong>Saubere Daten bringen mehr als ein grösseres Modell.</strong><span>In der Data Ingestion Pipeline wurden über 5'400 durch Silbentrennung zerrissene Wörter repariert, Sätze über Seitengrenzen zusammengeführt und Verzeichnisseiten als Scheintreffer ausgefiltert (Data Cleansing). Das hob die Trefferquote, ohne dass am Modell etwas geändert wurde.</span></li>
+        <li><strong>Die Ingestion Pipeline läuft vollautomatisch.</strong><span>Vom Einlesen der PDFs und der Fotoliste bis zum fertigen Index läuft alles in Python, kein Handgriff in Excel ist mehr nötig. Entwurf und Bau der Pipeline liessen sich zu einem grossen Teil einem Frontier-Modell übergeben, und das Ergebnis lief praktisch fehlerfrei. Neue Bestände lassen sich so mit wenig Aufwand nachladen.</span></li>
+        <li><strong>Ein grösseres Modell bringt nicht automatisch mehr.</strong><span>gpt-4o fand nicht mehr als gpt-4o-mini, erfand aber öfter Antworten, wo im Bestand nichts stand. Für RAG zählt, was die Suche liefert, nicht die Grösse des Modells.</span></li>
         <li><strong>Für Namen braucht es ein Register.</strong><span>Die Vektorsuche findet Themen, aber keine genaue Hausnummer. Namen und Adressen laufen deshalb über eine wortgenaue Suche und ein Register, das Tippfehler auffängt.</span></li>
-        <li><strong>Ein Chat für Besucher ist kein Suchindex.</strong><span>Eine frühe Version hängte selbst an ein «Hallo» fünfzehn rohe Textblöcke an. Heute antwortet der Chat in ganzen Sätzen, im Web-Chat liegen die Fundstellen zugeklappt darunter.</span></li>
-        <li><strong>Ohne Testset keine Aussage zur Qualität.</strong><span>Mehrere Ideen, die gut klangen, haben sich in der Messung nicht bewährt, etwa das grössere Modell oder die Suche über Zusammenfassungen. Erst die Zahlen zeigen, was hilft.</span></li>
+        <li><strong>Jede Änderung wird gemessen.</strong><span>Mehrere Ideen, die gut klangen, haben sich in der Messung nicht bewährt, etwa das grössere Modell oder die Suche über KI-Zusammenfassungen der Texte. Ohne Testset gibt es keine belastbare Aussage zur Qualität.</span></li>
+        <li><strong>Ein natürliches Gespräch ist Designarbeit.</strong><span>Conversation Design ist der anspruchsvollste Teil von Conversational AI. Ein RAG-Chat braucht feste Regeln dort, wo Verlässlichkeit zählt (Quellenzeile, «keine Angaben», Begrüssung), und die Beweglichkeit des Sprachmodells dort, wo Sprache verstanden werden muss (Folgefragen, Rückbezüge, freie Formulierungen). Eine frühe Version hängte selbst an ein «Hallo» fünfzehn rohe Textblöcke an. Die Grenze zwischen Regel und Modell so zu ziehen, dass sich das Gespräch natürlich anfühlt, braucht viele Runden.</span></li>
       </ul>
     </section>
 
@@ -149,42 +164,43 @@
       <h2>Wer dahinter steht und wie ich arbeite</h2>
       <div class="about">
         <div>
-          <p>Ich bin Beat Hutter, Business Analyst und Product Owner aus dem Raum Zürich, mit Schwerpunkt Automation und KI. Rund zwanzig Jahre lang habe ich bei Credit Suisse und UBS Planungs- und Reportingsysteme für die Finanzabteilung verantwortet, zeitweise mit einem internationalen Team von rund 25 Personen. In diesem Umfeld gilt: keine Zahl ohne Kontrolle, keine Änderung ohne Freigabe.</p>
-          <p>Seit 2024 liegt der Fokus auf KI, mit Weiterbildungen in KI-Strategie, im Bau von Agenten und in AI Governance (AIGP). In diesem Projekt kommt beides zusammen: die Sorgfalt aus dem Finanzbereich einer Bank und ein Archiv, in dem jede Aussage einen Beleg braucht.</p>
+          <p>Ich bin Beat Hutter, Business Analyst und Product Owner aus dem Raum Zürich, mit Schwerpunkt Automation und KI. Rund zwanzig Jahre lang habe ich bei Credit Suisse und UBS grosse, unternehmenskritische Planungs- und Reportingsysteme der Finanzabteilung verantwortet, für Aufbau und Weiterentwicklung (Change) ebenso wie für den Betrieb (Run). In diesem Umfeld gilt: keine Zahl ohne Kontrolle, keine Änderung ohne Freigabe.</p>
+          <p>Seit 2024 liegt der Fokus auf KI und Automation, auch mit Low- und No-Code-Werkzeugen, dazu Weiterbildungen in KI-Strategie, im Bau von Agenten und in AI Governance (AIGP). In diesem Projekt kommt beides zusammen: das systematische Testen und Kontrollieren von Abläufen und Ergebnissen, wie es im Finanzbereich einer Bank üblich ist, und die Möglichkeiten der modernen generativen KI.</p>
           <h3>Warum dieses Projekt</h3>
-          <p>Mein Vater ist im Dorfmuseum für die Datenbank verantwortlich. Seit seiner Pensionierung pflegt er sie, verfasst Schriften für den Verein und hat den grössten Teil des Fotoarchivs geordnet. Daraus entstand die Idee, mit KI zu helfen: Die Schriften und Fotos sollen sich so durchsuchen lassen, wie es den Interessen des Vereins entspricht, und später einer breiteren Öffentlichkeit offenstehen.</p>
-          <p>Das Projekt treibe ich zusammen mit meinem Vater voran. Der Anwendungsfall lässt sich gut übertragen: Archive, Handbücher und Dokumentationen in Unternehmen stellen dieselbe Aufgabe, Wissen aus vielen Dokumenten verlässlich und mit Beleg zugänglich zu machen.</p>
+          <p>Mein Vater ist im Dorfmuseum für die Datenbank verantwortlich. Seit seiner Pensionierung pflegt er sie, verfasst Schriften für den Verein und hat den grössten Teil des Fotoarchivs geordnet. Daraus entstand die Idee, mit KI zu helfen: Die Schriften und Fotos sollen sich so durchsuchen lassen, wie es den Interessen des Vereins entspricht, und später einer breiteren Öffentlichkeit offenstehen. Das Projekt treibe ich zusammen mit meinem Vater voran.</p>
+          <p>Der Anwendungsfall lässt sich gut auf Unternehmen übertragen: Archive, Handbücher, Richtlinien und Dokumentationen stellen dieselbe Aufgabe, Wissen aus unterschiedlichsten Dokumenten und Wissensquellen verlässlich und mit Beleg zugänglich zu machen.</p>
           <h3>Wie ich arbeite</h3>
-          <p>Richtung, Entscheide und Tests liegen bei mir. Grundsatzfragen werden vorher entschieden und mit Begründung festgehalten, inzwischen in 24 Einträgen. Jede Änderung an Suche oder Prompts wird vor der Übernahme gegen das Testset gemessen.</p>
-          <p>Umgesetzt wird mit KI-Entwicklungsagenten (Claude Code und Antigravity), die Code schreiben und gegen die Testsuiten prüfen. Das Projekt ist in Etappen entstanden: Datenbank und Einlesen, Suche und Sprachmodell, Web-Chat und Telegram, danach mehrere Runden zur Suchqualität mit Messung. Jede Etappe hatte ein Ziel und eine Abnahme.</p>
-          <p>Dokumentiert und versioniert sind Architektur, Entscheide, Fortschritt und Messwerte pro Testlauf. Öffentlich auf GitHub sind diese Seite und das README, Code und Architektur folgen schrittweise.</p>
+          <p>Richtung, Entscheide und Tests liegen bei mir. Vor jedem Baustein wird geklärt, ob ein Schritt deterministisch gelöst werden kann oder ein Sprachmodell braucht. Grundsatzfragen werden vorher entschieden und mit Begründung festgehalten, inzwischen in 24 Architecture Decision Records.</p>
+          <p>Strategie und Konzept entstehen in einem eigenen Projekt in Claude Cowork. Code und Tests entstehen mit Claude Code in der Entwicklungsumgebung VS Code, teils auch mit Google Antigravity und den Gemini-Modellen: Ist das Kontingent bei Anthropic aufgebraucht, geht es dort weiter. So reichen zwei Abos zu je 20 Dollar auch an arbeitsreichen Tagen.</p>
+          <p>Das Projekt ist in Etappen entstanden: Datenbank und Einlesen, Suche und Sprachmodell, Web-Chat und Telegram, danach mehrere Runden zur Suchqualität mit Messung, zuletzt Schutz der Schnittstellen und Protokoll. Jede Etappe hatte ein Ziel und eine Abnahme. Dokumentiert und versioniert sind Fortschritt, Entscheide, Architektur und Messwerte pro Testlauf. Öffentlich auf GitHub sind diese Seite und das README. Code und Architektur folgen schrittweise mit einem erfundenen Demo-Datensatz, die Testsets bleiben privat.</p>
         </div>
         <div class="card facts">
-          <h3>Zeit und Kosten</h3>
+          <h3>Zeit und Kosten*</h3>
           <dl>
-            <dt>Aufwand</dt><dd>Rund 50 Stunden bis zum Testbetrieb, verteilt auf etwa einen Monat Arbeitszeit</dd>
+            <dt>Aufwand</dt><dd>Rund 50 Stunden Arbeit bis zum MVP, verteilt auf etwa einen Monat</dd>
             <dt>Lizenzkosten</dt><dd>Keine (Open Source: Qdrant, FastAPI, Streamlit)</dd>
             <dt>Betrieb</dt><dd>Eigener Linux-Server in Europa</dd>
             <dt>Sprachmodell</dt><dd>gpt-4o-mini von OpenAI, abgerechnet nach Verbrauch</dd>
             <dt>Nicht eingerechnet</dt><dd>Abos für die KI-Entwicklungswerkzeuge</dd>
           </dl>
+          <p class="asof">* Stand 16.11.2026</p>
         </div>
       </div>
     </section>
 
     <section id="roadmap">
       <h2>Stand und Ausblick</h2>
-      <p class="section-lead">Der Prototyp läuft im Testbetrieb. Als Nächstes stehen die rechtlichen Abklärungen an, danach die Öffnung für die Bevölkerung.</p>
+      <p class="section-lead">Das MVP läuft im Testbetrieb (Stand 16.11.2026). Als Nächstes folgen die rechtlichen Abklärungen und Tests mit einer breiteren Nutzerschaft. Vor der Öffnung legen wir mit dem Verein das Betriebsmodell fest.</p>
       <div class="roadmap">
         <div class="phase now">
           <h3>In Betrieb</h3>
-          <div class="when">heute (Prototyp)</div>
+          <div class="when">MVP, Stand 16.11.2026</div>
           <ul>
             <li><strong>Hybride Suche</strong> auf Qdrant (2'543 Textabschnitte, 1'786 Fotoeinträge)</li>
-            <li><strong>Planer</strong> mit Auflösung von Folgefragen und Namensregister (8'331 Einträge)</li>
+            <li><strong>Intent Router</strong> mit Auflösung von Folgefragen und Namensregister (8'331 Einträge)</li>
             <li><strong>Reranking</strong> und kalibrierte Relevanzschwelle</li>
             <li><strong>Quellenzeile aus Code</strong> für Web-Chat und Telegram</li>
-            <li><strong>Schutz der Schnittstellen</strong> mit Begrenzung der Anfragen und anonymem Protokoll</li>
+            <li><strong>Schutz der Schnittstellen</strong> mit Rate Limiting und pseudonymem Protokoll</li>
           </ul>
         </div>
         <div class="phase">
@@ -193,7 +209,8 @@
           <ul>
             <li><strong>Persönlichkeitsrechte:</strong> Abklärung zu Namen und Fotos lebender und verstorbener Personen</li>
             <li><strong>Datenschutz im Fotoarchiv:</strong> wo nötig, aktuelle Personen unkenntlich machen</li>
-            <li><strong>Feinabstimmung der Suche</strong> bei komplexen Sachthemen</li>
+            <li><strong>User-Tests</strong> mit ausgewählten Personen aus Verein und Dorf</li>
+            <li><strong>Transparenz im Chat:</strong> KI-Hinweis, Aufbewahrungsfrist und automatische Löschung der Protokolle</li>
             <li><strong>Code auf GitHub,</strong> schrittweise und mit erfundenem Demo-Datensatz</li>
           </ul>
         </div>
@@ -201,19 +218,20 @@
           <h3>Danach</h3>
           <div class="when">Erweiterung</div>
           <ul>
+            <li><strong>Betriebsmodell</strong> mit dem Verein: Unterhalt, Zuständigkeiten, Kosten</li>
             <li><strong>Öffnung für die Bevölkerung</strong> nach Zustimmung des Vereins</li>
-            <li><strong>Texterkennung (OCR)</strong> für neu gescannte Schriften und Protokolle</li>
-            <li><strong>Register nachführen</strong> beim Einspielen neuer Bestände</li>
-            <li><strong>Auswertung für das Archiv:</strong> welche Fragen offen bleiben</li>
+            <li><strong>Weitere Schriften einarbeiten,</strong> mit Texterkennung (OCR) für neu gescannte Bestände</li>
+            <li><strong>Observability mit Langfuse</strong> statt eigener Protokolltabelle</li>
           </ul>
         </div>
         <div class="phase">
-          <h3>Forschung</h3>
-          <div class="when">offene Fragen</div>
+          <h3>Ideen für die Zukunft</h3>
+          <div class="when">mögliche Erweiterungen</div>
           <ul>
+            <li><strong>Self-Service-Ingestion:</strong> Der Verein lädt neue Dokumente und Fotos selbst hoch, die Pipeline arbeitet sie automatisch ein</li>
+            <li><strong>Bildsuche über Bildinhalte</strong> mit multimodalen Embeddings, auch für unbeschriftete Fotos</li>
             <li><strong>Lokaler Cross-Encoder</strong> für schnelleres Reranking ohne externen Aufruf</li>
-            <li><strong>Bildsuche über Bildinhalte</strong> für unbeschriftete Fotos</li>
-            <li><strong>Mundart-Tonaufnahmen</strong> von Zeitzeugen erschliessen</li>
+            <li><strong>Auswertung für das Archiv:</strong> welche Fragen offen bleiben</li>
           </ul>
         </div>
       </div>
@@ -221,76 +239,76 @@
 
     <section id="technik">
       <h2>Architektur und Technik</h2>
-      <p class="section-lead">Für alle, die tiefer einsteigen wollen. Eine Anfrage durchläuft sechs Schichten, vom Kanal bis zum Speicher.</p>
+      <p class="section-lead">Für alle, die tiefer einsteigen wollen. Eine Anfrage durchläuft sechs Schichten, von der Benutzeroberfläche bis zum Speicher.</p>
       <div class="arch">
         <div class="arch-stack">
           <div class="layer">
-            <div class="layer-name">Kanäle<small>Zugriff für Nutzer</small></div>
-            <div class="chips"><span class="chip">Web-Chat (Streamlit)</span><span class="chip">Telegram Bot</span><span class="chip">Traefik Reverse Proxy (TLS)</span></div>
+            <div class="layer-name">Benutzeroberflächen<small>Zugang für Nutzer</small></div>
+            <div class="chips"><span class="chip">Web-Chat (Streamlit)</span><span class="chip">Telegram-Bot</span><span class="chip">Traefik Reverse Proxy (TLS)</span></div>
           </div>
           <div class="arrow">▼</div>
           <div class="layer gov">
             <div class="layer-name">Schutzschicht<small>API und Governance</small></div>
-            <div class="chips"><span class="chip gov">Interne Docker-Netztrennung</span><span class="chip gov">Sliding-Window Rate-Limiter</span><span class="chip gov">Webhook Secret-Token</span><span class="chip gov">Kein offener Datenbank-Port</span></div>
+            <div class="chips"><span class="chip gov">Interne Docker-Netztrennung</span><span class="chip gov">Rate Limiting (Sliding Window)</span><span class="chip gov">Webhook Secret Token</span><span class="chip gov">Kein offener Datenbank-Port</span></div>
           </div>
           <div class="arrow">▼</div>
           <div class="layer">
             <div class="layer-name">Planung und Register<small>Verstehen und Normieren</small></div>
-            <div class="chips"><span class="chip">Single-Call Query-Planer</span><span class="chip">Pronomenauflösung</span><span class="chip">Ortsfokus</span><span class="chip">In-Memory Namensregister</span><span class="chip">Tippfehler-Korrektur (RapidFuzz)</span></div>
+            <div class="chips"><span class="chip">Intent Router (ein Modellaufruf)</span><span class="chip">Pronomenauflösung</span><span class="chip">Ortsfokus</span><span class="chip">Namensregister im Arbeitsspeicher</span><span class="chip">Tippfehler-Korrektur (Fuzzy Matching)</span></div>
           </div>
           <div class="arrow">▼</div>
           <div class="layer">
-            <div class="layer-name">Retrieval und Gate<small>Finden und Filtern</small></div>
+            <div class="layer-name">Suche und Prüfung<small>Retrieval und Relevanzschwelle</small></div>
             <div class="chips"><span class="chip">Qdrant Hybrid Search (RRF)</span><span class="chip">Wortgenaue Registersuche</span><span class="chip">LLM-Reranker</span><span class="chip gov">Relevanzschwelle gegen Halluzination</span><span class="chip plan">Lokaler Cross-Encoder</span></div>
           </div>
           <div class="arrow">▼</div>
           <div class="layer">
-            <div class="layer-name">Synthese und Zitate<small>Antwort und Belege</small></div>
-            <div class="chips"><span class="chip">Antwort-Synthese mit Belegmarkern</span><span class="chip gov">Lückenbenennung bei Teilwissen</span><span class="chip gov">Deterministische Quellenzeile</span><span class="chip">Paralleler Foto-Hinweis</span></div>
+            <div class="layer-name">Antwort und Zitate<small>Synthese und Belege</small></div>
+            <div class="chips"><span class="chip">Antwort mit Belegmarkern</span><span class="chip gov">Lückenbenennung bei Teilwissen</span><span class="chip gov">Deterministische Quellenzeile</span><span class="chip">Paralleler Foto-Hinweis</span></div>
           </div>
           <div class="arrow">▼</div>
           <div class="layer">
             <div class="layer-name">Speicher und Modelle<small>Index und Betrieb</small></div>
-            <div class="chips"><span class="chip">Qdrant Vektor-DB</span><span class="chip">Archiv-Katalog (YAML)</span><span class="chip">Quellenart und Ort pro Abschnitt</span><span class="chip">Foto-Server (Nginx)</span><span class="chip">OpenAI gpt-4o-mini</span><span class="chip">FastEmbed BM25 (lokal)</span><span class="chip plan">Automatisierte OCR-Pipeline</span></div>
+            <div class="chips"><span class="chip">Qdrant Vektordatenbank</span><span class="chip">Katalog der Schriften</span><span class="chip">Quellenart und Ort pro Abschnitt</span><span class="chip">Foto-Server (Nginx)</span><span class="chip">OpenAI gpt-4o-mini</span><span class="chip">BM25 (lokal)</span><span class="chip plan">Automatisierte OCR-Pipeline</span></div>
           </div>
         </div>
         <div class="arch-side">
           <div class="side-box hitl">
             <h3>Qualität und Evals</h3>
-            <div class="chips"><span class="chip gov">99 Testfälle in vier Suiten</span><span class="chip gov">98.7 % Trefferquote bei Namen</span><span class="chip gov">5 von 5 Fragen ohne Beleg erkannt</span><span class="chip gov">Testfragen zu Archivlücken</span></div>
+            <div class="chips"><span class="chip gov">99 Testfälle in vier Suiten</span><span class="chip gov">98.7&nbsp;% Trefferquote bei Namen</span><span class="chip gov">5 von 5 Fragen ohne Beleg erkannt</span><span class="chip gov">Regressionstests vor jeder Änderung</span></div>
           </div>
           <div class="side-box">
-            <h3>Nachvollziehbarkeit</h3>
-            <div class="chips"><span class="chip">Anonymes SQLite-Protokoll</span><span class="chip">SHA-256 Sitzungs-Hash</span><span class="chip">Latenz- und Treffermessung</span><span class="chip">Nutzer-Feedback im Chat</span><span class="chip plan">Datenschutz-Bildbereinigung</span></div>
+            <h3>Observability</h3>
+            <div class="chips"><span class="chip">Pseudonymes SQLite-Protokoll</span><span class="chip">Latenz- und Treffermessung</span><span class="chip">Nutzer-Feedback im Chat</span><span class="chip plan">Tracing mit Langfuse</span><span class="chip plan">Automatische Löschung</span><span class="chip plan">Datenschutz-Bildbereinigung</span></div>
           </div>
         </div>
       </div>
       <div class="legend"><span class="chip">in Betrieb</span><span class="chip plan">geplant</span><span class="chip gov">Governance und Schutz</span></div>
       <ol class="layers-text">
-        <li><strong>Kanäle:</strong> Web-Chat und Telegram. Der Reverse Proxy Traefik verschlüsselt die Verbindung (TLS).</li>
-        <li><strong>Schutzschicht:</strong> Programmierschnittstelle und Datenbank sind von aussen nicht erreichbar. Anfragen sind begrenzt, der Telegram-Zugang ist mit einem geheimen Token gesichert.</li>
-        <li><strong>Planung und Register:</strong> Der Planer versteht die Frage in einem einzigen Modellaufruf und legt den Ort fest. Das Namensregister gleicht Namen ab und korrigiert Tippfehler.</li>
-        <li><strong>Retrieval und Gate:</strong> Die hybride Suche findet Kandidaten, ein Sprachmodell bewertet sie (Reranking), und die Relevanzschwelle hält unbelegte Antworten zurück.</li>
-        <li><strong>Synthese und Zitate:</strong> Das Modell formuliert die Antwort mit Markern, der Code setzt die Quellenzeile und weist auf passende Fotos hin.</li>
-        <li><strong>Speicher und Modelle:</strong> Qdrant als Vektordatenbank, ein geprüfter Katalog der Schriften, ein eigener Bildserver und die Modelle von OpenAI.</li>
+        <li><strong>Benutzeroberflächen:</strong> Web-Chat (Streamlit) und Telegram-Bot. Davor steht Traefik als Reverse Proxy: Er nimmt alle Anfragen von aussen entgegen, leitet sie an den richtigen Dienst weiter und verschlüsselt die Verbindung (TLS mit Zertifikaten von Let's Encrypt).</li>
+        <li><strong>Schutzschicht:</strong> Programmierschnittstelle und Datenbank sind von aussen nicht erreichbar. Ein Rate Limiter zählt die Anfragen pro Stunde in einem gleitenden Zeitfenster und bremst bei mehr als 60. Der Telegram-Zugang prüft bei jeder Nachricht ein geheimes Token, damit nur Telegram selbst den Server aufrufen kann.</li>
+        <li><strong>Planung und Register:</strong> Der Planer ist der Intent Router des Systems. Ein einziger Modellaufruf erkennt Absicht, Gegenstand und Ort und löst Rückbezüge wie «davon» oder «sie» aus dem Gesprächsverlauf auf (Pronomenauflösung). Das Namensregister mit 8'331 Einträgen liegt im Arbeitsspeicher und gleicht Namen unscharf ab (Fuzzy Matching), sodass ein doppelter Buchstabe oder ein fehlendes «h» trotzdem zum richtigen Hof führt.</li>
+        <li><strong>Suche und Prüfung:</strong> Die hybride Suche findet Kandidaten über Bedeutung und Stichwörter. Ein Sprachmodell bewertet jeden Kandidaten (Reranking). Danach entscheidet die Relevanzschwelle, im Fachjargon das «Gate», ob überhaupt eine Antwort entsteht: Erreicht keine Stelle die Schwelle, sagt das System ehrlich «keine Angaben».</li>
+        <li><strong>Antwort und Zitate:</strong> Das Modell formuliert die Antwort nur aus den geprüften Stellen und setzt Marker. Der Code ersetzt die Marker durch die Quellenzeile mit Heft und Seite und weist auf passende Fotos hin, wenn es welche gibt.</li>
+        <li><strong>Speicher und Modelle:</strong> Qdrant speichert alle Textabschnitte und Fotoeinträge samt Vektoren und Metadaten. Ein von Hand geprüfter Katalog der Schriften liefert Titel, Heft und Jahr für die Quellenzeile. Die Fotos liefert ein eigener Bildserver aus.</li>
       </ol>
       <div class="stack">
         <div class="card"><dl>
-          <dt>Orchestrierung</dt><dd>Eigener Python-Service (FastAPI, AsyncIO, Pydantic Structured Outputs) ohne externe Agenten-Frameworks</dd>
-          <dt>Sprachmodell</dt><dd>OpenAI gpt-4o-mini für Anfrageplanung, Reranking und quellenbasierte Antworten</dd>
-          <dt>Embeddings</dt><dd>OpenAI text-embedding-3-small (1536D Dense) und FastEmbed Qdrant/bm25 (lokale deutsche Sparse-Vektoren)</dd>
-          <dt>Namensregister</dt><dd>In-Memory-Lookup mit RapidFuzz (WRatio) und regelbasierter Normalisierung für Personen, Gebäude und Adressen</dd>
-          <dt>Kanäle</dt><dd>Streamlit (Web-Oberfläche) und Telegram Bot API über abgesicherten HTTPS-Webhook</dd>
+          <dt>Orchestrierung</dt><dd>Eigener Python-Service (FastAPI, AsyncIO) ohne Agenten-Framework. Antworten des Modells werden mit Pydantic gegen ein festes Schema geprüft (Structured Outputs)</dd>
+          <dt>Sprachmodell</dt><dd>OpenAI gpt-4o-mini für Intent Router, Reranking und quellenbasierte Antworten</dd>
+          <dt>Embeddings</dt><dd>OpenAI text-embedding-3-small wandelt jeden Textabschnitt und jede Frage in einen Zahlenvektor um, der die Bedeutung abbildet. Dazu kommt BM25 (FastEmbed), das lokal auf dem Server läuft und Stichwörter gewichtet</dd>
+          <dt>Namensregister</dt><dd>Liste aller Personen, Gebäude und Adressen im Arbeitsspeicher, unscharfer Abgleich mit der Bibliothek RapidFuzz und festen Regeln für Schreibweisen</dd>
+          <dt>Benutzeroberflächen</dt><dd>Streamlit (Web-Chat) und Telegram Bot API über einen abgesicherten HTTPS-Webhook</dd>
         </dl></div>
         <div class="card"><dl>
-          <dt>Vektordatenbank</dt><dd>Qdrant (v1.16.1, selbst betrieben in Docker, Hybrid-Abfrage über Reciprocal Rank Fusion)</dd>
-          <dt>Katalog und Protokoll</dt><dd>Geprüfter YAML-Schriftenkatalog und lokales SQLite im WAL-Modus für anonymisierte Betriebsmetriken</dd>
-          <dt>Plattform und Netz</dt><dd>Linux-VPS (Ubuntu 24.04), Docker Compose, Traefik Reverse Proxy (Let's Encrypt), Nginx für Mediendateien</dd>
-          <dt>Qualität und Release</dt><dd>Eigenes Evaluations-Framework (99 Testfälle in 4 Suiten) und mehrstufige Release-Prüfung mit Gitleaks</dd>
-          <dt>Entwicklung</dt><dd>Claude Code und Antigravity, Git und GitHub</dd>
+          <dt>Vektordatenbank</dt><dd>Qdrant (v1.16.1, selbst betrieben in Docker), hybride Abfrage über Reciprocal Rank Fusion</dd>
+          <dt>Katalog und Protokoll</dt><dd>Geprüfter Katalog aller Schriften als Grundlage der Quellenzeile. Betriebsprotokoll in einer SQLite-Datenbank auf dem Server</dd>
+          <dt>Plattform und Netz</dt><dd>Linux-VPS (Ubuntu 24.04), Docker Compose, Traefik Reverse Proxy (Let's Encrypt), Nginx für die Fotos</dd>
+          <dt>Qualität und Release</dt><dd>Eigenes Evaluations-Framework (99 Testfälle in 4 Suiten) und mehrstufige Prüfung vor jeder Veröffentlichung, unter anderem mit Gitleaks gegen versehentlich veröffentlichte Schlüssel</dd>
+          <dt>Entwicklung</dt><dd>Claude Code in VS Code, Google Antigravity, Git und GitHub</dd>
         </dl></div>
       </div>
-      <p class="facts-line">Betrieb auf eigenem virtuellem Server in Europa mit interner Container-Netztrennung und ohne offene Datenbank-Ports. Nur die Aufrufe für das Sprachmodell und die dichten Vektoren laufen über die API von OpenAI.</p>
+      <p class="facts-line">Betrieb auf eigenem virtuellem Server in Europa mit interner Container-Netztrennung und ohne offene Datenbank-Ports. Nur das Sprachmodell und das Embedding-Modell laufen über die API von OpenAI: Für das Einbetten werden die Textabschnitte beim Einlesen und jede Frage zur Laufzeit dorthin geschickt.</p>
     </section>
 
     <section id="projekte">
@@ -304,6 +322,10 @@
           <span class="more">lab.bh-automation.cloud →</span>
         </a>
       </div>
+    </section>
+
+    <section id="ueber-diese-seite" class="page-note">
+      <p><strong>Über diese Seite:</strong> Diese Seite ist eine Projektpräsentation. Sie zeigt Ziel, Aufbau, Vorgehen und Messwerte von Museum-RAG. Alle Angaben gelten per 16.11.2026, das Projekt wird weiterentwickelt. Die Seite enthält keine Texte, Fotos oder Daten aus dem Museumsbestand und setzt keine Cookies. Einzelheiten in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
     </section>
   </div>
 </main>
