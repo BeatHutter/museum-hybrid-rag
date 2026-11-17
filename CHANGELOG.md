@@ -4,8 +4,18 @@ Alle wesentlichen Änderungen an diesem Repository. Das Format folgt [Keep a Cha
 
 ## [Unreleased]
 
+## [0.3.0] – 2026-11-17
+
+### Hinzugefügt
+
+- README: Abschnitt «Governance» mit den Grundsätzen des Projekts und eine Übersicht, welche Dateien im Repository liegen und was als Nächstes folgt.
+- README: Messgrösse «Lücken bei mehrteiligen Fragen korrekt benannt» und Angabe zum Testset (99 Testfälle in vier Suiten).
+
 ### Geändert
 
+- Projektseite auf Deutsch und Englisch neu aufgebaut: Projektpräsentation mit Stand 16.11.2026, Ablauf einer Suche von A bis Z, Ergebnisse vom ersten Wurf bis zum MVP, acht Governance-Grundsätze, Erkenntnisse und Roadmap.
+- README: Status auf «MVP im Testbetrieb» nachgeführt; Ausgangslage nennt die Museumsdatenbank MuseumPro statt einer Excel-Liste.
+- Protokoll korrekt als pseudonym statt anonym beschrieben (README und Datenschutzerklärung).
 - Projektseite: neue Kontakt-Adresse im Fuss und auf den Datenschutzseiten.
 
 ## [0.2.0] – 2026-11-14

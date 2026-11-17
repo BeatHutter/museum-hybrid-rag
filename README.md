@@ -4,13 +4,13 @@
 
 A chat assistant for the village museum of Birmensdorf, Switzerland, run by the Heimatkundliche Vereinigung Birmensdorf (HVB), the local history society. It answers questions about the village's history from the museum's digitised publications and finds matching pictures in the photo archive. Every answer cites its source by issue and page.
 
-> **Work in progress.** The prototype runs on the web and on Telegram but is not yet open to the public. The code is being published here step by step. The museum's texts, photos and collection data are not part of this repository.
+> **Status (16 November 2026): MVP in test operation.** The MVP (minimum viable product, the first fully working version with the core scope) is complete and has passed technical and functional testing including a measured evaluation. It runs on the web and on Telegram but is not open to the public yet. It will be opened once the rights have been clarified with the society and the society has agreed. The museum's texts, photos and collection data are not part of this repository.
 
 Project page: <https://museum-rag.bh-automation.cloud>
 
 ## Background
 
-Over several decades the HVB has published booklets on local history and built up a photo archive. That knowledge sits in PDF files and an Excel list. Anyone looking for a particular farmstead, street or family has to know which booklet to open or search for a long time.
+Over several decades the HVB has published booklets on local history and built up a photo archive. That knowledge sits in PDF files and in the museum database MuseumPro, which is built on FileMaker. Anyone looking for a particular farmstead, street or family has to know which booklet to open, or sit down with someone from the museum at the computer or in the archive room.
 
 Plain vector search was not enough. It handled general topics well but failed at what people in the village ask about most: names of farmsteads, field names, family names and house numbers. A single typo in a name led nowhere. Without safeguards the language model also occasionally invented page numbers.
 
@@ -20,6 +20,7 @@ Plain vector search was not enough. It handled general topics well but failed at
 - **Searches photos** across 1,786 catalogued entries. The search distinguishes between someone who appears in a picture and someone who took it, and runs without a language model.
 - **Handles typos** through a name register of 8,331 people, buildings, addresses and field names.
 - **Understands follow-up questions** such as "When was it built?" or "Are there photos of it?".
+- **Keeps general and specific sources apart:** every passage carries its municipality and source type as metadata. A large regional reference work therefore does not crowd out the society's own booklets, and questions about neighbouring villages still work.
 - **States what is missing:** if the publications contain nothing on a question, the system says so instead of inventing an answer. For partial knowledge it answers the part it can support and names what is missing.
 
 ## How it works
@@ -46,19 +47,20 @@ During ingestion every text passage was given a header with work, chapter and ye
 
 ## Results
 
-Every change was measured against a fixed test set before it was adopted. The test questions contain material from the archive and are therefore not published.
+Every change was measured against a fixed test set (ground truth) with 99 test cases in four suites before it was adopted (regression testing). The test questions contain material from the archive and are therefore not published.
 
-| Metric | Baseline | Current |
+| Metric | First version | MVP |
 | --- | ---: | ---: |
 | Text search: recall for questions about names and addresses | 77.3 % | 98.7 % |
 | Text search: recall for topical questions | 45.0 % | 79.4 % |
-| Text search: negative queries correctly answered with "no information" | 4 of 5 | 5 of 5 |
+| Text search: questions without evidence correctly answered with "no information" | 4 of 5 | 5 of 5 |
+| Text search: gaps named correctly in multi-part questions | – | 4 of 4 |
 | Photo search: correct pictures among the top 10 | 29.9 % | 94.2 % |
 | Photo search: share of correct pictures among the top 5 | 33.3 % | 95.0 % |
 | Intent detection | 33 of 40 | 40 of 40 |
 | Follow-up questions understood correctly | 13 of 15 | 15 of 15 |
 
-The baseline is the state of 28 and 29 October 2026, measured with the same test set as the current state.
+The first version is the state of 28 and 29 October 2026, measured with the same test set as the MVP (state of 16 November 2026). All runs use OpenAI gpt-4o-mini. A comparison with the larger gpt-4o showed no gain in recall, so the smaller and much cheaper model was kept.
 
 ## Technology
 
@@ -71,13 +73,33 @@ The baseline is the state of 28 and 29 October 2026, measured with the same test
 | Name register | RapidFuzz |
 | Interfaces | Streamlit (web), Telegram bot |
 | Operations | Docker Compose, Traefik with Let's Encrypt, Nginx for images, Linux server in Europe |
-| Logging | SQLite, anonymised with a hashed session key, without IP addresses or names |
+| Logging and observability | SQLite, pseudonymous: salted hash as session key, no IP addresses. Langfuse (self-hosted) is planned for tracing |
 
-The API and the database are not reachable from outside. Only the web interface and the Telegram webhook are public, the latter protected by a secret token. Requests are limited to 60 per hour.
+The API and the database are not reachable from outside. Only the web interface and the Telegram webhook are public, the latter protected by a secret token. Requests are rate-limited per session.
+
+## Governance
+
+The project follows a small set of principles, described in full on the [project page](https://museum-rag.bh-automation.cloud/en/#principles):
+
+- **Answers only with evidence.** A relevance threshold stops the system before it generates an answer without support in the sources. Source lines are built by code, not by the language model.
+- **Measure before adopting.** No change goes live without a run against the test set.
+- **Rights first.** The texts and photos belong to the museum. Personal rights (people named or shown in the archive) are being clarified before the system is opened to the public.
+- **Data minimisation.** The log stores no IP addresses and only a pseudonymous session key. Because a question itself may contain names, a fixed retention period with automatic deletion and an AI notice in the chat will be added before the public launch.
 
 ## What is in this repository
 
-At the moment the project page (folder `docs/`) and this README. Next come documentation on architecture and design decisions, then the code together with a small, made-up demo dataset that lets you run the system locally. The documentation and code comments are in German, as the project is aimed mainly at German-speaking readers.
+| Path | Content |
+| --- | --- |
+| `README.md`, `README.de.md` | This overview in English and German |
+| `docs/` | The project page (GitHub Pages), German and English |
+| `CHANGELOG.md` | Changes to this repository |
+| `SECURITY.md` | How to report security issues |
+| `LICENSE` | MIT License for the code |
+
+Being published step by step:
+
+1. **Documentation:** architecture, key design decisions and evaluation method, written without content from the archive.
+2. **Code:** the application code together with a small, made-up demo dataset that lets you run the system locally. It follows once the rights have been clarified with the society.
 
 The museum's publications and photos, the name register, the test questions and all operational data are not published. The rights to them belong to the HVB.
 

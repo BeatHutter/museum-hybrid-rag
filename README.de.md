@@ -4,13 +4,13 @@
 
 Ein Chat-Assistent für das Dorfmuseum Birmensdorf der Heimatkundlichen Vereinigung Birmensdorf (HVB). Er beantwortet Fragen zur Dorfgeschichte aus den digitalisierten Schriften des Museums und findet passende Bilder im Fotoarchiv. Jede Antwort nennt die Quelle mit Heft und Seite.
 
-> **Work in progress.** Der Prototyp läuft im Web und auf Telegram, ist aber noch nicht öffentlich zugänglich. Der Code wird hier schrittweise veröffentlicht. Texte, Fotos und Bestandsdaten des Museums gehören nicht zu diesem Repository.
+> **Status (16.11.2026): MVP im Testbetrieb.** Das MVP (Minimum Viable Product, die erste voll funktionsfähige Version mit dem Kernumfang) ist fertig und hat das technische und funktionale Testing samt gemessener Evaluation durchlaufen. Es läuft im Web und auf Telegram, ist aber noch nicht öffentlich zugänglich. Geöffnet wird es, wenn die Rechte mit dem Verein geklärt sind und der Verein zugestimmt hat. Texte, Fotos und Bestandsdaten des Museums gehören nicht zu diesem Repository.
 
 Projektseite: <https://museum-rag.bh-automation.cloud>
 
 ## Ausgangslage
 
-Die HVB hat über Jahrzehnte Schriften zur Dorfgeschichte herausgegeben und ein Fotoarchiv aufgebaut. Das Wissen steckt in PDF-Dateien und einer Excel-Liste. Wer etwas über einen bestimmten Hof, eine Strasse oder eine Familie wissen will, muss die Hefte kennen oder lange suchen.
+Die HVB hat über Jahrzehnte Schriften zur Dorfgeschichte herausgegeben und ein Fotoarchiv aufgebaut. Das Wissen steckt in PDF-Dateien und in der Museumsdatenbank MuseumPro, die auf FileMaker aufbaut. Wer etwas über einen bestimmten Hof, eine Strasse oder eine Familie wissen will, muss die Hefte kennen oder sich mit jemandem vom Museum an den Computer oder in den Archivraum setzen.
 
 Eine einfache Vektorsuche reichte dafür nicht aus. Sie fand allgemeine Themen gut, scheiterte aber an dem, wonach im Dorf am häufigsten gefragt wird: Eigennamen von Höfen, Flurnamen, Familiennamen und Hausnummern. Schon ein Tippfehler im Namen führte ins Leere. Ohne Gegenmassnahmen erfand das Sprachmodell zudem gelegentlich Seitenzahlen.
 
@@ -20,6 +20,7 @@ Eine einfache Vektorsuche reichte dafür nicht aus. Sie fand allgemeine Themen g
 - **Fotos suchen** in 1'786 inventarisierten Einträgen. Die Suche unterscheidet, ob jemand auf dem Bild zu sehen ist oder fotografiert hat, und kommt ohne Sprachmodell aus.
 - **Tippfehler auffangen** über ein Namensregister mit 8'331 Personen, Gebäuden, Adressen und Flurnamen.
 - **Folgefragen verstehen** wie «Wann wurde es gebaut?» oder «Gibt es dazu Fotos?».
+- **Allgemeine und spezifische Quellen auseinanderhalten:** Jeder Abschnitt trägt Gemeinde und Quellenart als Metadaten. Ein grosses regionales Standardwerk verdrängt so die Vereinsschriften nicht, und Fragen zu Nachbargemeinden funktionieren trotzdem.
 - **Lücken benennen:** Steht zu einer Frage nichts in den Schriften, sagt das System das, statt eine Antwort zu erfinden. Bei Teilwissen beantwortet es den belegten Teil und nennt, was fehlt.
 
 ## Wie es funktioniert
@@ -46,19 +47,20 @@ Jeder Textabschnitt wurde beim Einlesen mit einer Kopfzeile zu Werk, Kapitel und
 
 ## Ergebnisse
 
-Jede Änderung wurde vor der Übernahme gegen ein festes Testset gemessen. Die Testfragen enthalten Inhalte aus dem Archiv und werden deshalb nicht veröffentlicht.
+Jede Änderung wurde vor der Übernahme gegen ein festes Testset (Ground Truth) mit 99 Testfällen in vier Suiten gemessen (Regressionstests). Die Testfragen enthalten Inhalte aus dem Archiv und werden deshalb nicht veröffentlicht.
 
-| Messgrösse | Ausgangslage | Heute |
+| Messgrösse | Erster Wurf | MVP |
 | --- | ---: | ---: |
 | Textsuche: Trefferquote bei Fragen zu Namen und Adressen | 77.3 % | 98.7 % |
 | Textsuche: Trefferquote bei Sachthemen | 45.0 % | 79.4 % |
-| Textsuche: Gegenfragen korrekt mit «keine Angaben» beantwortet | 4 von 5 | 5 von 5 |
+| Textsuche: Fragen ohne Beleg korrekt mit «keine Angaben» beantwortet | 4 von 5 | 5 von 5 |
+| Textsuche: Lücken bei mehrteiligen Fragen korrekt benannt | – | 4 von 4 |
 | Fotosuche: richtige Bilder unter den ersten 10 | 29.9 % | 94.2 % |
 | Fotosuche: Anteil richtiger Bilder unter den ersten 5 | 33.3 % | 95.0 % |
 | Erkennung der Absicht | 33 von 40 | 40 von 40 |
 | Folgefragen im Dialog richtig verstanden | 13 von 15 | 15 von 15 |
 
-Ausgangslage ist der Stand vom 28. und 29.10.2026, gemessen mit demselben Testset wie der heutige Stand.
+Erster Wurf ist der Stand vom 28. und 29.10.2026, gemessen mit demselben Testset wie das MVP (Stand 16.11.2026). Alle Läufe nutzen gpt-4o-mini von OpenAI. Ein Vergleich mit dem grösseren gpt-4o brachte keine höhere Trefferquote, deshalb blieb es beim kleineren und deutlich günstigeren Modell.
 
 ## Technik
 
@@ -71,13 +73,33 @@ Ausgangslage ist der Stand vom 28. und 29.10.2026, gemessen mit demselben Testse
 | Namensregister | RapidFuzz |
 | Oberflächen | Streamlit (Web), Telegram-Bot |
 | Betrieb | Docker Compose, Traefik mit Let's Encrypt, Nginx für Bilder, Linux-Server in Europa |
-| Protokoll | SQLite, anonymisiert über einen gehashten Sitzungsschlüssel, ohne IP-Adressen und Namen |
+| Protokoll und Observability | SQLite, pseudonym: gesalzener Hash als Sitzungsschlüssel, keine IP-Adressen. Geplant ist Langfuse (selbst betrieben) für Tracing |
 
-Die Programmierschnittstelle und die Datenbank sind von aussen nicht erreichbar. Öffentlich sind nur die Web-Oberfläche und der Telegram-Webhook, dieser mit geheimem Token. Anfragen sind auf 60 pro Stunde begrenzt.
+Die Programmierschnittstelle und die Datenbank sind von aussen nicht erreichbar. Öffentlich sind nur die Web-Oberfläche und der Telegram-Webhook, dieser mit geheimem Token. Anfragen sind pro Sitzung begrenzt (Rate Limiting).
+
+## Governance
+
+Das Projekt folgt wenigen Grundsätzen, ausführlich beschrieben auf der [Projektseite](https://museum-rag.bh-automation.cloud/#spielregeln):
+
+- **Antworten nur mit Beleg.** Eine Relevanzschwelle stoppt das System, bevor es eine Antwort ohne Stütze in den Quellen erzeugt. Die Quellenzeile baut der Code, nicht das Sprachmodell.
+- **Messen vor dem Übernehmen.** Keine Änderung geht ohne Lauf gegen das Testset live.
+- **Rechte zuerst.** Texte und Fotos gehören dem Museum. Die Persönlichkeitsrechte der im Archiv genannten oder abgebildeten Personen werden vor der Öffnung geklärt.
+- **Datenminimierung.** Das Protokoll speichert keine IP-Adressen und nur eine pseudonyme Sitzungskennung. Weil eine Frage selbst Namen enthalten kann, kommen vor der Öffnung eine feste Aufbewahrungsfrist mit automatischer Löschung und ein KI-Hinweis im Chat dazu.
 
 ## Was in diesem Repository liegt
 
-Zurzeit die Projektseite (Ordner `docs/`) und dieses README. Als Nächstes folgen eine Dokumentation zu Architektur und Entscheidungen, danach der Code mit einem kleinen, erfundenen Demo-Datensatz, mit dem sich das System lokal starten lässt.
+| Pfad | Inhalt |
+| --- | --- |
+| `README.md`, `README.de.md` | Diese Übersicht auf Englisch und Deutsch |
+| `docs/` | Die Projektseite (GitHub Pages), Deutsch und Englisch |
+| `CHANGELOG.md` | Änderungen an diesem Repository |
+| `SECURITY.md` | Melden von Sicherheitslücken |
+| `LICENSE` | MIT-Lizenz für den Code |
+
+Schrittweise folgen:
+
+1. **Dokumentation:** Architektur, die wichtigsten Designentscheide und die Evaluationsmethode, ohne Inhalte aus dem Archiv.
+2. **Code:** der Anwendungscode mit einem kleinen, erfundenen Demo-Datensatz, mit dem sich das System lokal starten lässt. Er folgt, wenn die Rechte mit dem Verein geklärt sind.
 
 Nicht veröffentlicht werden die Schriften und Fotos des Museums, das Namensregister, die Testfragen und alle Daten aus dem Betrieb. Die Rechte daran liegen bei der HVB.
 
