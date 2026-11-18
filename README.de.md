@@ -47,7 +47,7 @@ Jeder Textabschnitt wurde beim Einlesen mit einer Kopfzeile zu Werk, Kapitel und
 
 ## Ergebnisse
 
-Jede Änderung wurde vor der Übernahme gegen ein festes Testset (Ground Truth) mit 99 Testfällen in vier Suiten gemessen (Regressionstests). Die Testfragen enthalten Inhalte aus dem Archiv und werden deshalb nicht veröffentlicht.
+Jede Änderung wurde vor der Übernahme gegen ein festes Testset (Ground Truth) mit 98 Testfällen in vier Suiten gemessen (Regressionstests). Die Testfragen enthalten Inhalte aus dem Archiv und werden deshalb nicht veröffentlicht.
 
 | Messgrösse | Erster Wurf | MVP |
 | --- | ---: | ---: |
@@ -91,15 +91,18 @@ Das Projekt folgt wenigen Grundsätzen, ausführlich beschrieben auf der [Projek
 | Pfad | Inhalt |
 | --- | --- |
 | `README.md`, `README.de.md` | Diese Übersicht auf Englisch und Deutsch |
+| [`documentation/architecture.md`](documentation/architecture.md#deutsche-fassung) | Bausteine, Ablauf einer Anfrage, Aufbereitung der Inhalte, Betrieb |
+| [`documentation/decisions.md`](documentation/decisions.md#deutsche-fassung) | Elf wichtige Designentscheide mit Begründung und gemessener Wirkung |
+| [`documentation/evaluation.md`](documentation/evaluation.md#deutsche-fassung) | Testset, Messgrössen, Ergebnisse Schritt für Schritt, Grenzen |
+| [`documentation/legal-considerations.md`](documentation/legal-considerations.md#deutsche-fassung) | Rechtliche Punkte, die vor der Öffnung eines solchen Werkzeugs zu klären sind |
 | `docs/` | Die Projektseite (GitHub Pages), Deutsch und Englisch |
 | `CHANGELOG.md` | Änderungen an diesem Repository |
 | `SECURITY.md` | Melden von Sicherheitslücken |
 | `LICENSE` | MIT-Lizenz für den Code |
 
-Schrittweise folgen:
+Die Dokumente unter `documentation/` enthalten eine englische und eine deutsche Fassung in derselben Datei.
 
-1. **Dokumentation:** Architektur, die wichtigsten Designentscheide und die Evaluationsmethode, ohne Inhalte aus dem Archiv.
-2. **Code:** der Anwendungscode mit einem kleinen, erfundenen Demo-Datensatz, mit dem sich das System lokal starten lässt. Er folgt, wenn die Rechte mit dem Verein geklärt sind.
+Als Nächstes folgt der Anwendungscode mit einem kleinen, erfundenen Demo-Datensatz, mit dem sich das System lokal starten lässt. Er folgt, wenn die Rechte mit dem Verein geklärt sind.
 
 Nicht veröffentlicht werden die Schriften und Fotos des Museums, das Namensregister, die Testfragen und alle Daten aus dem Betrieb. Die Rechte daran liegen bei der HVB.
 

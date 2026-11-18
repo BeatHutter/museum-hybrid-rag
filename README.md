@@ -47,7 +47,7 @@ During ingestion every text passage was given a header with work, chapter and ye
 
 ## Results
 
-Every change was measured against a fixed test set (ground truth) with 99 test cases in four suites before it was adopted (regression testing). The test questions contain material from the archive and are therefore not published.
+Every change was measured against a fixed test set (ground truth) with 98 test cases in four suites before it was adopted (regression testing). The test questions contain material from the archive and are therefore not published.
 
 | Metric | First version | MVP |
 | --- | ---: | ---: |
@@ -91,15 +91,18 @@ The project follows a small set of principles, described in full on the [project
 | Path | Content |
 | --- | --- |
 | `README.md`, `README.de.md` | This overview in English and German |
+| [`documentation/architecture.md`](documentation/architecture.md) | Components, request flow, content preparation, operation |
+| [`documentation/decisions.md`](documentation/decisions.md) | Eleven key design decisions with reasoning and measured effect |
+| [`documentation/evaluation.md`](documentation/evaluation.md) | Test set, metrics, results step by step, limitations |
+| [`documentation/legal-considerations.md`](documentation/legal-considerations.md) | Legal points to clarify before opening such a tool to the public |
 | `docs/` | The project page (GitHub Pages), German and English |
 | `CHANGELOG.md` | Changes to this repository |
 | `SECURITY.md` | How to report security issues |
 | `LICENSE` | MIT License for the code |
 
-Being published step by step:
+The documents in `documentation/` contain an English and a German version in the same file.
 
-1. **Documentation:** architecture, key design decisions and evaluation method, written without content from the archive.
-2. **Code:** the application code together with a small, made-up demo dataset that lets you run the system locally. It follows once the rights have been clarified with the society.
+Next to follow: the application code together with a small, made-up demo dataset that lets you run the system locally. It follows once the rights have been clarified with the society.
 
 The museum's publications and photos, the name register, the test questions and all operational data are not published. The rights to them belong to the HVB.
 

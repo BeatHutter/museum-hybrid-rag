@@ -4,6 +4,22 @@ Alle wesentlichen Änderungen an diesem Repository. Das Format folgt [Keep a Cha
 
 ## [Unreleased]
 
+## [0.4.0] – 2026-11-18
+
+### Hinzugefügt
+
+- Dokumentation unter `documentation/`, jeweils Englisch und Deutsch in einer Datei: Architektur, elf wichtige Designentscheide, Evaluation (Testset, Messgrössen, Ergebnisse Schritt für Schritt, Grenzen) und eine Übersicht der rechtlichen Punkte bei KI-Projekten mit Archivmaterial.
+- Projektseite: Links auf die Evaluation und die rechtliche Übersicht.
+
+### Geändert
+
+- Projektseite: Grundsatz 5 nennt die Regeln vor der Öffnung (Persönlichkeits- und Urheberrechte), Roadmap entsprechend nachgeführt; keine Zahl zum Rate Limiting mehr.
+- README: Übersicht der Dokumente im Repository.
+
+### Korrigiert
+
+- Umfang des Testsets: 98 statt 99 Testfälle (30 Textsuche, 40 Absichtserkennung, 13 Fotosuche, 15 Dialogschritte), auf der Projektseite und im README.
+
 ## [0.3.0] – 2026-11-17
 
 ### Hinzugefügt
