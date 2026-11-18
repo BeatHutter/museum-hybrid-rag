@@ -143,7 +143,7 @@
         <li><div><h3>Personality rights and copyright: opening only after clearance</h3><p>The publications name many people, living and deceased, along with places of residence and properties, and the photo archive shows them. Most of it is likely to be unproblematic. But someone who appears in a printed booklet has not automatically agreed to a digital search: a booklet you pick up in the museum becomes a search that finds every name instantly. On top of that come the copyrights of the authors and photographers. The legal situation has been researched. Before going live, five rules therefore apply: a rights register per publication with written consent from the authors or their heirs; third-party reference works only with the publisher's permission; recognisable living persons in photos only with consent, otherwise withheld or anonymised (privacy by design); sensitive passages excluded from search; a simple way to object and request removal. Until then the chat stays closed. It will only be opened after this clearance and with the association's consent. A general overview for similar projects is available under <a href="https://github.com/BeatHutter/museum-hybrid-rag/blob/main/documentation/legal-considerations.md" target="_blank" rel="noopener">Legal considerations</a> on GitHub.</p></div></li>
         <li><div><h3>Secured interfaces</h3><p>The system follows the principle of least privilege and keeps the attack surface small. The API and the vector database cannot be reached from outside; the containers are separated from each other in the Docker network (network segmentation). Only the web interface and the Telegram webhook can be reached from outside, both through a reverse proxy with TLS encryption. The webhook checks a secret token, and a rate limiter caps requests per session. Maintenance and data uploads run through an SSH tunnel.</p></div></li>
         <li><div><h3>Measure before changing</h3><p>Every change to data preparation, search or prompts goes through the evaluation across all four test suites before it is adopted. The evals serve as regression tests: an improvement in one place must not make another worse.</p></div></li>
-        <li><div><h3>Observability and transparency</h3><p>The system should be traceable while storing as little personal data as possible. Logs show what the chat did for each request and make errors and gaps visible. Because questions themselves can contain names or addresses, data minimisation applies: no IP addresses, a pseudonymous session ID. Before the opening, a notice in the chat will be added stating that an AI is answering and what is logged, as the EU AI Act has required for chatbots since August 2026, together with a fixed retention period with automatic deletion. With the planned move to Langfuse, personal data will be masked before it is stored.</p></div></li>
+        <li><div><h3>Observability and transparency</h3><p>The system should be traceable while storing as little personal data as possible. Logs show what the chat did for each request and make errors and gaps visible. Because questions themselves can contain names or addresses, data minimisation applies: no IP addresses, a pseudonymous session ID. The chat states that an AI is answering and what is logged, as the EU AI Act has required for chatbots since August 2026. After 90 days the system deletes question texts automatically, leaving only anonymous statistics. With the planned move to Langfuse, personal data will be masked before it is stored.</p></div></li>
       </ol>
     </section>
 
@@ -190,17 +190,18 @@
 
     <section id="roadmap">
       <h2>Status and outlook</h2>
-      <p class="section-lead">The MVP is in test operation (as of 16 November 2026). The legal situation has been researched. Next come clearing the rights for each publication and tests with a broader user base. Before the opening, we will define the operating model together with the association.</p>
+      <p class="section-lead">The MVP is in test operation (as of 18 November 2026). The legal situation has been researched. Next come clearing the rights for each publication and tests with a broader user base. Before the opening, we will define the operating model together with the association.</p>
       <div class="roadmap">
         <div class="phase now">
           <h3>In operation</h3>
-          <div class="when">MVP, as of 16 Nov 2026</div>
+          <div class="when">MVP, as of 18 Nov 2026</div>
           <ul>
             <li><strong>Hybrid search</strong> on Qdrant (2,543 text passages, 1,786 photo records)</li>
             <li><strong>Intent router</strong> with resolution of follow-up questions and name register (8,331 entries)</li>
             <li><strong>Reranking</strong> and calibrated relevance threshold</li>
             <li><strong>Source line from code</strong> for web chat and Telegram</li>
             <li><strong>Interface protection</strong> with rate limiting and pseudonymous logging</li>
+            <li><strong>Transparency in the chat:</strong> AI notice, question texts deleted after 90 days</li>
           </ul>
         </div>
         <div class="phase">
@@ -210,7 +211,6 @@
             <li><strong>Clear rights per publication:</strong> rights register, consent from authors and publishers, rule for photos of living persons, a way to object and request removal</li>
             <li><strong>Privacy in the photo archive:</strong> where needed, make current persons unrecognisable</li>
             <li><strong>User tests</strong> with selected people from the association and the village</li>
-            <li><strong>Transparency in the chat:</strong> AI notice, retention period and automatic deletion of logs</li>
             <li><strong>Code on GitHub,</strong> step by step and with a fictitious demo dataset</li>
           </ul>
         </div>
@@ -279,7 +279,7 @@
           </div>
           <div class="side-box">
             <h3>Observability</h3>
-            <div class="chips"><span class="chip">Pseudonymous SQLite log</span><span class="chip">Latency and hit measurement</span><span class="chip">User feedback in chat</span><span class="chip plan">Tracing with Langfuse</span><span class="chip plan">Automatic deletion</span><span class="chip plan">Privacy image clean-up</span></div>
+            <div class="chips"><span class="chip">Pseudonymous SQLite log</span><span class="chip">Latency and hit measurement</span><span class="chip">User feedback in chat</span><span class="chip plan">Tracing with Langfuse</span><span class="chip">Automatic deletion after 90 days</span><span class="chip plan">Privacy image clean-up</span></div>
           </div>
         </div>
       </div>

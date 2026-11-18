@@ -4,6 +4,10 @@ Alle wesentlichen Änderungen an diesem Repository. Das Format folgt [Keep a Cha
 
 ## [Unreleased]
 
+### Geändert
+
+- Projektseite, Datenschutzerklärung, README und Dokumentation: KI-Hinweis im Chat und Löschung der Fragetexte nach 90 Tagen sind umgesetzt (vorher als geplant beschrieben).
+
 ## [0.4.0] – 2026-11-18
 
 ### Hinzugefügt

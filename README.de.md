@@ -73,7 +73,7 @@ Erster Wurf ist der Stand vom 28. und 29.10.2026, gemessen mit demselben Testset
 | Namensregister | RapidFuzz |
 | Oberflächen | Streamlit (Web), Telegram-Bot |
 | Betrieb | Docker Compose, Traefik mit Let's Encrypt, Nginx für Bilder, Linux-Server in Europa |
-| Protokoll und Observability | SQLite, pseudonym: gesalzener Hash als Sitzungsschlüssel, keine IP-Adressen. Geplant ist Langfuse (selbst betrieben) für Tracing |
+| Protokoll und Observability | SQLite, pseudonym: gesalzener Hash als Sitzungsschlüssel, keine IP-Adressen, Fragetexte nach 90 Tagen gelöscht. Geplant ist Langfuse (selbst betrieben) für Tracing |
 
 Die Programmierschnittstelle und die Datenbank sind von aussen nicht erreichbar. Öffentlich sind nur die Web-Oberfläche und der Telegram-Webhook, dieser mit geheimem Token. Anfragen sind pro Sitzung begrenzt (Rate Limiting).
 
@@ -84,7 +84,7 @@ Das Projekt folgt wenigen Grundsätzen, ausführlich beschrieben auf der [Projek
 - **Antworten nur mit Beleg.** Eine Relevanzschwelle stoppt das System, bevor es eine Antwort ohne Stütze in den Quellen erzeugt. Die Quellenzeile baut der Code, nicht das Sprachmodell.
 - **Messen vor dem Übernehmen.** Keine Änderung geht ohne Lauf gegen das Testset live.
 - **Rechte zuerst.** Texte und Fotos gehören dem Museum. Die Persönlichkeitsrechte der im Archiv genannten oder abgebildeten Personen werden vor der Öffnung geklärt.
-- **Datenminimierung.** Das Protokoll speichert keine IP-Adressen und nur eine pseudonyme Sitzungskennung. Weil eine Frage selbst Namen enthalten kann, kommen vor der Öffnung eine feste Aufbewahrungsfrist mit automatischer Löschung und ein KI-Hinweis im Chat dazu.
+- **Datenminimierung.** Das Protokoll speichert keine IP-Adressen und nur eine pseudonyme Sitzungskennung. Weil eine Frage selbst Namen enthalten kann, löscht das System die Fragetexte nach 90 Tagen automatisch, und der Chat weist darauf hin, dass eine KI antwortet.
 
 ## Was in diesem Repository liegt
 

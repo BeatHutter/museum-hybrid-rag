@@ -29,7 +29,7 @@ These points apply as soon as a system is in operation, even during testing:
 
 ## How this project handles it
 
-The chat stays closed until the rights have been clarified with the society that owns the collection. Before it opens, rights and consent are checked for each publication and photo collection, an AI notice is added to the chat, and the log gets a fixed retention period. The language model is used via an API that does not train on submitted data, and the privacy notice of the project page describes the data flows.
+The chat stays closed until the rights have been clarified with the society that owns the collection. The chat already shows an AI notice, and the log deletes question texts after 90 days. Before it opens, rights and consent are checked for each publication and photo collection. The language model is used via an API that does not train on submitted data, and the privacy notice of the project page describes the data flows.
 
 ## Further reading
 
@@ -70,7 +70,7 @@ Diese Punkte gelten, sobald ein System in Betrieb ist, auch schon im Test:
 
 ## Wie dieses Projekt damit umgeht
 
-Der Chat bleibt geschlossen, bis die Rechte mit dem Verein geklärt sind, dem der Bestand gehört. Vor der Öffnung werden Rechte und Einwilligungen für jede Schrift und jeden Fotobestand geprüft, der Chat erhält einen KI-Hinweis, und das Protokoll bekommt eine feste Aufbewahrungsfrist. Das Sprachmodell läuft über eine API, die nicht mit den übermittelten Daten trainiert, und die Datenschutzerklärung der Projektseite beschreibt die Datenflüsse.
+Der Chat bleibt geschlossen, bis die Rechte mit dem Verein geklärt sind, dem der Bestand gehört. Der Chat zeigt bereits einen KI-Hinweis, und das Protokoll löscht Fragetexte nach 90 Tagen. Vor der Öffnung werden Rechte und Einwilligungen für jede Schrift und jeden Fotobestand geprüft. Das Sprachmodell läuft über eine API, die nicht mit den übermittelten Daten trainiert, und die Datenschutzerklärung der Projektseite beschreibt die Datenflüsse.
 
 ## Weiterführend
 

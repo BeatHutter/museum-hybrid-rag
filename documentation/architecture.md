@@ -108,7 +108,7 @@ The quality of the answers depends mostly on how the content is prepared. The pi
 
 ## Observability
 
-Every request is logged with latency, hit count and optional rating. A report shows which questions remain open and where the system is weak. A self-hosted tracing tool such as Langfuse is planned, with personal data masked before storage. Before the public launch, the log will get a fixed retention period with automatic deletion.
+Every request is logged with latency, hit count and optional rating. A report shows which questions remain open and where the system is weak. A self-hosted tracing tool such as Langfuse is planned, with personal data masked before storage. After 90 days, question texts, names and session keys are deleted automatically; an anonymous statistics row remains.
 
 ## Technology
 
@@ -224,7 +224,7 @@ Die Qualität der Antworten hängt vor allem davon ab, wie die Inhalte aufbereit
 
 ## Observability
 
-Jede Anfrage wird mit Antwortzeit, Trefferzahl und allfälliger Bewertung protokolliert. Ein Bericht zeigt, welche Fragen offen bleiben und wo das System schwächelt. Geplant ist ein selbst betriebenes Tracing-Werkzeug wie Langfuse, das Personendaten vor dem Speichern maskiert. Vor der Öffnung erhält das Protokoll eine feste Aufbewahrungsfrist mit automatischer Löschung.
+Jede Anfrage wird mit Antwortzeit, Trefferzahl und allfälliger Bewertung protokolliert. Ein Bericht zeigt, welche Fragen offen bleiben und wo das System schwächelt. Geplant ist ein selbst betriebenes Tracing-Werkzeug wie Langfuse, das Personendaten vor dem Speichern maskiert. Nach 90 Tagen werden Fragetexte, Namen und Sitzungskennung automatisch gelöscht; eine anonyme Statistikzeile bleibt.
 
 ## Technik
 

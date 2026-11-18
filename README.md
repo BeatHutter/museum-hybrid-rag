@@ -73,7 +73,7 @@ The first version is the state of 28 and 29 October 2026, measured with the same
 | Name register | RapidFuzz |
 | Interfaces | Streamlit (web), Telegram bot |
 | Operations | Docker Compose, Traefik with Let's Encrypt, Nginx for images, Linux server in Europe |
-| Logging and observability | SQLite, pseudonymous: salted hash as session key, no IP addresses. Langfuse (self-hosted) is planned for tracing |
+| Logging and observability | SQLite, pseudonymous: salted hash as session key, no IP addresses, question texts deleted after 90 days. Langfuse (self-hosted) is planned for tracing |
 
 The API and the database are not reachable from outside. Only the web interface and the Telegram webhook are public, the latter protected by a secret token. Requests are rate-limited per session.
 
@@ -84,7 +84,7 @@ The project follows a small set of principles, described in full on the [project
 - **Answers only with evidence.** A relevance threshold stops the system before it generates an answer without support in the sources. Source lines are built by code, not by the language model.
 - **Measure before adopting.** No change goes live without a run against the test set.
 - **Rights first.** The texts and photos belong to the museum. Personal rights (people named or shown in the archive) are being clarified before the system is opened to the public.
-- **Data minimisation.** The log stores no IP addresses and only a pseudonymous session key. Because a question itself may contain names, a fixed retention period with automatic deletion and an AI notice in the chat will be added before the public launch.
+- **Data minimisation.** The log stores no IP addresses and only a pseudonymous session key. Because a question itself may contain names, question texts are deleted automatically after 90 days, and the chat states that an AI is answering.
 
 ## What is in this repository
 
