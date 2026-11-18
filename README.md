@@ -47,7 +47,7 @@ During ingestion every text passage was given a header with work, chapter and ye
 
 ## Results
 
-Every change was measured against a fixed test set (ground truth) with 98 test cases in four suites before it was adopted (regression testing). The test questions contain material from the archive and are therefore not published.
+Every change was measured against a fixed test set (ground truth) with 99 test cases in four suites before it was adopted (regression testing). The test questions contain material from the archive and are therefore not published.
 
 | Metric | First version | MVP |
 | --- | ---: | ---: |
@@ -55,12 +55,12 @@ Every change was measured against a fixed test set (ground truth) with 98 test c
 | Text search: recall for topical questions | 45.0 % | 79.4 % |
 | Text search: questions without evidence correctly answered with "no information" | 4 of 5 | 5 of 5 |
 | Text search: gaps named correctly in multi-part questions | – | 4 of 4 |
-| Photo search: correct pictures among the top 10 | 29.9 % | 94.2 % |
-| Photo search: share of correct pictures among the top 5 | 33.3 % | 95.0 % |
+| Photo search: correct pictures among the top 10 | 29.9 % | 85.8 % |
+| Photo search: share of correct pictures among the top 5 | 33.3 % | 86.7 % |
 | Intent detection | 33 of 40 | 40 of 40 |
 | Follow-up questions understood correctly | 13 of 15 | 15 of 15 |
 
-The first version is the state of 28 and 29 October 2026, measured with the same test set as the MVP (state of 16 November 2026). All runs use OpenAI gpt-4o-mini. A comparison with the larger gpt-4o showed no gain in recall, so the smaller and much cheaper model was kept.
+The first version is the state of 28 and 29 October 2026, measured with the same test set as the MVP (state of 16 November 2026; photo search re-measured with the current code on 18 November 2026). All runs use OpenAI gpt-4o-mini. A comparison with the larger gpt-4o showed no gain in recall, so the smaller and much cheaper model was kept.
 
 ## Technology
 

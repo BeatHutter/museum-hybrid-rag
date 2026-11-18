@@ -47,7 +47,7 @@ Jeder Textabschnitt wurde beim Einlesen mit einer Kopfzeile zu Werk, Kapitel und
 
 ## Ergebnisse
 
-Jede Änderung wurde vor der Übernahme gegen ein festes Testset (Ground Truth) mit 98 Testfällen in vier Suiten gemessen (Regressionstests). Die Testfragen enthalten Inhalte aus dem Archiv und werden deshalb nicht veröffentlicht.
+Jede Änderung wurde vor der Übernahme gegen ein festes Testset (Ground Truth) mit 99 Testfällen in vier Suiten gemessen (Regressionstests). Die Testfragen enthalten Inhalte aus dem Archiv und werden deshalb nicht veröffentlicht.
 
 | Messgrösse | Erster Wurf | MVP |
 | --- | ---: | ---: |
@@ -55,12 +55,12 @@ Jede Änderung wurde vor der Übernahme gegen ein festes Testset (Ground Truth) 
 | Textsuche: Trefferquote bei Sachthemen | 45.0 % | 79.4 % |
 | Textsuche: Fragen ohne Beleg korrekt mit «keine Angaben» beantwortet | 4 von 5 | 5 von 5 |
 | Textsuche: Lücken bei mehrteiligen Fragen korrekt benannt | – | 4 von 4 |
-| Fotosuche: richtige Bilder unter den ersten 10 | 29.9 % | 94.2 % |
-| Fotosuche: Anteil richtiger Bilder unter den ersten 5 | 33.3 % | 95.0 % |
+| Fotosuche: richtige Bilder unter den ersten 10 | 29.9 % | 85.8 % |
+| Fotosuche: Anteil richtiger Bilder unter den ersten 5 | 33.3 % | 86.7 % |
 | Erkennung der Absicht | 33 von 40 | 40 von 40 |
 | Folgefragen im Dialog richtig verstanden | 13 von 15 | 15 von 15 |
 
-Erster Wurf ist der Stand vom 28. und 29.10.2026, gemessen mit demselben Testset wie das MVP (Stand 16.11.2026). Alle Läufe nutzen gpt-4o-mini von OpenAI. Ein Vergleich mit dem grösseren gpt-4o brachte keine höhere Trefferquote, deshalb blieb es beim kleineren und deutlich günstigeren Modell.
+Erster Wurf ist der Stand vom 28. und 29.10.2026, gemessen mit demselben Testset wie das MVP (Stand 16.11.2026; Fotosuche am 18.11.2026 mit dem aktuellen Code nachgemessen). Alle Läufe nutzen gpt-4o-mini von OpenAI. Ein Vergleich mit dem grösseren gpt-4o brachte keine höhere Trefferquote, deshalb blieb es beim kleineren und deutlich günstigeren Modell.
 
 ## Technik
 

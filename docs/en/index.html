@@ -104,7 +104,7 @@
 
     <section id="results">
       <h2>What the system can do today</h2>
-      <p class="section-lead">Seven capabilities, measured against a fixed test set (ground truth) of 98 test cases in four suites. From the first draft to the MVP, the improvements came from three levers: clean data in the ingestion pipeline, a search that picks the right path for each question, and verification steps before the answer. Every change was measured before it was adopted. All runs use OpenAI's gpt-4o-mini.</p>
+      <p class="section-lead">Seven capabilities, measured against a fixed test set (ground truth) of 99 test cases in four suites. From the first draft to the MVP, the improvements came from three levers: clean data in the ingestion pipeline, a search that picks the right path for each question, and verification steps before the answer. Every change was measured before it was adopted. All runs use OpenAI's gpt-4o-mini.</p>
       <div class="table-wrap">
         <table class="results">
           <thead><tr><th scope="col">Capability</th><th scope="col">What the system does</th><th scope="col">Metric</th><th scope="col">First draft → MVP*</th></tr></thead>
@@ -113,13 +113,13 @@
             <tr><td>Topics</td><td data-label="What the system does">Open questions, for example about the school or local trades, go through hybrid search. A language model ranks the passages by relevance (LLM reranking)</td><td data-label="Metric">Recall</td><td class="cost" data-label="First draft → MVP*">45.0&nbsp;% → 79.4&nbsp;%</td></tr>
             <tr><td>Questions without evidence</td><td data-label="What the system does">If the collection holds nothing on the question, the system says so. A relevance threshold acting as a guardrail prevents any answer from being generated</td><td data-label="Metric">correctly answered with “no information”</td><td class="cost" data-label="First draft → MVP*">4 of 5 → 5 of 5</td></tr>
             <tr><td>Partial knowledge</td><td data-label="What the system does">For multi-part questions, the system answers the part that is backed by evidence and names what is missing instead of filling the gap</td><td data-label="Metric">gaps correctly named</td><td class="cost" data-label="First draft → MVP*">4 of 4</td></tr>
-            <tr><td>Photo search</td><td data-label="What the system does">Searches 1,786 records, distinguishes people shown from photographers and filters by year (metadata filter). The search itself needs no generative language model</td><td data-label="Metric">correct pictures among the top ten (recall@10)</td><td class="cost" data-label="First draft → MVP*">29.9&nbsp;% → 94.2&nbsp;%</td></tr>
+            <tr><td>Photo search</td><td data-label="What the system does">Searches 1,786 records, distinguishes people shown from photographers and filters by year (metadata filter). The search itself needs no generative language model</td><td data-label="Metric">correct pictures among the top ten (recall@10)</td><td class="cost" data-label="First draft → MVP*">29.9&nbsp;% → 85.8&nbsp;%</td></tr>
             <tr><td>Recognising intent</td><td data-label="What the system does">The intent router distinguishes knowledge question, photo search, question about the collection and greeting in a single model call</td><td data-label="Metric">correctly recognised questions</td><td class="cost" data-label="First draft → MVP*">33 of 40 → 40 of 40</td></tr>
             <tr><td>Follow-up questions</td><td data-label="What the system does">“When was it built?” or “Are there photos of it?” are resolved from the conversation history (pronoun resolution, query rewriting)</td><td data-label="Metric">correctly understood dialogue turns</td><td class="cost" data-label="First draft → MVP*">13 of 15 → 15 of 15</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="below-table">The first draft is the state of 28 and 29 October 2026, measured with the same test set as the MVP. * As of 16 November 2026. The test questions contain content from the archive and are therefore not published. Test set, metrics and all intermediate steps are described in the <a href="https://github.com/BeatHutter/museum-hybrid-rag/blob/main/documentation/evaluation.md" target="_blank" rel="noopener">evaluation on GitHub</a>.</p>
+      <p class="below-table">The first draft is the state of 28 and 29 October 2026, measured with the same test set as the MVP. * As of 16 November 2026; the photo search was re-measured with the current code on 18 November 2026. The test questions contain content from the archive and are therefore not published. Test set, metrics and all intermediate steps are described in the <a href="https://github.com/BeatHutter/museum-hybrid-rag/blob/main/documentation/evaluation.md" target="_blank" rel="noopener">evaluation on GitHub</a>.</p>
       <div class="grid two cost-cards">
         <div class="card">
           <h3>Why gpt-4o-mini</h3>
@@ -275,7 +275,7 @@
         <div class="arch-side">
           <div class="side-box hitl">
             <h3>Quality and evals</h3>
-            <div class="chips"><span class="chip gov">98 test cases in four suites</span><span class="chip gov">98.7&nbsp;% recall on names</span><span class="chip gov">5 of 5 questions without evidence recognised</span><span class="chip gov">Regression tests before every change</span></div>
+            <div class="chips"><span class="chip gov">99 test cases in four suites</span><span class="chip gov">98.7&nbsp;% recall on names</span><span class="chip gov">5 of 5 questions without evidence recognised</span><span class="chip gov">Regression tests before every change</span></div>
           </div>
           <div class="side-box">
             <h3>Observability</h3>
@@ -304,7 +304,7 @@
           <dt>Vector database</dt><dd>Qdrant (v1.16.1, self-hosted in Docker), hybrid queries via reciprocal rank fusion</dd>
           <dt>Catalogue and log</dt><dd>Verified catalogue of all publications as the basis for the source line. Operational log in a SQLite database on the server</dd>
           <dt>Platform and network</dt><dd>Linux VPS (Ubuntu 24.04), Docker Compose, Traefik reverse proxy (Let's Encrypt), Nginx for the photos</dd>
-          <dt>Quality and release</dt><dd>Own evaluation framework (98 test cases in 4 suites) and multi-stage checks before every publication, including Gitleaks against accidentally published keys</dd>
+          <dt>Quality and release</dt><dd>Own evaluation framework (99 test cases in 4 suites) and multi-stage checks before every publication, including Gitleaks against accidentally published keys</dd>
           <dt>Development</dt><dd>Claude Code in VS Code, Google Antigravity, Git and GitHub</dd>
         </dl></div>
       </div>

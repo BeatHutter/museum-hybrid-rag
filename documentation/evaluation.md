@@ -8,13 +8,13 @@ Every change to content preparation, search or prompts was measured against a fi
 
 ## Test set (ground truth)
 
-98 test cases in four suites:
+99 test cases in four suites:
 
 | Suite | Test cases | What is checked |
 | --- | ---: | --- |
 | Text search | 30 | 13 questions about names and addresses, 8 topical questions, 4 multi-part questions with partial knowledge, 5 questions without evidence in the archive |
 | Intent detection | 40 | Knowledge question, photo search, both, question about the collection, greeting, off-topic; plus the search mode (name or topic) |
-| Photo search | 13 | Buildings, places, events, subjects, a photographer, and 2 searches without matching photos |
+| Photo search | 14 | Buildings, places, an event, a subject, two searches by photographer, and 2 searches without matching photos |
 | Dialogue | 15 | Follow-up questions in 5 conversations of three turns each |
 
 For questions about names and addresses, a script determined the expected pages by scanning all PDFs for verbatim occurrences, including spelling variants. It works independently of the system's search, so that the system is not graded against its own logic. For topical questions, the key pages were selected by hand. Questions without evidence were checked to have no match in the archive. For photo searches, the expected inventory numbers were defined from the catalogue.
@@ -37,13 +37,15 @@ For questions about names and addresses, a script determined the expected pages 
 | Text search: recall for topics | 45.0 % | 79.4 % |
 | Text search: questions without evidence answered with "no information" | 4 of 5 | 5 of 5 |
 | Text search: gaps named correctly in multi-part questions | – | 4 of 4 |
-| Photo search: correct pictures among the top 10 | 29.9 % | 94.2 % |
-| Photo search: share of correct pictures among the top 5 | 33.3 % | 95.0 % |
-| Photo search: searches without matches answered correctly | 0 of 2 | 2 of 2 |
+| Photo search: correct pictures among the top 10 | 29.9 % | 85.8 % |
+| Photo search: share of correct pictures among the top 5 | 33.3 % | 86.7 % |
+| Photo search: searches without matches answered correctly | 0 of 2 | 1 of 2 |
 | Intent detection | 33 of 40 | 40 of 40 |
 | Follow-up questions in dialogue | 13 of 15 | 15 of 15 |
 
 "First version" is the state of 28 and 29 October 2026, measured with the same test set as the MVP. All runs use OpenAI gpt-4o-mini.
+
+**Photo search re-measured (18 November 2026).** The photo figures were first measured on 29 October 2026 (94.2 % among the top 10, 95.0 % among the top 5, 2 of 2). The next day, the unified planner and the name correction were added, and the photo suite was not re-run. A re-measurement with the current code gives the values in the table above. The search itself is unchanged; the differences come from the planner: "Photos of <person>" is now read as "taken by", so pictures showing the person are missing; the name correction turns an unknown full name into a similar local name; and one building query passes a different search term. These three points are being fixed.
 
 ## Step by step: what moved the numbers (text search)
 
@@ -63,7 +65,7 @@ A model comparison during development showed the same recall for the larger gpt-
 
 ## Limitations
 
-- **Small test set:** 98 cases cover the most important question types, but not the full range of real questions. The cases were compiled by the developer.
+- **Small test set:** 99 cases cover the most important question types, but not the full range of real questions. The cases were compiled by the developer.
 - **No broad user test yet:** the MVP has passed technical and functional testing. Tests with people from the society and the village are the next step.
 - **Variability of language models:** answers can vary between runs. Critical behaviour such as the "no information" answer was checked over several runs.
 - **Retrieval, not answer quality:** most metrics measure whether the right pages and pictures are found. The wording of the answers was checked by hand, not scored automatically.
@@ -84,13 +86,13 @@ Jede Änderung an Aufbereitung, Suche oder Prompts wurde vor der Übernahme gege
 
 ## Testset (Ground Truth)
 
-98 Testfälle in vier Suiten:
+99 Testfälle in vier Suiten:
 
 | Suite | Testfälle | Was geprüft wird |
 | --- | ---: | --- |
 | Textsuche | 30 | 13 Fragen zu Namen und Adressen, 8 Sachfragen, 4 mehrteilige Fragen mit Teilwissen, 5 Fragen ohne Beleg im Archiv |
 | Absichtserkennung | 40 | Wissensfrage, Fotosuche, beides, Frage zum Bestand, Begrüssung, themenfremd; dazu der Suchmodus (Name oder Thema) |
-| Fotosuche | 13 | Gebäude, Orte, Ereignisse, Motive, ein Fotograf und 2 Suchen ohne passende Fotos |
+| Fotosuche | 14 | Gebäude, Orte, ein Ereignis, ein Motiv, zwei Suchen nach Fotografen und 2 Suchen ohne passende Fotos |
 | Dialog | 15 | Folgefragen in 5 Gesprächen mit je drei Schritten |
 
 Bei Fragen zu Namen und Adressen ermittelte ein Skript die erwarteten Seiten, indem es alle PDFs nach wörtlichen Vorkommen samt Schreibvarianten durchsuchte. Es arbeitet unabhängig von der Suche des Systems, damit das System nicht an seiner eigenen Logik gemessen wird. Bei Sachfragen wurden die Kernseiten von Hand ausgewählt. Bei Fragen ohne Beleg wurde geprüft, dass das Archiv tatsächlich nichts dazu enthält. Für die Fotosuchen wurden die erwarteten Inventarnummern aus dem Katalog festgelegt.
@@ -113,13 +115,15 @@ Bei Fragen zu Namen und Adressen ermittelte ein Skript die erwarteten Seiten, in
 | Textsuche: Trefferquote bei Sachthemen | 45.0 % | 79.4 % |
 | Textsuche: Fragen ohne Beleg mit «keine Angaben» beantwortet | 4 von 5 | 5 von 5 |
 | Textsuche: Lücken bei mehrteiligen Fragen korrekt benannt | – | 4 von 4 |
-| Fotosuche: richtige Bilder unter den ersten 10 | 29.9 % | 94.2 % |
-| Fotosuche: Anteil richtiger Bilder unter den ersten 5 | 33.3 % | 95.0 % |
-| Fotosuche: Suchen ohne Treffer korrekt beantwortet | 0 von 2 | 2 von 2 |
+| Fotosuche: richtige Bilder unter den ersten 10 | 29.9 % | 85.8 % |
+| Fotosuche: Anteil richtiger Bilder unter den ersten 5 | 33.3 % | 86.7 % |
+| Fotosuche: Suchen ohne Treffer korrekt beantwortet | 0 von 2 | 1 von 2 |
 | Absichtserkennung | 33 von 40 | 40 von 40 |
 | Folgefragen im Dialog | 13 von 15 | 15 von 15 |
 
 «Erster Wurf» ist der Stand vom 28. und 29.10.2026, gemessen mit demselben Testset wie das MVP. Alle Läufe nutzen gpt-4o-mini von OpenAI.
+
+**Fotosuche nachgemessen (18.11.2026).** Die Fotowerte wurden zuerst am 29.10.2026 gemessen (94.2 % unter den ersten zehn, 95.0 % unter den ersten fünf, 2 von 2). Am Tag danach kamen der vereinigte Planer und die Namenskorrektur dazu, und die Foto-Suite lief nicht erneut. Eine Nachmessung mit dem aktuellen Code ergibt die Werte in der Tabelle oben. Die Suche selbst ist unverändert; die Unterschiede kommen vom Planer: «Fotos von <Person>» wird jetzt als «fotografiert von» gelesen, sodass Bilder fehlen, auf denen die Person zu sehen ist; die Namenskorrektur macht aus einem unbekannten vollen Namen einen ähnlichen Namen aus dem Dorf; und eine Gebäudeanfrage gibt einen anderen Suchbegriff weiter. Diese drei Punkte werden behoben.
 
 ## Schritt für Schritt: was die Zahlen bewegt hat (Textsuche)
 
@@ -139,7 +143,7 @@ Ein Modellvergleich während der Entwicklung zeigte für das grössere gpt-4o di
 
 ## Grenzen
 
-- **Kleines Testset:** 98 Fälle decken die wichtigsten Fragetypen ab, aber nicht die ganze Breite echter Fragen. Zusammengestellt hat sie der Entwickler.
+- **Kleines Testset:** 99 Fälle decken die wichtigsten Fragetypen ab, aber nicht die ganze Breite echter Fragen. Zusammengestellt hat sie der Entwickler.
 - **Noch kein breiter Nutzertest:** Das MVP hat das technische und funktionale Testing durchlaufen. Tests mit Personen aus Verein und Dorf sind der nächste Schritt.
 - **Schwankungen von Sprachmodellen:** Antworten können von Lauf zu Lauf leicht abweichen. Kritisches Verhalten wie die Antwort «keine Angaben» wurde über mehrere Läufe geprüft.
 - **Suche, nicht Antwortqualität:** Die meisten Messgrössen prüfen, ob die richtigen Seiten und Bilder gefunden werden. Die Formulierung der Antworten wurde von Hand geprüft, nicht automatisch bewertet.

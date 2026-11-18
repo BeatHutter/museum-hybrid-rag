@@ -8,6 +8,11 @@ Alle wesentlichen Änderungen an diesem Repository. Das Format folgt [Keep a Cha
 
 - Projektseite, Datenschutzerklärung, README und Dokumentation: KI-Hinweis im Chat und Löschung der Fragetexte nach 90 Tagen sind umgesetzt (vorher als geplant beschrieben).
 
+### Korrigiert
+
+- Umfang des Testsets wieder korrekt mit 99 Testfällen (30 Textsuche, 40 Absichtserkennung, 14 Fotosuche, 15 Dialogschritte). Die Änderung auf 98 in Version 0.4.0 war ein Zählfehler.
+- Fotosuche mit dem aktuellen Code nachgemessen (18.11.2026): 85.8 % richtige Bilder unter den ersten 10, 86.7 % unter den ersten 5, 1 von 2 Suchen ohne Treffer korrekt. Die bisher veröffentlichten Werte (94.2 %, 95.0 %, 2 von 2) stammten vom 29.10.2026, vor dem vereinigten Planer. Ursachen und Behebung sind in `documentation/evaluation.md` beschrieben.
+
 ## [0.4.0] – 2026-11-18
 
 ### Hinzugefügt
