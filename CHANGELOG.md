@@ -7,6 +7,7 @@ Alle wesentlichen Änderungen an diesem Repository. Das Format folgt [Keep a Cha
 ### Geändert
 
 - Projektseite, Datenschutzerklärung, README und Dokumentation: KI-Hinweis im Chat und Löschung der Fragetexte nach 90 Tagen sind umgesetzt (vorher als geplant beschrieben).
+- Fotosuche repariert (19.11.2026): 100 % richtige Bilder unter den ersten 10, 95.0 % unter den ersten 5, 2 von 2 Suchen ohne Treffer korrekt (vorher 85.8 %, 86.7 %, 1 von 2). Bei einer Gebäudeanfrage wurde die Soll-Liste von 22 auf 9 Bilder korrigiert, weil 13 Bilder das Gebäude nicht zeigen; mit der alten Liste lägen die Werte bei 99.2 % und 95.0 %. Details in `documentation/evaluation.md`.
 
 ### Korrigiert
 

@@ -73,7 +73,7 @@ A selection of eleven decisions from the project's internal decision log (archit
 
 - **Problem:** a photo request needs a complete, predictable list, not a summary. For the text answers, the question was whether a larger model would be better.
 - **Decision:** the photo search uses metadata filters, exact word conditions and hybrid search, but no generative model. It separates people shown in a picture from people who took it. All model calls use gpt-4o-mini.
-- **Why and effect:** correct pictures among the top 10 rose from 29.9 % to 94.2 % (October 2026; with the later planner, a re-measurement in November gave 85.8 %, see [evaluation.md](evaluation.md)). In a comparison, the larger gpt-4o reached the same recall but answered only 2 of 5 questions without evidence correctly, compared with 4 of 5 for gpt-4o-mini at the time. The smaller model costs about one fifteenth per token (FinOps).
+- **Why and effect:** correct pictures among the top 10 rose from 29.9 % to 94.2 % (October 2026; with the later planner, a re-measurement in November gave 85.8 %, after the repairs of 19 November 100 %, see [evaluation.md](evaluation.md)). In a comparison, the larger gpt-4o reached the same recall but answered only 2 of 5 questions without evidence correctly, compared with 4 of 5 for gpt-4o-mini at the time. The smaller model costs about one fifteenth per token (FinOps).
 - **Price:** the photo search depends on the quality of the catalogue descriptions; pictures without descriptions cannot be found yet.
 
 ## 11. Conversation design: a museum guide, not a search index
@@ -158,7 +158,7 @@ Eine Auswahl von elf Entscheiden aus dem internen Entscheidungsprotokoll des Pro
 
 - **Problem:** Eine Fotoanfrage braucht eine vollständige, vorhersehbare Liste, keine Zusammenfassung. Bei den Textantworten stellte sich die Frage, ob ein grösseres Modell besser wäre.
 - **Entscheid:** Die Fotosuche nutzt Metadaten-Filter, wortgenaue Bedingungen und hybride Suche, aber kein generatives Modell. Sie trennt abgebildete Personen von Fotografierenden. Alle Modellaufrufe nutzen gpt-4o-mini.
-- **Begründung und Wirkung:** Richtige Bilder unter den ersten zehn stiegen von 29.9 % auf 94.2 % (Oktober 2026; mit dem späteren Planer ergab eine Nachmessung im November 85.8 %, siehe [evaluation.md](evaluation.md#deutsche-fassung)). Im Vergleich erreichte das grössere gpt-4o dieselbe Trefferquote, beantwortete aber nur 2 von 5 Fragen ohne Beleg korrekt, gpt-4o-mini damals 4 von 5. Das kleinere Modell kostet pro Token rund ein Fünfzehntel (FinOps).
+- **Begründung und Wirkung:** Richtige Bilder unter den ersten zehn stiegen von 29.9 % auf 94.2 % (Oktober 2026; mit dem späteren Planer ergab eine Nachmessung im November 85.8 %, nach den Behebungen vom 19.11. 100 %, siehe [evaluation.md](evaluation.md#deutsche-fassung)). Im Vergleich erreichte das grössere gpt-4o dieselbe Trefferquote, beantwortete aber nur 2 von 5 Fragen ohne Beleg korrekt, gpt-4o-mini damals 4 von 5. Das kleinere Modell kostet pro Token rund ein Fünfzehntel (FinOps).
 - **Preis:** Die Fotosuche hängt von der Qualität der Katalogbeschreibungen ab; Bilder ohne Beschreibung lassen sich noch nicht finden.
 
 ## 11. Conversation Design: ein Museumsführer, kein Suchindex

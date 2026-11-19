@@ -55,12 +55,12 @@ Every change was measured against a fixed test set (ground truth) with 99 test c
 | Text search: recall for topical questions | 45.0 % | 79.4 % |
 | Text search: questions without evidence correctly answered with "no information" | 4 of 5 | 5 of 5 |
 | Text search: gaps named correctly in multi-part questions | – | 4 of 4 |
-| Photo search: correct pictures among the top 10 | 29.9 % | 85.8 % |
-| Photo search: share of correct pictures among the top 5 | 33.3 % | 86.7 % |
+| Photo search: correct pictures among the top 10 | 29.9 % | 100.0 % |
+| Photo search: share of correct pictures among the top 5 | 33.3 % | 95.0 % |
 | Intent detection | 33 of 40 | 40 of 40 |
 | Follow-up questions understood correctly | 13 of 15 | 15 of 15 |
 
-The first version is the state of 28 and 29 October 2026, measured with the same test set as the MVP (state of 16 November 2026; photo search re-measured with the current code on 18 November 2026). All runs use OpenAI gpt-4o-mini. A comparison with the larger gpt-4o showed no gain in recall, so the smaller and much cheaper model was kept.
+The first version is the state of 28 and 29 October 2026, measured with the same test set as the MVP (state of 16 November 2026; photo search re-measured on 18 November and repaired on 19 November 2026, see [evaluation](documentation/evaluation.md)). All runs use OpenAI gpt-4o-mini. A comparison with the larger gpt-4o showed no gain in recall, so the smaller and much cheaper model was kept.
 
 ## Technology
 

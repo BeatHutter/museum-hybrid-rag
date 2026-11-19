@@ -37,15 +37,15 @@ For questions about names and addresses, a script determined the expected pages 
 | Text search: recall for topics | 45.0 % | 79.4 % |
 | Text search: questions without evidence answered with "no information" | 4 of 5 | 5 of 5 |
 | Text search: gaps named correctly in multi-part questions | – | 4 of 4 |
-| Photo search: correct pictures among the top 10 | 29.9 % | 85.8 % |
-| Photo search: share of correct pictures among the top 5 | 33.3 % | 86.7 % |
-| Photo search: searches without matches answered correctly | 0 of 2 | 1 of 2 |
+| Photo search: correct pictures among the top 10 | 29.9 % | 100.0 % |
+| Photo search: share of correct pictures among the top 5 | 33.3 % | 95.0 % |
+| Photo search: searches without matches answered correctly | 0 of 2 | 2 of 2 |
 | Intent detection | 33 of 40 | 40 of 40 |
 | Follow-up questions in dialogue | 13 of 15 | 15 of 15 |
 
 "First version" is the state of 28 and 29 October 2026, measured with the same test set as the MVP. All runs use OpenAI gpt-4o-mini.
 
-**Photo search re-measured (18 November 2026).** The photo figures were first measured on 29 October 2026 (94.2 % among the top 10, 95.0 % among the top 5, 2 of 2). The next day, the unified planner and the name correction were added, and the photo suite was not re-run. A re-measurement with the current code gives the values in the table above. The search itself is unchanged; the differences come from the planner: "Photos of <person>" is now read as "taken by", so pictures showing the person are missing; the name correction turns an unknown full name into a similar local name; and one building query passes a different search term. These three points are being fixed.
+**Photo search re-measured and repaired (18 and 19 November 2026).** The photo figures were first measured on 29 October 2026 (94.2 % among the top 10, 95.0 % among the top 5, 2 of 2). The next day, the unified planner and the name correction were added, and the photo suite was not re-run. A re-measurement on 18 November gave 85.8 %, 86.7 % and 1 of 2. There were three causes: "Photos of <person>" was read as "taken by", so pictures showing the person were missing; the name correction turned an unknown full name into a similar local name; and a building query searched only for the exact compound word. The fixes of 19 November: without a clear signal such as "taken by", the search shows both groups; a name is corrected only if the whole name is similar; and fixed word rules decide whether a term is searched exactly (names, streets) or with related words (general terms such as mill or post). The table shows the values after these fixes. For one building query, the expected list was corrected from 22 to 9 pictures: the 13 removed pictures mention only a street name, a postcard, a bus or a person's job title and do not show the building. With the old list, the values would be 99.2 % and 95.0 %. With 12 photo queries, 100 % means that every query finds its expected pictures among the top ten, not that the search is flawless.
 
 ## Step by step: what moved the numbers (text search)
 
@@ -115,15 +115,15 @@ Bei Fragen zu Namen und Adressen ermittelte ein Skript die erwarteten Seiten, in
 | Textsuche: Trefferquote bei Sachthemen | 45.0 % | 79.4 % |
 | Textsuche: Fragen ohne Beleg mit «keine Angaben» beantwortet | 4 von 5 | 5 von 5 |
 | Textsuche: Lücken bei mehrteiligen Fragen korrekt benannt | – | 4 von 4 |
-| Fotosuche: richtige Bilder unter den ersten 10 | 29.9 % | 85.8 % |
-| Fotosuche: Anteil richtiger Bilder unter den ersten 5 | 33.3 % | 86.7 % |
-| Fotosuche: Suchen ohne Treffer korrekt beantwortet | 0 von 2 | 1 von 2 |
+| Fotosuche: richtige Bilder unter den ersten 10 | 29.9 % | 100.0 % |
+| Fotosuche: Anteil richtiger Bilder unter den ersten 5 | 33.3 % | 95.0 % |
+| Fotosuche: Suchen ohne Treffer korrekt beantwortet | 0 von 2 | 2 von 2 |
 | Absichtserkennung | 33 von 40 | 40 von 40 |
 | Folgefragen im Dialog | 13 von 15 | 15 von 15 |
 
 «Erster Wurf» ist der Stand vom 28. und 29.10.2026, gemessen mit demselben Testset wie das MVP. Alle Läufe nutzen gpt-4o-mini von OpenAI.
 
-**Fotosuche nachgemessen (18.11.2026).** Die Fotowerte wurden zuerst am 29.10.2026 gemessen (94.2 % unter den ersten zehn, 95.0 % unter den ersten fünf, 2 von 2). Am Tag danach kamen der vereinigte Planer und die Namenskorrektur dazu, und die Foto-Suite lief nicht erneut. Eine Nachmessung mit dem aktuellen Code ergibt die Werte in der Tabelle oben. Die Suche selbst ist unverändert; die Unterschiede kommen vom Planer: «Fotos von <Person>» wird jetzt als «fotografiert von» gelesen, sodass Bilder fehlen, auf denen die Person zu sehen ist; die Namenskorrektur macht aus einem unbekannten vollen Namen einen ähnlichen Namen aus dem Dorf; und eine Gebäudeanfrage gibt einen anderen Suchbegriff weiter. Diese drei Punkte werden behoben.
+**Fotosuche nachgemessen und repariert (18. und 19.11.2026).** Die Fotowerte wurden zuerst am 29.10.2026 gemessen (94.2 % unter den ersten zehn, 95.0 % unter den ersten fünf, 2 von 2). Am Tag danach kamen der vereinigte Planer und die Namenskorrektur dazu, und die Foto-Suite lief nicht erneut. Eine Nachmessung am 18.11. ergab 85.8 %, 86.7 % und 1 von 2. Es gab drei Ursachen: «Fotos von <Person>» wurde als «fotografiert von» gelesen, sodass Bilder fehlten, auf denen die Person zu sehen ist; die Namenskorrektur machte aus einem unbekannten vollen Namen einen ähnlichen Namen aus dem Dorf; und eine Gebäudeanfrage suchte nur nach dem genauen zusammengesetzten Wort. Die Behebungen vom 19.11.: Ohne klares Signal wie «fotografiert von» zeigt die Suche beide Gruppen; ein Name wird nur korrigiert, wenn der ganze Name ähnlich ist; und feste Wortregeln entscheiden, ob ein Begriff exakt (Namen, Strassen) oder mit verwandten Wörtern gesucht wird (allgemeine Begriffe wie Mühle oder Post). Die Tabelle zeigt die Werte nach diesen Behebungen. Bei einer Gebäudeanfrage wurde die Soll-Liste von 22 auf 9 Bilder korrigiert: Die 13 entfernten Bilder erwähnen nur einen Strassennamen, eine Postkarte, ein Postauto oder eine Berufsbezeichnung und zeigen das Gebäude nicht. Mit der alten Liste lägen die Werte bei 99.2 % und 95.0 %. Bei 12 Fotoanfragen heisst 100 %, dass jede Anfrage ihre erwarteten Bilder unter den ersten zehn findet, nicht dass die Suche fehlerfrei ist.
 
 ## Schritt für Schritt: was die Zahlen bewegt hat (Textsuche)
 
